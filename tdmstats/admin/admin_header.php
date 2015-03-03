@@ -23,5 +23,3 @@ if ( file_exists($GLOBALS['xoops']->path($pathModuleAdmin.'/moduleadmin.php'))){
     }else{
         redirect_header("../../../admin.php", 5, _AM_TDMSTATS_MODULEADMIN_MISSING, false);
     }
-
-?>

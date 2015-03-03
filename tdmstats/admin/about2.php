@@ -14,19 +14,19 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
 
-include '../../../include/cp_header.php'; 
+include '../../../include/cp_header.php';
 include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
 include_once(XOOPS_ROOT_PATH."/class/tree.php");
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
 include_once("../include/function.php");
 
 xoops_cp_header();
-if ( !is_readable(XOOPS_ROOT_PATH . "/Frameworks/art/functions.admin.php"))	{
+if ( !is_readable(XOOPS_ROOT_PATH . "/Frameworks/art/functions.admin.php"))    {
 Adminmenu(2, _AM_ISTATS_ABOUT);
 } else {
 include_once XOOPS_ROOT_PATH.'/Frameworks/art/functions.admin.php';
@@ -85,16 +85,14 @@ echo "</div>";
 echo "</fieldset>";
 echo "<br clear=\"all\" />";
 
-
 $file = XOOPS_ROOT_PATH. "/modules/TDMStats/changelog.txt";
 if ( is_readable( $file ) ){
-	echo "<fieldset><legend style='font-weight: bold; color: #900;'>" ._AM_ABOUT_CHANGELOG. "</legend>";
-	echo "<div style='padding: 8px;'>";
-	echo "<div>". implode("<br />", file( $file )) . "</div>";
-	echo "</div>";
-	echo "</fieldset>";
-	echo "<br clear=\"all\" />";
+    echo "<fieldset><legend style='font-weight: bold; color: #900;'>" ._AM_ABOUT_CHANGELOG. "</legend>";
+    echo "<div style='padding: 8px;'>";
+    echo "<div>". implode("<br />", file( $file )) . "</div>";
+    echo "</div>";
+    echo "</fieldset>";
+    echo "<br clear=\"all\" />";
 }
 
 xoops_cp_footer();
-?>

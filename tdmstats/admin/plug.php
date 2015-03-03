@@ -14,12 +14,12 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
 
-include '../../../include/cp_header.php'; 
+include '../../../include/cp_header.php';
 include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
 include_once(XOOPS_ROOT_PATH."/class/tree.php");
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
@@ -37,37 +37,37 @@ $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 
  switch($op) {
   
-    //sauv  
+    //sauv
  case "create":
  //Copie du plug
 $indexFile = XOOPS_ROOT_PATH."/modules/".$xoopsModule->dirname()."/xoops_plugins/function.xoStats.php";
 $erreur = copy($indexFile, XOOPS_ROOT_PATH."/class/smarty/xoops_plugins/function.xoStats.php");
  if($erreur){
-	redirect_header( 'plug.php', 1, _AM_ISTATS_BASE);
+    redirect_header( 'plug.php', 1, _AM_ISTATS_BASE);
         }else{
-	redirect_header( 'plug.php', 1, _AM_ISTATS_BASEERROR);
-        } 
+    redirect_header( 'plug.php', 1, _AM_ISTATS_BASEERROR);
+        }
 
     break;
-	
+    
 
-	
- case "list": 
-  default:	
-	
-	if (!is_readable(XOOPS_ROOT_PATH ."/class/smarty/xoops_plugins/function.xoStats.php")) {
-	$veriffile = '<span style="color: red;"><a href="plug.php?op=create"><img src="./../images/off.gif"> '._AM_ISTATS_PLUGERROR.'</span></a>';
-	} else {
-	$veriffile = '<span style="color: green;"><img src="./../images/on.gif" >'._AM_ISTATS_PLUGOK.'</span>';
-	}
-	
-	echo '<fieldset><legend class="CPmediumTitle">'._AM_ISTATS_PLUGETAT.'</legend>
+    
+ case "list":
+  default:
+    
+    if (!is_readable(XOOPS_ROOT_PATH ."/class/smarty/xoops_plugins/function.xoStats.php")) {
+    $veriffile = '<span style="color: red;"><a href="plug.php?op=create"><img src="./../images/off.gif"> '._AM_ISTATS_PLUGERROR.'</span></a>';
+    } else {
+    $veriffile = '<span style="color: green;"><img src="./../images/on.gif" >'._AM_ISTATS_PLUGOK.'</span>';
+    }
+    
+    echo '<fieldset><legend class="CPmediumTitle">'._AM_ISTATS_PLUGETAT.'</legend>
 		<br/>';
-		echo $veriffile;
-		echo '<br/><br/>'._AM_ISTATS_PLUGHELP.'<br /><br />
+        echo $veriffile;
+        echo '<br/><br/>'._AM_ISTATS_PLUGHELP.'<br /><br />
 	</fieldset><br /> <br />';
 
     break;
-	
+    
   }
 include_once 'admin_footer.php';

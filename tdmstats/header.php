@@ -14,10 +14,9 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
 
 include_once("../../mainfile.php");
-?>
