@@ -14,26 +14,22 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
  
 function getResult($query) {
 
-	global $xoopsDB;
+    global $xoopsDB;
 
-   	$result = $xoopsDB->query($query);
-   	$row = $xoopsDB->fetchArray($result);
-   	while($row != NULL) {
-   	    $data[] = $row;
-   	    $row = $xoopsDB->fetchArray($result);
-   	}
-	if (isset($data)) {
-		return $data;
-	}
+    $result = $xoopsDB->query($query);
+    $row = $xoopsDB->fetchArray($result);
+    while($row != NULL) {
+        $data[] = $row;
+        $row = $xoopsDB->fetchArray($result);
+    }
+    if (isset($data)) {
+        return $data;
+    }
 }
-
-
-
-?>

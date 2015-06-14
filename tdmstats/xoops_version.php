@@ -14,7 +14,7 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
@@ -22,7 +22,7 @@
 $modversion['name']        = "TDMStats";
 $modversion['version']     = "1.08";
 $modversion['description'] = _MI_ISTATS_DESC;
-$modversion['author']	   = 'Original module: Paul Cooke (alias Scripter)<br /><b>Adaptation/rewrite: TDM.</b>';
+$modversion['author']       = 'Original module: Paul Cooke (alias Scripter)<br /><b>Adaptation/rewrite: TDM.</b>';
 
 $modversion['author'] = 'Original module: Paul Cooke (alias Scripter)<br />Adaptation/rewrite: TDM';
 $modversion['author_website_url'] = "http://www.tdmxoops.net/";
@@ -37,7 +37,6 @@ $modversion['license_url'] = "www.gnu.org/licenses/gpl-2.0.html/";
 $modversion['official']    = 0;
 $modversion['image']       = "images/TDMStats_logo.png";
 $modversion['dirname']     = "TDMStats";
-
 
 $modversion['dirmoduleadmin'] = '/Frameworks/moduleclasses/moduleadmin';
 $modversion['icons16']        = '../../Frameworks/moduleclasses/icons/16';
@@ -55,7 +54,6 @@ $modversion['min_db']              = array(
     'mysql'  => '5.0.7',
     'mysqli' => '5.0.7'
 );
-
 
 // Blocks
 $modversion['blocks'][1]['file'] = 'TDMStats_blocks.php';
@@ -141,21 +139,21 @@ $modversion['templates'][4]['file'] = 'tdmstats_user_info.html';
 $modversion['templates'][4]['description'] = '';
 
 $i=1;
-$modversion['config'][$i]['name']	= 'longdate';
-$modversion['config'][$i]['title']	= '_MI_ISTATS_DATE';
-$modversion['config'][$i]['description']	= '_MI_ISTATS_DATE_DESC';
-$modversion['config'][$i]['formtype']	= 'select';
-$modversion['config'][$i]['valuetype']	= 'int';
-$modversion['config'][$i]['default']	= 1;
-$modversion['config'][$i]['options']	= array('_MI_ISTATS_DATE_FR' => '1','_MI_ISTATS_DATE_US' => '2');
+$modversion['config'][$i]['name']    = 'longdate';
+$modversion['config'][$i]['title']    = '_MI_ISTATS_DATE';
+$modversion['config'][$i]['description']    = '_MI_ISTATS_DATE_DESC';
+$modversion['config'][$i]['formtype']    = 'select';
+$modversion['config'][$i]['valuetype']    = 'int';
+$modversion['config'][$i]['default']    = 1;
+$modversion['config'][$i]['options']    = array('_MI_ISTATS_DATE_FR' => '1','_MI_ISTATS_DATE_US' => '2');
 $i++;
-$modversion['config'][$i]['name']	= 'setlocal';
-$modversion['config'][$i]['title']	= '_MI_ISTATS_SETLOCAL';
-$modversion['config'][$i]['description']	= '';
-$modversion['config'][$i]['formtype']	= 'select';
-$modversion['config'][$i]['valuetype']	= 'text';
-$modversion['config'][$i]['default']	= 'en_US.UTF-8';
-$modversion['config'][$i]['options']	= array(
+$modversion['config'][$i]['name']    = 'setlocal';
+$modversion['config'][$i]['title']    = '_MI_ISTATS_SETLOCAL';
+$modversion['config'][$i]['description']    = '';
+$modversion['config'][$i]['formtype']    = 'select';
+$modversion['config'][$i]['valuetype']    = 'text';
+$modversion['config'][$i]['default']    = 'en_US.UTF-8';
+$modversion['config'][$i]['options']    = array(
 'fr_FR.UTF-8' => 'fr_FR.UTF-8',
 'cs_CZ.UTF-8' => 'cs_CZ.UTF-8',
 'de_DE.UTF-8' => 'de_DE.UTF-8',
@@ -167,16 +165,15 @@ $modversion['config'][$i]['options']	= array(
 'pt_PT.UTF-8' => 'pt_PT.UTF-8',
 'ru_RU.UTF-8' => 'ru_RU.UTF-8'
 
-
 );
 $i++;
-$modversion['config'][$i]['name']	= 'setlocal2';
-$modversion['config'][$i]['title']	= '';
-$modversion['config'][$i]['description']	= '';
-$modversion['config'][$i]['formtype']	= 'select';
-$modversion['config'][$i]['valuetype']	= 'text';
-$modversion['config'][$i]['default']	= 'eng';
-$modversion['config'][$i]['options']	= array(
+$modversion['config'][$i]['name']    = 'setlocal2';
+$modversion['config'][$i]['title']    = '';
+$modversion['config'][$i]['description']    = '';
+$modversion['config'][$i]['formtype']    = 'select';
+$modversion['config'][$i]['valuetype']    = 'text';
+$modversion['config'][$i]['default']    = 'eng';
+$modversion['config'][$i]['options']    = array(
 'fra' => 'fra',
 'ces' => 'ces',
 'deu' => 'deu',
@@ -185,7 +182,6 @@ $modversion['config'][$i]['options']	= array(
 'ita' => 'ita',
 'por' => 'por',
 'rus' => 'rus',
-
 
 );
 $i++;
@@ -237,4 +233,3 @@ $modversion["config"][$i]["default"]        = "bar0.png";
 $modversion["config"][$i]["options"]        = XoopsLists::getFileListAsArray(XOOPS_ROOT_PATH . "/modules/".basename( dirname( __FILE__ ) )."/images/bar");
 $modversion["config"][$i]["category"]       = "global";
 $i++;
-?>

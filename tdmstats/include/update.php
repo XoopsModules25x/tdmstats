@@ -16,7 +16,7 @@
 //  You should have received a copy of the GNU General Public License        //
 //  along with this program; if not, write to the Free Software              //
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA //
-// ------------------------------------------------------------------------- // 
+// ------------------------------------------------------------------------- //
 //                 Votre nouveau systeme de messagerie priver                //
 //                                                                           //
 //                               "MP"                                        //
@@ -26,7 +26,6 @@
 //                                                                           //
 //---------------------------------------------------------------------------//
 if( ! defined( 'XOOPS_ROOT_PATH' ) ) exit ;
-
 
 function xoops_module_update_TDMStats(&$xoopsModule, $oldVersion = null) {
 
@@ -46,14 +45,15 @@ function xoops_module_update_TDMStats(&$xoopsModule, $oldVersion = null) {
 }
 
 function FieldExists($fieldname,$table) {
-	global $xoopsDB;
-	$result=$xoopsDB->queryF("SHOW COLUMNS FROM	$table LIKE '$fieldname'");
-	return($xoopsDB->getRowsNum($result) > 0);
+    global $xoopsDB;
+    $result=$xoopsDB->queryF("SHOW COLUMNS FROM	$table LIKE '$fieldname'");
+
+    return($xoopsDB->getRowsNum($result) > 0);
 }
 
 function TableExists($tablename) {
-	global $xoopsDB;
-	$result=$xoopsDB->queryF("SHOW TABLES LIKE '$tablename'");
-	return($xoopsDB->getRowsNum($result) > 0);
+    global $xoopsDB;
+    $result=$xoopsDB->queryF("SHOW TABLES LIKE '$tablename'");
+
+    return($xoopsDB->getRowsNum($result) > 0);
 }
-?>

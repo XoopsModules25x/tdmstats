@@ -14,33 +14,32 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
 
 function leading_zero($length,$number) {
 
-	$length=$length-strlen($number);
+    $length=$length-strlen($number);
 
-	for ($i = 0; $i < $length; $i++) {
-		$number = "0" . $number;
+    for ($i = 0; $i < $length; $i++) {
+        $number = "0" . $number;
     }
-  	return($number);
-}
 
+    return($number);
+}
 
 function num_to_graphics($total=0, $num_digits=1, $img_dir='', $img_ext='jpg') {
 
-	$output = '';
+    $output = '';
 
-	$work = leading_zero($num_digits, $total);
+    $work = leading_zero($num_digits, $total);
 
-	for ($i = 0; $i < $num_digits; $i++) {
+    for ($i = 0; $i < $num_digits; $i++) {
 
-		$output .= "<img src=\"$img_dir/$work[$i].$img_ext\" border=\"0\">\n";
-	}
+        $output .= "<img src=\"$img_dir/$work[$i].$img_ext\" border=\"0\">\n";
+    }
 
-	return $output;
+    return $output;
 }
-?>

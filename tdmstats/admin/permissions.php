@@ -14,12 +14,12 @@
  *
  * @copyright       	(http://www.tdmxoops.net)
  * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE 
+ * @author		TDM ; TEAM DEV MODULE
  *
  * ****************************************************************************
  */
  
-include '../../../include/cp_header.php'; 
+include '../../../include/cp_header.php';
 include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
 include_once(XOOPS_ROOT_PATH."/class/tree.php");
 include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
@@ -30,37 +30,33 @@ include_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
 //include_once XOOPS_ROOT_PATH.'/modules/'.$xoopsModule->dirname().'/class/mygrouppermform.php';
 
 
-
 if( ! empty( $_POST['submit'] ) ) {
-	redirect_header( XOOPS_URL."/modules/".$xoopsModule->dirname()."/admin/permissions.php" , 1 , _AM_XD_GPERMUPDATED);
+    redirect_header( XOOPS_URL."/modules/".$xoopsModule->dirname()."/admin/permissions.php" , 1 , _AM_XD_GPERMUPDATED);
 }
  xoops_cp_header();
 include_once 'admin_header.php';
 
-
 $indexAdmin = new ModuleAdmin();
 echo $indexAdmin->addNavigation('permissions.php');
 
-
 $module_id = $xoopsModule->getVar('mid');
-
 
 $perm_name = "istats_view";
 $perm_desc = _AM_ISTATS_PERM2;
 
-	$global_perms_array = array(
+    $global_perms_array = array(
         '4' => _AM_ISTATS_PERM_4 ,
-		'8' => _AM_ISTATS_PERM_8 ,
-		'16' => _AM_ISTATS_PERM_16
-		 );
-	
+        '8' => _AM_ISTATS_PERM_8 ,
+        '16' => _AM_ISTATS_PERM_16
+         );
+    
 
-$permform = new XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '');	
+$permform = new XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '');
 
 foreach( $global_perms_array as $perm_id => $perm_name ) {
-		$permform->addItem( $perm_id , $perm_name ) ;
-	}
-	
+        $permform->addItem( $perm_id , $perm_name ) ;
+    }
+    
 echo $permform->render();
 
 include_once 'admin_footer.php';
