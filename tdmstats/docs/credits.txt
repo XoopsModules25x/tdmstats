@@ -1,9 +1,0 @@
-Credits
-===============
-Author:Original module: Paul Cooke (alias Scripter)
-Adaptation/rewrite: TDM
-Credits:Sam Tang for the original i_Stats script.
-Traduction Spanish thanks Don Curioso
-Traduction Persian thanks Voltan
-
-Updated to XOOPS 2.5.x Admin GUI by Michael Beck (Mamba)
