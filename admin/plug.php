@@ -31,7 +31,7 @@ include_once 'admin_header.php';
 $indexAdmin = new ModuleAdmin();
 echo $indexAdmin->addNavigation('plug.php');
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
  
 
