@@ -5,7 +5,7 @@ include XOOPS_ROOT_PATH . '/header.php';
 include_once('include/function.php');
 $gperm_handler =& xoops_gethandler('groupperm');
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 $db_link = mysql_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);
 mysql_select_db(XOOPS_DB_NAME, $db_link);
 
