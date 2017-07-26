@@ -1,4 +1,4 @@
-﻿************************************************************
+************************************************************
 TDM : TDMStats
 Version 1.00 | 21-07-2009
 Dev:  2.2.3
@@ -33,7 +33,7 @@ respecter la structure des dossiers et sous-dossiers
 
 function.xoStats.php (nouveau fichier)
 
-Copier le fichier TDMStats/xoops_plugins/function.xoStats.php
+Copier le fichier tdmstats/xoops_plugins/function.xoStats.php
 Dans RACINE_DE_VOTRE_SITE/class/smarty/xoops_plugins/
 
 ************************************************************

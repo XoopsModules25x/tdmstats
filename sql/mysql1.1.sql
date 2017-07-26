@@ -3,19 +3,18 @@
 #
 
 # --------------------------------------------------------
-# Table structure for table 'TDMStats_browser'
+# Table structure for table 'tdmstats_browser'
 # --------------------------------------------------------
 
 
 #/*firefox adding*/
-insert into TDMStats_browser values('Firefox 3', '');
-insert into TDMStats_browser values('Firefox 2', '');
-insert into TDMStats_browser values('Firefox 1', '');
-
+INSERT INTO tdmstats_browser VALUES ('Firefox 3', '');
+INSERT INTO tdmstats_browser VALUES ('Firefox 2', '');
+INSERT INTO tdmstats_browser VALUES ('Firefox 1', '');
 
 # --------------------------------------------------------
-# Table structure for table 'TDMStats_screen'
+# Table structure for table 'tdmstats_screen'
 # --------------------------------------------------------
 
 #/*ading 1920 */
-insert into TDMStats_screen values('', '1920 x 1200', '');
+INSERT INTO tdmstats_screen VALUES ('', '1920 x 1200', '');

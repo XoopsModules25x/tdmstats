@@ -33,7 +33,7 @@ follow the structure of folders and subfolders
 
 function.xoStats.php (new file)
 
-Copy the file TDMStats/xoops_plugins/function.xoStats.php
+Copy the file tdmstats/xoops_plugins/function.xoStats.php
 
 into
 

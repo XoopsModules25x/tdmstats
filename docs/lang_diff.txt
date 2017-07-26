@@ -8,5 +8,5 @@ Version 1.07
 
 admin.php
 ----------
-define ( "_AM_ISTATS_KB", "KB");
-define ( "_AM_ISTATS_MB", "MB");
+define( "_AM_ISTATS_KB", "KB");
+define( "_AM_ISTATS_MB", "MB");

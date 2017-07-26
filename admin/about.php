@@ -1,6 +1,5 @@
 <?php
 /**
- * Mastop Go2 module
  *
  * You may not change or alter any portion of this comment or credits
  * of supporting developers from this source code or any supporting source code
@@ -9,21 +8,18 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright    The XOOPS Project (http://www.xoops.org)
+ * @copyright    XOOPS Project (https://xoops.org)
  * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU Public License}
- * @package      MastopGo2
+ * @package
  * @since        2.5.0
  * @author       Mage, Mamba
- * @version      $Id $
  **/
 
-include_once dirname(__FILE__) . '/admin_header.php';
-
+require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 
-$aboutAdmin = new ModuleAdmin();
+$adminObject->displayNavigation(basename(__FILE__));
+$adminObject->setPaypal('xoopsfoundation@gmail.com');
+$adminObject->displayAbout(false);
 
-echo $aboutAdmin->addNavigation('about.php');
-echo $aboutAdmin->renderAbout('xoopsfoundation@gmail.com', FALSE);
-
-include 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';
