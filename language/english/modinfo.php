@@ -52,3 +52,17 @@ define('_MI_ISTATS_MAXUSERCOUNT', 'Max number of times/day:');
 define('_MI_ISTATS_NEWUSER', 'Last registered user');
 define('_MI_ISTATS_NOWONLINE', 'Currently online');
 define('_MI_ISTATS_USERONLINE', 'Online Today');
+
+//1.10
+//Help
+define('_MI_ISTATS_DIRNAME', basename(dirname(dirname(__DIR__))));
+define('_MI_ISTATS_HELP_HEADER', __DIR__.'/help/helpheader.tpl');
+define('_MI_ISTATS_BACK_2_ADMIN', 'Back to Administration of ');
+define('_MI_ISTATS_OVERVIEW', 'Overview');
+
+//define('_MI_ISTATS_HELP_DIR', __DIR__);
+
+//help multi-page
+define('_MI_ISTATS_DISCLAIMER', 'Disclaimer');
+define('_MI_ISTATS_LICENSE', 'License');
+define('_MI_ISTATS_SUPPORT', 'Support');

@@ -20,7 +20,7 @@
 
 $modversion['version']             = '1.10';
 $modversion['module_status']       = 'Beta 1';
-$modversion['release_date']        = '2014/04/23';
+$modversion['release_date']        = '2017/04/23';
 $modversion['name']                = 'TDMStats';
 $modversion['description']         = _MI_ISTATS_DESC;
 $modversion['author']              = 'Original module: Paul Cooke (alias Scripter)<br><b>Adaptation/rewrite: TDM.</b>';
@@ -46,6 +46,14 @@ $modversion['min_php']             = '5.5';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_admin']           = '1.2';
 $modversion['min_db']              = array('mysql' => '5.5');
+
+// ------------------- Help files ------------------- //
+$modversion['helpsection'] = array(
+    ['name' => _MI_ISTATS_OVERVIEW, 'link' => 'page=help'],
+    ['name' => _MI_ISTATS_DISCLAIMER, 'link' => 'page=disclaimer'],
+    ['name' => _MI_ISTATS_LICENSE, 'link' => 'page=license'],
+    ['name' => _MI_ISTATS_SUPPORT, 'link' => 'page=support'],
+);
 
 // Blocks
 $modversion['blocks'][1]['file']        = 'tdmstats_blocks.php';

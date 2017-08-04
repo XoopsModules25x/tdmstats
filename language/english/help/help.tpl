@@ -1,12 +1,7 @@
 <div id="help-template" class="outer">
-    <h1 class="head">Help:
-        <a class="ui-corner-all tooltip" href="<{$xoops_url}>/modules/tdmstats/admin/index.php"
-           title="Back to the administration of TDMStats"> TDMStats
-            <img src="<{xoAdminIcons home.png}>"
-                 alt="Back to the Administration of TDMStats">
-        </a></h1>
+    <{include file=$smarty.const._MI_ISTATS_HELP_HEADER}>
 
-    <h4 class="odd">DESCRIPTION</h4>
+    <h4 class="odd">DESCRIPTION</h4> <br>
 
     <p class="even">This module collects statistics of visitors to your Website.<br> <br>
     </p>
