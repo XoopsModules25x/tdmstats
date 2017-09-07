@@ -27,31 +27,31 @@ class GphpChart
     public $base_url             = 'http://chart.apis.google.com/chart?';
     public $width                = 300;
     public $height               = 200;
-    public $types                = array('lc', 'lxy', 'bhs', 'bvs', 'bhg', 'bvg', 'p', 'p3', 'v', 's', 't');
-    public $chart_types          = array(
+    public $types                = ['lc', 'lxy', 'bhs', 'bvs', 'bhg', 'bvg', 'p', 'p3', 'v', 's', 't'];
+    public $chart_types          = [
         'l' => 'line',
         'b' => 'bar',
         'p' => 'pie',
         'v' => 'venn',
         's' => 'scatter',
         't' => 'world'
-    );
-    public $mandatory_parameters = array('chs', 'chd', 'cht');
+    ];
+    public $mandatory_parameters = ['chs', 'chd', 'cht'];
     public $data_prepared        = false;
-    public $allowed_parameters   = array(
-        'l' => array('chtt', 'chdl', 'chco', 'chf', 'chxt', 'chg', 'chm', 'chls', 'chxp'),
-        'b' => array('chtt', 'chbh', 'chdl', 'chco', 'chf', 'chxt', 'chxp', 'chm'),
-        'p' => array('chtt', 'chco', 'chf', 'chl', 'chdl'),
-        'v' => array('chtt', 'chdl', 'chco', 'chf'),
-        's' => array('chtt', 'chdl', 'chco', 'chf', 'chxt', 'chg', 'chm', 'chxp'),
-        't' => array('chtt', 'chco', 'chl', 'chld', 'chtm'),
-    );
+    public $allowed_parameters   = [
+        'l' => ['chtt', 'chdl', 'chco', 'chf', 'chxt', 'chg', 'chm', 'chls', 'chxp'],
+        'b' => ['chtt', 'chbh', 'chdl', 'chco', 'chf', 'chxt', 'chxp', 'chm'],
+        'p' => ['chtt', 'chco', 'chf', 'chl', 'chdl'],
+        'v' => ['chtt', 'chdl', 'chco', 'chf'],
+        's' => ['chtt', 'chdl', 'chco', 'chf', 'chxt', 'chg', 'chm', 'chxp'],
+        't' => ['chtt', 'chco', 'chl', 'chld', 'chtm'],
+    ];
     public $range                = 1;
-    public $encodings            = array(
-        's' => array('sep' => '', 'set' => ',', 'range' => 61, 'missing' => '_'),
-        't' => array('sep' => ',', 'set' => '|', 'range' => 100, 'missing' => -1),
-        'e' => array('sep' => '', 'set' => ',', 'range' => 4096, 'missing' => '__'),
-    );
+    public $encodings            = [
+        's' => ['sep' => '', 'set' => ',', 'range' => 61, 'missing' => '_'],
+        't' => ['sep' => ',', 'set' => '|', 'range' => 100, 'missing' => -1],
+        'e' => ['sep' => '', 'set' => ',', 'range' => 4096, 'missing' => '__'],
+    ];
     public $simple_encoding      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     // min and max values of horizontal axis
     public $max_xt = 0;
@@ -491,7 +491,7 @@ class GphpChart
     {
         //chtt=first+line|second+line
         if (isset($this->title)) {
-            $this->chart->chtt = str_replace(array("\n", "\n\r", '<br>', '<br>'), '|', $this->title);
+            $this->chart->chtt = str_replace(["\n", "\n\r", '<br>', '<br>'], '|', $this->title);
             $this->chart->chtt = str_replace(' ', '+', $this->chart->chtt);
         }
     }

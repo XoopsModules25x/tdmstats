@@ -45,15 +45,15 @@ $modversion['module_website_name'] = 'XOOPS';
 $modversion['min_php']             = '5.5';
 $modversion['min_xoops']           = '2.5.9';
 $modversion['min_admin']           = '1.2';
-$modversion['min_db']              = array('mysql' => '5.5');
+$modversion['min_db']              = ['mysql' => '5.5'];
 
 // ------------------- Help files ------------------- //
-$modversion['helpsection'] = array(
+$modversion['helpsection'] = [
     ['name' => _MI_ISTATS_OVERVIEW, 'link' => 'page=help'],
     ['name' => _MI_ISTATS_DISCLAIMER, 'link' => 'page=disclaimer'],
     ['name' => _MI_ISTATS_LICENSE, 'link' => 'page=license'],
     ['name' => _MI_ISTATS_SUPPORT, 'link' => 'page=support'],
-);
+];
 
 // Blocks
 $modversion['blocks'][1]['file']        = 'tdmstats_blocks.php';
@@ -148,7 +148,7 @@ $modversion['config'][$i]['description'] = '_MI_ISTATS_DATE_DESC';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'int';
 $modversion['config'][$i]['default']     = 1;
-$modversion['config'][$i]['options']     = array('_MI_ISTATS_DATE_FR' => '1', '_MI_ISTATS_DATE_US' => '2');
+$modversion['config'][$i]['options']     = ['_MI_ISTATS_DATE_FR' => '1', '_MI_ISTATS_DATE_US' => '2'];
 ++$i;
 $modversion['config'][$i]['name']        = 'setlocal';
 $modversion['config'][$i]['title']       = '_MI_ISTATS_SETLOCAL';
@@ -156,7 +156,7 @@ $modversion['config'][$i]['description'] = '';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'text';
 $modversion['config'][$i]['default']     = 'en_US.UTF-8';
-$modversion['config'][$i]['options']     = array(
+$modversion['config'][$i]['options']     = [
     'fr_FR.UTF-8' => 'fr_FR.UTF-8',
     'cs_CZ.UTF-8' => 'cs_CZ.UTF-8',
     'de_DE.UTF-8' => 'de_DE.UTF-8',
@@ -168,7 +168,7 @@ $modversion['config'][$i]['options']     = array(
     'pt_PT.UTF-8' => 'pt_PT.UTF-8',
     'ru_RU.UTF-8' => 'ru_RU.UTF-8'
 
-);
+];
 ++$i;
 $modversion['config'][$i]['name']        = 'setlocal2';
 $modversion['config'][$i]['title']       = '_MI_ISTATS_SETLOCAL';
@@ -176,7 +176,7 @@ $modversion['config'][$i]['description'] = '';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'text';
 $modversion['config'][$i]['default']     = 'eng';
-$modversion['config'][$i]['options']     = array(
+$modversion['config'][$i]['options']     = [
     'fra' => 'fra',
     'ces' => 'ces',
     'deu' => 'deu',
@@ -186,7 +186,7 @@ $modversion['config'][$i]['options']     = array(
     'por' => 'por',
     'rus' => 'rus',
 
-);
+];
 ++$i;
 $modversion['config'][$i]['name']        = 'maxpage';
 $modversion['config'][$i]['title']       = '_MI_ISTATS_MAXPAGE';

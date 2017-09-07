@@ -42,11 +42,11 @@ for ($i = 0, $iMax = count($bro_info); $i < $iMax; ++$i) {
     //$browser['browser'][] = $bro_info[$i]['browser'];
     //$browser['percent'][] = round($bro_percent, '2');
 
-    $xoopsTpl->append('item_browsers', array(
+    $xoopsTpl->append('item_browsers', [
         'id'      => 'bro' . $i,
         'browser' => $bro_info[$i]['browser'],
         'info'    => $bro_info[$i]['count']
-    ));
+    ]);
 }
 //broser
 
@@ -68,12 +68,12 @@ for ($i = 0, $iMax = count($bro_info); $i < $iMax; ++$i) {
 
     if ($bro_percent > 0) {
         //$xoopsTpl->append('browsers', array('id' => 'bro'.$i, 'browser' => $bro_info[$i]['browser'], 'info' => $bro_info[$i]['count'], 'percent' => round($bro_percent, '2')));
-        $xoopsTpl->append('browsers_map', array(
+        $xoopsTpl->append('browsers_map', [
             'id'      => 'bro' . $i,
             'browser' => $bro_info[$i]['browser'],
             'info'    => $bro_info[$i]['count'],
             'percent' => round($bro_percent, '2')
-        ));
+        ]);
     }
 }
 
@@ -89,7 +89,7 @@ for ($i = 0, $iMax = count($os_info); $i < $iMax; ++$i) {
     //$os['os'][] = $os_info[$i]['os'];
     //$os['percent'][] = round($os_percent, '2');
 
-    $xoopsTpl->append('item_os', array('id' => 'os' . $i, 'os' => $os_info[$i]['os'], 'info' => $os_info[$i]['count']));
+    $xoopsTpl->append('item_os', ['id' => 'os' . $i, 'os' => $os_info[$i]['os'], 'info' => $os_info[$i]['count']]);
 }
 /////////OS ////////////
 global $xoopsDB;
@@ -110,12 +110,12 @@ for ($i = 0, $iMax = count($os_info); $i < $iMax; ++$i) {
 
     if ($os_percent > 0) {
         //$xoopsTpl->append('oss', array('id' => 'os'.$i, 'os' => $os_info[$i]['os'], 'info' => $os_info[$i]['count'], 'percent' => round($os_percent, '2')));
-        $xoopsTpl->append('oss_map', array(
+        $xoopsTpl->append('oss_map', [
             'id'      => 'os' . $i,
             'os'      => $os_info[$i]['os'],
             'info'    => $os_info[$i]['count'],
             'percent' => round($os_percent, '2')
-        ));
+        ]);
     }
 }
 
@@ -129,7 +129,7 @@ for ($i = 0, $iMax = count($sw_info); $i < $iMax; ++$i) {
     //$sw['sw'][] = $sw_info[$i]['width'];
     //$sw['percent'][] = round($sw_percent, '2');
 
-    $xoopsTpl->append('item_sw', array('id' => 'sw' . $i, 'sw' => $sw_info[$i]['width'], 'info' => $sw_info[$i]['count']));
+    $xoopsTpl->append('item_sw', ['id' => 'sw' . $i, 'sw' => $sw_info[$i]['width'], 'info' => $sw_info[$i]['count']]);
 }
 ///////////////////SW/////////
 global $xoopsDB;
@@ -150,12 +150,12 @@ for ($i = 0, $iMax = count($sw_info); $i < $iMax; ++$i) {
 
     if ($sw_percent > 0) {
         //$xoopsTpl->append('sws', array('id' => 'sw'.$i, 'sw' => $sw_info[$i]['width'], 'info' => $sw_info[$i]['count'], 'percent' => round($sw_percent, '2')));
-        $xoopsTpl->append('sws_map', array(
+        $xoopsTpl->append('sws_map', [
             'id'      => 'sw' . $i,
             'sw'      => $sw_info[$i]['width'],
             'info'    => $sw_info[$i]['count'],
             'percent' => round($sw_percent, '2')
-        ));
+        ]);
     }
 }
 
@@ -169,7 +169,7 @@ for ($i = 0, $iMax = count($sc_info); $i < $iMax; ++$i) {
     //$sc['sc'][] = $sc_info[$i]['color'];
     //$sc['percent'][] = round($sc_percent, '2');
 
-    $xoopsTpl->append('item_sc', array('id' => 'sc' . $i, 'sc' => $sc_info[$i]['color'], 'info' => $sc_info[$i]['count']));
+    $xoopsTpl->append('item_sc', ['id' => 'sc' . $i, 'sc' => $sc_info[$i]['color'], 'info' => $sc_info[$i]['count']]);
 }
 ///////////////SC/////////////////////////
 global $xoopsDB;
@@ -190,12 +190,12 @@ for ($i = 0, $iMax = count($sc_info); $i < $iMax; ++$i) {
 
     if ($sc_percent > 0) {
         //$xoopsTpl->append('scs', array('id' => 'sc'.$i, 'sc' => $sc_info[$i]['color'], 'info' => $sc_info[$i]['count'], 'percent' => round($sc_percent, '2')));
-        $xoopsTpl->append('scs_map', array(
+        $xoopsTpl->append('scs_map', [
             'id'      => 'sc' . $i,
             'sc'      => $sc_info[$i]['color'],
             'info'    => $sc_info[$i]['count'],
             'percent' => round($sc_percent, '2')
-        ));
+        ]);
     }
 }
 
@@ -212,11 +212,11 @@ for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
     //$host['host'][] = $host_info[$i]['hostname'];
     //$host['percent'][] = round($host_percent, '2');
 
-    $xoopsTpl->append('item_host', array(
+    $xoopsTpl->append('item_host', [
         'id'   => 'host' . $i,
         'host' => $host_info[$i]['hostname'],
         'info' => $host_info[$i]['count']
-    ));
+    ]);
 }
 
 //////////HOST/////////////
@@ -237,10 +237,10 @@ for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
     $host['percent'][] = round($host_percent, '2');
 
     //$xoopsTpl->append('hosts', array('id' => 'host'.$i, 'host' => $host_info[$i]['hostname'], 'info' => $host_info[$i]['count'], 'percent' => round($host_percent, '2')));
-    $xoopsTpl->append('hosts_map', array(
+    $xoopsTpl->append('hosts_map', [
         'id'      => 'host' . $i,
         'host'    => $host_info[$i]['hostname'],
         'info'    => $host_info[$i]['count'],
         'percent' => round($host_percent, '2')
-    ));
+    ]);
 }

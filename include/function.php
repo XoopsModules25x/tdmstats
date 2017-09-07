@@ -233,7 +233,7 @@ function Adminmenu($currentoption = 0, $breadcrumb = '')
     global $xoopsModule, $xoopsConfig;
     $myts = MyTextSanitizer::getInstance();
 
-    $tblColors                 = array();
+    $tblColors                 = [];
     $tblColors[0]              = $tblColors[1] = $tblColors[2] = $tblColors[3] = $tblColors[4] = $tblColors[5] = $tblColors[6] = $tblColors[7] = $tblColors[8] = '';
     $tblColors[$currentoption] = 'current';
     if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar('dirname') . '/language/' . $xoopsConfig['language'] . '/modinfo.php')) {

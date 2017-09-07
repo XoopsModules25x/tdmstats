@@ -44,7 +44,7 @@ class menu
     public $FontExtraSize      = 9;
     public $FontExtraWeight    = 'normal';
     public $TextAlign          = 'center';
-    private $_items             = array();
+    private $_items             = [];
 
     /**
      * @param        $id

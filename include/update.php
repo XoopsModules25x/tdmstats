@@ -18,7 +18,7 @@
  * @author       XOOPS Development Team
  */
 
-defined('XOOPS_ROOT_PATH') || exit('XOOPS Root Path not defined');
+defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
 
 /**
  * @param      $xoopsModule

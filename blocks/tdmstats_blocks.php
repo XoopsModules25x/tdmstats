@@ -30,7 +30,7 @@ function b_tdmstats_show($options)
     global $xoopsConfig;
     require_once XOOPS_ROOT_PATH . '/modules/tdmstats/include/function.php';
     $results = CountDays();
-    $block   = array();
+    $block   = [];
     foreach (array_keys($options) as $i) {
         if ($options[$i] == 1) {
             $block['max_date']      = formatTimestamp($results['max_date'], 's');
@@ -115,7 +115,7 @@ function b_tdmstats_counter_show($options)
 
     $result = CountDays();
 
-    $block = array();
+    $block = [];
 
     $block['welcome'] = _MB_ISTATS_WELCOME;
     $block['uname']   = !empty($xoopsUser) ? $xoopsUser->getVar('uname', 'E') : _MB_ISTATS_ANONYMOUS;
@@ -301,7 +301,7 @@ function b_tdmstats_edit($options)
     //  $form .= " checked";
     //}
     //$form .= ">&nbsp;"._MB_ISTATS_US."<br>";
-    $option = array(
+    $option = [
         '1'  => _MB_ISTATS_MAX_DATE,
         '2'  => _MB_ISTATS_MAX_DAYCOUNT,
         '3'  => _MB_ISTATS_MAX_WEEK,
@@ -318,7 +318,7 @@ function b_tdmstats_edit($options)
         '14' => _MB_ISTATS_AVE_WEEK,
         '15' => _MB_ISTATS_AVE_MTH,
         '16' => _MB_ISTATS_P_PAGE
-    );
+    ];
     $form   = _MB_ISTATS_INFO_DESC . "<br><select name=\"options[]\" multiple=\"multiple\" size=\"10\">";
     foreach ($option as $key => $value) {
         $form .= "<option value=\"" . $key . "\" " . (array_search($key, $options) === false ? '' : 'selected') . '>' . $value . '</option>';

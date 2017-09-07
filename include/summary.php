@@ -103,7 +103,7 @@ $xoopsTpl->assign('lang_ave', AM_AVE);
  */
 function Chars($text)
 {
-    return preg_replace(array('/UK/i'), array('GB'), $text);
+    return preg_replace(['/UK/i'], ['GB'], $text);
 }
 
 $xoopsTpl->assign('lang_per_hour', _AM_PER_HOUR);
@@ -139,7 +139,7 @@ if ($user_info) {
             //$hour['hour'][] = $hour_info[$i]['hour'];
             //$hour['percent'][] = round($hour_percent, '2');
 
-            $xoopsTpl->append('item_users', array('id' => 'hour' . $i, 'userid' => $userid, 'info' => $count));
+            $xoopsTpl->append('item_users', ['id' => 'hour' . $i, 'userid' => $userid, 'info' => $count]);
         }
     }
 }
@@ -161,17 +161,17 @@ if ($user_info) {
 
         if ($user_percent > 0) {
             //$xoopsTpl->append('hours', array('id' => 'hour'.$i, 'hour' => $hour_info[$i]['hour'], 'info' => $hour_info[$i]['count'], 'percent' => round($hour_percent, '2')));
-            $xoopsTpl->append('users_map', array(
+            $xoopsTpl->append('users_map', [
                 'id'      => 'user' . $i,
                 'userid'  => $userid,
                 'info'    => $count,
                 'percent' => round($user_percent, '2')
-            ));
+            ]);
         }
     }
 }
 ///////////////////////////////////
-$hour       = array();
+$hour       = [];
 $cur_hour   = formatTimestamp(time(), 'H');
 $date       = formatTimestamp(time(), 'Y-m-d');
 $cur_visits = getResult('select * from ' . $xoopsDB->prefix('tdmstats_daycount') . " where date='$date'");
@@ -204,11 +204,11 @@ if ($hour_info) {
             $hour['hour'][] = $hour_info[$i]['hour'];
             //$hour['percent'][] = round($hour_percent, '2');
 
-            $xoopsTpl->append('item_hours', array(
+            $xoopsTpl->append('item_hours', [
                 'id'   => 'hour' . $i,
                 'hour' => $hour_info[$i]['hour'],
                 'info' => $hour_info[$i]['count']
-            ));
+            ]);
         }
     }
 }
@@ -231,18 +231,18 @@ if ($hour_info) {
 
         if ($hour_percent > 0) {
             //$xoopsTpl->append('hours', array('id' => 'hour'.$i, 'hour' => $hour_info[$i]['hour'], 'info' => $hour_info[$i]['count'], 'percent' => round($hour_percent, '2')));
-            $xoopsTpl->append('hours_map', array(
+            $xoopsTpl->append('hours_map', [
                 'id'      => 'hour' . $i,
                 'hour'    => $hour_info[$i]['hour'],
                 'info'    => $hour_info[$i]['count'],
                 'percent' => round($hour_percent, '2')
-            ));
+            ]);
         }
     }
 }
 
 ////referent
-$ref              = array();
+$ref              = [];
 $ref['percent'][] = 0;
 $ref['color'][]   = 0;
 $max              = $xoopsModuleConfig['maxpage'];
@@ -257,7 +257,7 @@ if ($ref_info) {
             $ref['info'][] = $ref_info[$i]['count'];
             //$hour['percent'][] = round($hour_percent, '2');
 
-            $xoopsTpl->append('item_refs', array('id' => 'ref' . $i, 'info' => $ref_info[$i]['count'], 'url' => $url));
+            $xoopsTpl->append('item_refs', ['id' => 'ref' . $i, 'info' => $ref_info[$i]['count'], 'url' => $url]);
         }
     }
 }
@@ -279,13 +279,13 @@ for ($i = 0, $iMax = count($ref_info); $i < $iMax; ++$i) {
 
     if ($ref_percent > 0) {
         //$xoopsTpl->append('refs', array('id' => 'ref'.$i, 'ref' => $url, 'title' => $title, 'info' => $ref_info[$i]['count'], 'percent' => round($ref_percent, '2')));
-        $xoopsTpl->append('refs_map', array(
+        $xoopsTpl->append('refs_map', [
             'id'      => 'ref' . $i,
             'ref'     => $url,
             'title'   => $title,
             'info'    => $ref_info[$i]['count'],
             'percent' => round($ref_percent, '2')
-        ));
+        ]);
     }
 }
 
@@ -300,11 +300,11 @@ if ($pays_info) {
             $pays['info'][]    = $pays_info[$i]['count'];
             //$hour['percent'][] = round($hour_percent, '2');
 
-            $xoopsTpl->append('item_pays', array(
+            $xoopsTpl->append('item_pays', [
                 'id'      => 'pay' . $i,
                 'info'    => $pays_info[$i]['count'],
                 'country' => $pays_info[$i]['country'],
-            ));
+            ]);
         }
     }
 }
@@ -333,14 +333,14 @@ for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
     //print_r($maxcolor[$i]);
     if ($pays_percent > 0) {
         //$xoopsTpl->append('payss', array('id' => 'pays'.$i, 'flag' => $flag, 'country' => $pays_info[$i]['country'], 'pays' => $pays_info[$i]['pays'], 'info' => $pays_info[$i]['count'], 'percent' => round($pays_percent, '2')));
-        $xoopsTpl->append('payss_map', array(
+        $xoopsTpl->append('payss_map', [
             'id'      => 'pays' . $i,
             'flag'    => $flag,
             'country' => $pays_info[$i]['country'],
             'pays'    => $pays_info[$i]['pays'],
             'info'    => $pays_info[$i]['count'],
             'percent' => round($pays_percent, '2')
-        ));
+        ]);
     }
 }
 

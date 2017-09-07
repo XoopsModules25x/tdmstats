@@ -45,7 +45,7 @@ $xoopsTpl->assign('lang_date_date', _AM_DATE_DATE);
 $xoopsTpl->assign('lang_date_visits', _AM_DATE_VISITS);
 $xoopsTpl->assign('lang_date_percent', _AM_DATE_PERCENT);
 
-$month     = array(
+$month     = [
     '01' => '31',
     '02' => '28',
     '03' => '31',
@@ -58,7 +58,7 @@ $month     = array(
     '10' => '31',
     '11' => '30',
     '12' => '31'
-);
+];
 $this_mths = date('m');
 $mths      = $month[$this_mths];
 $leap      = date('L');
@@ -67,7 +67,7 @@ if ($this_mths == '2' && $leap > 0) {
 }
 
 ////info day
-$day = array();
+$day = [];
 global $xoopsDB;
 //$mth = formatTimeStamp(time(), 'Y-m-');
 $day_info = getResult('SELECT DISTINCT day, count FROM ' . $xoopsDB->prefix('tdmstats_mth_days') . ' ORDER BY count DESC LIMIT 3');
@@ -77,11 +77,11 @@ if ($day_info) {
         $day['info'][] = $day_info[$i]['count'];
         $day['day'][]  = $day_info[$i]['day'];
 
-        $xoopsTpl->append('item_days', array('id' => 'day' . $i, 'day' => $day_info[$i]['day'], 'info' => $day_info[$i]['count']));
+        $xoopsTpl->append('item_days', ['id' => 'day' . $i, 'day' => $day_info[$i]['day'], 'info' => $day_info[$i]['count']]);
     }
 }
 ///day
-$day = array();
+$day = [];
 global $xoopsDB;
 $mth       = formatTimestamp(time(), 'Y-m-');
 $day_info  = getResult('select distinct day, count from ' . $xoopsDB->prefix('tdmstats_mth_days') . " order by day limit $mths");
@@ -101,17 +101,17 @@ for ($i = 0; $i < $mths; ++$i) {
 
     if ($day_percent > 0) {
         //$xoopsTpl->append('days', array('id' => 'day'.$i, 'day' => $day_info[$i]['day'], 'info' => $day_info[$i]['count'], 'percent' => round($day_percent, '2')));
-        $xoopsTpl->append('days_map', array(
+        $xoopsTpl->append('days_map', [
             'id'      => 'day' . $i,
             'day'     => $day_info[$i]['day'],
             'info'    => $day_info[$i]['count'],
             'percent' => round($day_percent, '2')
-        ));
+        ]);
     }
 }
 
 ///week info
-$week     = array(
+$week     = [
     0 => _AM_WD_7,
     1 => _AM_WD_1,
     2 => _AM_WD_2,
@@ -119,8 +119,8 @@ $week     = array(
     4 => _AM_WD_4,
     5 => _AM_WD_5,
     6 => _AM_WD_6
-);
-$week_day = array();
+];
+$week_day = [];
 global $xoopsDB;
 $week_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_week') . ' ORDER BY count DESC LIMIT 3');
 //$week_sum = getResult("select SUM(count) AS sum from ".$xoopsDB->prefix("tdmstats_week")."");
@@ -131,12 +131,12 @@ if ($week_info) {
         //$week_day = $week[$week_info[$i]['day']];
         $day = strftime('%A', mktime(0, 0, 0, 1, $week_info[$i]['day'], 1973));
 
-        $xoopsTpl->append('item_weeks', array('id' => 'week_day' . $i, 'week_day' => $day, 'info' => $week_info[$i]['count']));
+        $xoopsTpl->append('item_weeks', ['id' => 'week_day' . $i, 'week_day' => $day, 'info' => $week_info[$i]['count']]);
     }
 }
 
 ///////////WEEK////////////
-$week     = array(
+$week     = [
     0 => _AM_WD_7,
     1 => _AM_WD_1,
     2 => _AM_WD_2,
@@ -144,8 +144,8 @@ $week     = array(
     4 => _AM_WD_4,
     5 => _AM_WD_5,
     6 => _AM_WD_6
-);
-$week_day = array();
+];
+$week_day = [];
 global $xoopsDB;
 $week_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_week') . ' ORDER BY day');
 $week_sum  = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_week') . '');
@@ -164,12 +164,12 @@ if ($week_info) {
 
         if ($week_day_percent > 0) {
             //$xoopsTpl->append('week_days', array('id' => 'week_day'.$i, 'week_day' => $week[$i], 'info' => $week_info[$i]['count'], 'percent' => round($week_day_percent, '2')));
-            $xoopsTpl->append('week_days_map', array(
+            $xoopsTpl->append('week_days_map', [
                 'id'       => 'week_day' . $i,
                 'week_day' => $day,
                 'info'     => $week_info[$i]['count'],
                 'percent'  => round($week_day_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -185,12 +185,12 @@ if ($mth_info) {
         $mth = strftime('%B %Y', mktime(0, 0, 0, $mth_info[$i]['mth'], 01, $mth_info[$i]['year']));
         //$mth['percent'][] = round($mth_percent, '2');
 
-        $xoopsTpl->append('item_mths', array('id' => 'mth' . $i, 'mth' => $mth, 'info' => $mth_info[$i]['count']));
+        $xoopsTpl->append('item_mths', ['id' => 'mth' . $i, 'mth' => $mth, 'info' => $mth_info[$i]['count']]);
     }
 }
 ///mont///
 
-$mth = array();
+$mth = [];
 global $xoopsDB;
 $year     = formatTimestamp(time(), 'Y');
 $mth_info = getResult('select distinct mth, year, count from ' . $xoopsDB->prefix('tdmstats_mth') . " where year='$year' order by id desc");
@@ -214,13 +214,13 @@ if ($mth_info) {
 
         if ($mth_percent > 0) {
             //$xoopsTpl->append('mths', array('id' => 'mth'.$i, 'mth' => $mth_info[$i]['mth'], 'year' => $mth_info[$i]['year'], 'info' => $mth_info[$i]['count'], 'percent' => round($mth_percent, '2')));
-            $xoopsTpl->append('mths_map', array(
+            $xoopsTpl->append('mths_map', [
                 'id'      => 'mth' . $i,
                 'mth'     => $mth,
                 'year'    => $mth_info[$i]['year'],
                 'info'    => $mth_info[$i]['count'],
                 'percent' => round($mth_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -238,16 +238,16 @@ if ($last_info) {
         //$last['week'][] = $last_info[$i]['week'];
         //$last['percent'][] = round($last_percent, '2');
 
-        $xoopsTpl->append('item_lasts', array(
+        $xoopsTpl->append('item_lasts', [
             'id'   => 'last' . $i,
             'week' => $last_info[$i]['week'],
             'year' => $last_info[$i]['year'],
             'info' => $last_info[$i]['count']
-        ));
+        ]);
     }
 }
 //////WEEK/////////////
-$last = array();
+$last = [];
 global $xoopsDB;
 //$year = formatTimeStamp(time(), 'Y');
 $last_info = getResult('select distinct week, year, count from ' . $xoopsDB->prefix('tdmstats_week_count') . " where year='$year' order by id desc");
@@ -268,20 +268,20 @@ if ($last_info) {
         $last['percent'][] = round($last_percent, '2');
 
         if ($last_percent > 0) {
-            $xoopsTpl->append('lasts', array(
+            $xoopsTpl->append('lasts', [
                 'id'      => 'last' . $i,
                 'week'    => $last_info[$i]['week'],
                 'year'    => $last_info[$i]['year'],
                 'info'    => $last_info[$i]['count'],
                 'percent' => round($last_percent, '2')
-            ));
-            $xoopsTpl->append('lasts_map', array(
+            ]);
+            $xoopsTpl->append('lasts_map', [
                 'id'      => 'last' . $i,
                 'week'    => $last_info[$i]['week'],
                 'year'    => $last_info[$i]['year'],
                 'info'    => $last_info[$i]['count'],
                 'percent' => round($last_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -299,15 +299,15 @@ if ($hour_info) {
         //$hour['week'][] = $hour_info[$i]['hour'];
         //$hour['percent'][] = round($hour_percent, '2');
 
-        $xoopsTpl->append('item_hours', array(
+        $xoopsTpl->append('item_hours', [
             'id'   => 'hour' . $i,
             'hour' => $hour_info[$i]['hour'],
             'info' => $hour_info[$i]['count']
-        ));
+        ]);
     }
 }
 /////////////HOUR
-$hour = array();
+$hour = [];
 global $xoopsDB;
 $hour_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_hour') . ' ORDER BY hour');
 //$max_hour   = getResult("select max(count) as max from ".$xoopsDB->prefix("tdmstats_hour")."");
@@ -326,12 +326,12 @@ if ($hour_info) {
 
         if ($hour_percent > 0) {
             //$xoopsTpl->append('hours', array('id' => 'hour'.$i, 'hour' => $hour_info[$i]['hour'], 'info' => $hour_info[$i]['count'], 'percent' => round($hour_percent, '2')));
-            $xoopsTpl->append('hours_map', array(
+            $xoopsTpl->append('hours_map', [
                 'id'      => 'hour' . $i,
                 'hour'    => $hour_info[$i]['hour'],
                 'info'    => $hour_info[$i]['count'],
                 'percent' => round($hour_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -349,7 +349,7 @@ if ($page_info) {
         //$title = $page_info[$i]['page'];
         //$page['percent'][] = round($page_percent, '2');
 
-        $xoopsTpl->append('item_pages', array('id' => 'page' . $i, 'page' => $url, 'info' => $page_info[$i]['count']));
+        $xoopsTpl->append('item_pages', ['id' => 'page' . $i, 'page' => $url, 'info' => $page_info[$i]['count']]);
     }
 }
 
@@ -357,7 +357,7 @@ if ($page_info) {
  * @feature
  * Displays Top xx page requests
  */
-$page = array();
+$page = [];
 global $xoopsDB;
 $max       = $xoopsModuleConfig['maxpage'];
 $page_info = getResult('select distinct page, count from ' . $xoopsDB->prefix('tdmstats_page') . " order by count desc limit $max ");
@@ -380,13 +380,13 @@ if ($page_info) {
 
         if ($page_percent > 0) {
             //$xoopsTpl->append('pages', array('id' => 'page'.$i, 'page' => $url, 'title' => $title, 'info' => $page_info[$i]['count'], 'percent' => round($page_percent, '2')));
-            $xoopsTpl->append('pages_map', array(
+            $xoopsTpl->append('pages_map', [
                 'id'      => 'page' . $i,
                 'page'    => $url,
                 'title'   => $page_info[$i]['page'],
                 'info'    => $page_info[$i]['count'],
                 'percent' => round($page_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -403,11 +403,11 @@ if ($module_info) {
         //$module['modules'][] = $module_info[$i]['modules'];
         //$module['percent'][] = round($module_percent, '2');
 
-        $xoopsTpl->append('item_modules', array(
+        $xoopsTpl->append('item_modules', [
             'id'     => 'modules' . $i,
             'module' => $module_info[$i]['modules'],
             'info'   => $module_info[$i]['count']
-        ));
+        ]);
     }
 }
 /**
@@ -415,7 +415,7 @@ if ($module_info) {
  * Displays Top module requests
  */
 /////////////modules
-$module = array();
+$module = [];
 global $xoopsDB;
 $max         = $xoopsModuleConfig['maxpage'];
 $module_info = getResult('select distinct modules, count from ' . $xoopsDB->prefix('tdmstats_modules') . " order by count desc limit $max ");
@@ -434,18 +434,18 @@ if ($module_info) {
         $module['percent'][] = round($module_percent, '2');
 
         if ($module_percent > 0) {
-            $xoopsTpl->append('modules', array(
+            $xoopsTpl->append('modules', [
                 'id'      => 'modules' . $i,
                 'modules' => $module_info[$i]['modules'],
                 'info'    => $module_info[$i]['count'],
                 'percent' => round($module_percent, '2')
-            ));
-            $xoopsTpl->append('modules_map', array(
+            ]);
+            $xoopsTpl->append('modules_map', [
                 'id'      => 'modules' . $i,
                 'modules' => $module_info[$i]['modules'],
                 'info'    => $module_info[$i]['count'],
                 'percent' => round($module_percent, '2')
-            ));
+            ]);
         }
     }
 }
@@ -470,7 +470,7 @@ if ($user_info) {
             //$hour['hour'][] = $hour_info[$i]['hour'];
             //$hour['percent'][] = round($hour_percent, '2');
 
-            $xoopsTpl->append('item_users', array('id' => 'hour' . $i, 'userid' => $userid, 'info' => $count));
+            $xoopsTpl->append('item_users', ['id' => 'hour' . $i, 'userid' => $userid, 'info' => $count]);
         }
     }
 }
@@ -492,12 +492,12 @@ if ($user_info) {
 
         if ($user_percent > 0) {
             //$xoopsTpl->append('hours', array('id' => 'hour'.$i, 'hour' => $hour_info[$i]['hour'], 'info' => $hour_info[$i]['count'], 'percent' => round($hour_percent, '2')));
-            $xoopsTpl->append('users_map', array(
+            $xoopsTpl->append('users_map', [
                 'id'      => 'user' . $i,
                 'userid'  => $userid,
                 'info'    => $count,
                 'percent' => round($user_percent, '2')
-            ));
+            ]);
         }
     }
 }

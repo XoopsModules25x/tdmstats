@@ -42,11 +42,11 @@ $module_id = $xoopsModule->getVar('mid');
 $perm_name = 'istats_view';
 $perm_desc = _AM_ISTATS_PERM2;
 
-$global_perms_array = array(
+$global_perms_array = [
     '4'  => _AM_ISTATS_PERM_4,
     '8'  => _AM_ISTATS_PERM_8,
     '16' => _AM_ISTATS_PERM_16
-);
+];
 
 $permform = new XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '', 'admin/permissions.php');
 

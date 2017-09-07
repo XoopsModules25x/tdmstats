@@ -25,7 +25,7 @@
 function adminmenu($currentoption = 0)
 {
     global $xoopsModule, $xoopsConfig;
-    $tblColors                 = array();
+    $tblColors                 = [];
     $tblColors[0]              = $tblColors[1] = '#DDE';
     $tblColors[$currentoption] = 'white';
     if (file_exists(XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->getVar('dirname') . '/language/' . $xoopsConfig['language'] . '/modinfo.php')) {
