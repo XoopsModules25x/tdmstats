@@ -10,12 +10,12 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 
 // defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
@@ -27,7 +27,6 @@ if (false !== ($moduleHelper = Xmf\Module\Helper::getHelper($moduleDirName))) {
     $moduleHelper = Xmf\Module\Helper::getHelper('system');
 }
 
-
 $pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
 //$pathModIcon32 = $moduleHelper->getModule()->getInfo('modicons32');
 
@@ -35,27 +34,32 @@ $moduleHelper->loadLanguage('modinfo');
 
 $adminmenu = [];
 
-$i                      = 1;
-'title' =>  _AM_MODULEADMIN_HOME,
-'link' =>  'admin/index.php',
-'icon' =>  $pathIcon32 . '/home.png',
+$adminmenu[] = [
+    'title' => _AM_MODULEADMIN_HOME,
+    'link'  => 'admin/index.php',
+    'icon'  => $pathIcon32 . '/home.png',
+];
 
-++$i;
-'title' =>  _MI_ISTATS_INDEX,
-'link' =>  'admin/main.php',
-'icon' =>  $pathIcon32 . '/manage.png',
+$adminmenu[] = [
+    'title' => _MI_ISTATS_INDEX,
+    'link'  => 'admin/main.php',
+    'icon'  => $pathIcon32 . '/manage.png',
+];
 
-++$i;
-'title' =>  _MI_ISTATS_PLUG,
-'link' =>  'admin/plug.php',
-'icon' =>  $pathIcon32 . '/addlink.png',
+$adminmenu[] = [
+    'title' => _MI_ISTATS_PLUG,
+    'link'  => 'admin/plug.php',
+    'icon'  => $pathIcon32 . '/addlink.png',
+];
 
-++$i;
-'title' =>  _MI_ISTATS_PERMISSIONS,
-'link' =>  'admin/permissions.php',
-'icon' =>  $pathIcon32 . '/permissions.png',
+$adminmenu[] = [
+    'title' => _MI_ISTATS_PERMISSIONS,
+    'link'  => 'admin/permissions.php',
+    'icon'  => $pathIcon32 . '/permissions.png',
+];
 
-++$i;
-'title' =>  _AM_MODULEADMIN_ABOUT,
-'link' =>  'admin/about.php',
-'icon' =>  $pathIcon32 . '/about.png',
+$adminmenu[] = [
+    'title' => _AM_MODULEADMIN_ABOUT,
+    'link'  => 'admin/about.php',
+    'icon'  => $pathIcon32 . '/about.png',
+];
