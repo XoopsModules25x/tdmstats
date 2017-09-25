@@ -90,7 +90,7 @@ class GphpChart
         $this->range   = $this->encodings[$this->encoding]['range'];
         $this->missing = $this->encodings[$this->encoding]['missing'];
         $this->set     = $this->encodings[$this->encoding]['set']; // set separator
-        if ($this->chart_type === 'venn') {
+        if ('venn' === $this->chart_type) {
             $this->set = ',';
         }
 
@@ -129,12 +129,12 @@ class GphpChart
         $this->cached = false;
 
         // reverse order for Bar Horizontal
-        if ($this->chart->cht === 'bhs' && is_string($values[0])) {
+        if ('bhs' === $this->chart->cht && is_string($values[0])) {
             $values = array_combine(array_keys($values), array_reverse(array_values($values)));
         }
         $this->labels[$axis][] = $values;
 
-        if ($axis === 'x' || $axis === 't') {
+        if ('x' === $axis || 't' === $axis) {
             $this->max_xt = max($this->max_xt, max($values));
             $this->min_xt = min($this->min_xt, min($values));
         }
@@ -150,7 +150,7 @@ class GphpChart
     {
         $this->cached      = false;
         $this->chart->chbh = (int)$width;
-        if ($space != 0) {
+        if (0 != $space) {
             $this->chart->chbh .= ',' . $space;
         }
     }
@@ -200,7 +200,7 @@ class GphpChart
     public function add_style($string)
     {
         $this->cached = false;
-        if ($this->chart_type === 'line') {
+        if ('line' === $this->chart_type) {
             $this->chart->chls[] = $string;
         }
     }
@@ -211,7 +211,7 @@ class GphpChart
     public function add_grid($string)
     {
         $this->cached = false;
-        if ($this->chart_type === 'line' || $this->chart_type === 'scatter') {
+        if ('line' === $this->chart_type || 'scatter' === $this->chart_type) {
             $this->chart->chg[] = $string;
         }
     }
@@ -222,7 +222,7 @@ class GphpChart
     public function add_marker($string)
     {
         $this->cached = false;
-        if ($this->chart_type === 'line' || $this->chart_type === 'bar' || $this->chart_type === 'scatter') {
+        if ('line' === $this->chart_type || 'bar' === $this->chart_type || 'scatter' === $this->chart_type) {
             $this->chart->chm[] = $string;
         }
     }
@@ -339,7 +339,7 @@ class GphpChart
         }
         */
         foreach ($this->chart as $k => $v) {
-            if ($v != '') {
+            if ('' != $v) {
                 $params[] = "$k=$v";
             }
         }
@@ -368,8 +368,8 @@ class GphpChart
         }
 
         // styles
-        if ($this->chart_type === 'scatter' || $this->chart_type === 'bar' || $this->chart_type === 'line') {
-            if ($this->chart_type === 'line') {
+        if ('scatter' === $this->chart_type || 'bar' === $this->chart_type || 'line' === $this->chart_type) {
+            if ('line' === $this->chart_type) {
                 if (isset($this->chart->chls) && count($this->chart->chls)) {
                     $this->chart->chls = implode('|', $this->chart->chls);
                 }
@@ -391,10 +391,10 @@ class GphpChart
     public function prepare_data()
     {
         // for lines charts, calculate ratio
-        if ($this->chart_type === 'line' || $this->chart_type === 'bar' || $this->chart_type === 'scatter') {
+        if ('line' === $this->chart_type || 'bar' === $this->chart_type || 'scatter' === $this->chart_type) {
             $this->max_yr = 0;
             foreach ($this->datas as $n => $data) {
-                if ($this->chart_type === 'scatter' && $n == 2) {
+                if ('scatter' === $this->chart_type && 2 == $n) {
                     continue;
                 } // ignore min max values for plots sizes
                 $this->max_yr = max($this->max_yr, max($data));
@@ -404,12 +404,12 @@ class GphpChart
         }
 
         foreach ($this->datas as $n => $data) {
-            if ($this->chart_type === 'scatter' && $n == 2) {
+            if ('scatter' === $this->chart_type && 2 == $n) {
                 $data = $this->encode_data($data, false);
             } // do not normalize plots sizes
             //else $data = $this->encode_data($data);
 
-            if ($this->chart->cht === 'lxy') {
+            if ('lxy' === $this->chart->cht) {
                 $this->datas[$n] = implode($this->sep, array_keys($data)) . '|' . implode($this->sep, array_values($data));
             } else {
                 $this->datas[$n] = implode($this->sep, $data);
@@ -439,8 +439,8 @@ class GphpChart
                         } // no values = "neither positions nor labels. The Chart API therefore assumes a range of 0 to 100 and spaces the values evenly."
                         // axis range
 
-                        if ($this->chart_type === 'line' || $this->chart_type === 'bar') {
-                            if ($axis === 'x' || $axis === 't') {
+                        if ('line' === $this->chart_type || 'bar' === $this->chart_type) {
+                            if ('x' === $axis || 't' === $axis) {
                                 if ($this->max_xt) {
                                     $this->chart->chxr[$n] = $n . ',' . $this->min_xt . ',' . $this->max_xt;
                                 }
@@ -452,13 +452,13 @@ class GphpChart
                         }
 
                         // axis labels
-                        if ($this->chart_type === 'pie') {
-                            if ($axis === 'p') {
+                        if ('pie' === $this->chart_type) {
+                            if ('p' === $axis) {
                                 $this->chart->chl[$n] = implode('|', $labels);
                             }
                         }
 
-                        if ($this->chart_type === 'world') {
+                        if ('world' === $this->chart_type) {
                             $this->chart->chld[$n] = implode('|', $labels);
                         }
 
@@ -507,17 +507,17 @@ class GphpChart
      */
     public function encode_data($data, $ratio = true)
     {
-        if ($this->encoding === 's') {
+        if ('s' === $this->encoding) {
             foreach ($data as $n => $value) {
-                if (empty($value) || $value == '') {
+                if (empty($value) || '' == $value) {
                     $data[$n] = $this->missing;
                 } else {
                     $data[$n] = $this->simple_encoding[$value];
                 }
             }
-        } elseif ($this->encoding === 't') {
+        } elseif ('t' === $this->encoding) {
             foreach ($data as $n => $value) {
-                if (empty($value) || $value == '') {
+                if (empty($value) || '' == $value) {
                     $data[$n] = $this->missing;
                 } elseif ($ratio && $this->ratio) {
                     $data[$n] = (float)round($value * $this->ratio, 1);
@@ -525,11 +525,11 @@ class GphpChart
                     $data[$n] = (float)$value;
                 }
             }
-        } elseif ($this->encoding === 'e') {
+        } elseif ('e' === $this->encoding) {
             $max = 0;
             $min = 100000;
             foreach ($data as $n => $value) {
-                if (empty($value) || $value == '') {
+                if (empty($value) || '' == $value) {
                     $data[$n] = $this->missing;
                 } else {
                     // normalize

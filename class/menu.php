@@ -222,11 +222,11 @@ class menu
     {
         $ret = "<div class='rmmenuicon'>";
         foreach ($this->_items as $k => $v) {
-            $ret .= "<a href='$v[link]' title='" . ($v['alt'] != '' ? $v['alt'] : $v['name']) . "'>" . ($v['icon'] != '' ? "<img src='$v[icon]' alt='$v[name]'> " : '');
-            if ($v['name'] != '') {
+            $ret .= "<a href='$v[link]' title='" . ('' != $v['alt'] ? $v['alt'] : $v['name']) . "'>" . ('' != $v['icon'] ? "<img src='$v[icon]' alt='$v[name]'> " : '');
+            if ('' != $v['name']) {
                 $ret .= "<span>$v[name]</span>";
             }
-            if ($v['extra'] != '') {
+            if ('' != $v['extra']) {
                 $ret .= "<span class='uno'>$v[extra]</span>";
             }
             $ret .= '</a>';

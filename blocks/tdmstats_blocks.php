@@ -32,67 +32,67 @@ function b_tdmstats_show($options)
     $results = CountDays();
     $block   = [];
     foreach (array_keys($options) as $i) {
-        if ($options[$i] == 1) {
+        if (1 == $options[$i]) {
             $block['max_date']      = formatTimestamp($results['max_date'], 's');
             $block['lang_max_date'] = _MB_ISTATS_MAX_DATE;            // The busiest day
         }
-        if ($options[$i] == 2) {
+        if (2 == $options[$i]) {
             $block['lang_max_daycount'] = _MB_ISTATS_MAX_DAYCOUNT;        // The number of visits on the busiest day
             $block['max_daycount']      = '' . $results['max_daycount'] . '';
         }
-        if ($options[$i] == 3) {
+        if (3 == $options[$i]) {
             $block['max_week']      = '#' . $results['max_week_w'] . '&nbsp;&nbsp;&nbsp;' . $results['max_week_y'];
             $block['lang_max_week'] = _MB_ISTATS_MAX_WEEK;
         }
-        if ($options[$i] == 4) {
+        if (4 == $options[$i]) {
             $block['lang_max_weekcount'] = _MB_ISTATS_MAX_WEEKCOUNT;        // The number of visitors in the busiest week
             $block['max_weekcount']      = '' . $results['max_weekcount'] . '';
         }
-        if ($options[$i] == 5) {
+        if (5 == $options[$i]) {
             $block['max_mth']      = $results['max_mth_m'] . '/' . $results['max_mth_y'];
             $block['lang_max_mth'] = _MB_ISTATS_MAX_MTH;
         }
-        if ($options[$i] == 6) {
+        if (6 == $options[$i]) {
             $block['lang_max_mthcount'] = _MB_ISTATS_MAX_MTHCOUNT;        // The number of visitors in the busiest month
             $block['max_mthcount']      = '' . $results['max_mthcount'] . '';
         }
-        if ($options[$i] == 7) {
+        if (7 == $options[$i]) {
             $block['lang_total_days'] = _MB_ISTATS_TOTAL_DAYS;            // The number of days that stats are available for
             $block['days']            = '' . $results['days'] . '';
         }
-        if ($options[$i] == 8) {
+        if (8 == $options[$i]) {
             $block['lang_total_visits'] = _MB_ISTATS_TOTAL_VISITS;        // The total number of visitors
             $block['total']             = '' . $results['total'] . '';
         }
-        if ($options[$i] == 9) {
+        if (9 == $options[$i]) {
             $block['lang_today'] = _MB_ISTATS_TODAY;                // The number of visitors so far today
             $block['today']      = '' . $results['today'] . '';
         }
-        if ($options[$i] == 10) {
+        if (10 == $options[$i]) {
             $block['lang_this_week'] = _MB_ISTATS_THIS_WEEK;            // The number of visitors so far this week
             $block['this_week']      = '' . $results['this_week'] . '';
         }
-        if ($options[$i] == 11) {
+        if (11 == $options[$i]) {
             $block['lang_this_mth'] = _MB_ISTATS_THIS_MTH;            // The number of visitors so far this month
             $block['this_mth']      = '' . $results['this_mth'] . '';
         }
-        if ($options[$i] == 12) {
+        if (12 == $options[$i]) {
             $block['lang_ave_hour'] = _MB_ISTATS_AVE_HOUR;            // The average number of visitors per hour
             $block['ava_hour']      = '' . sprintf('%.2f', $results['ava_hour']) . '';
         }
-        if ($options[$i] == 13) {
+        if (13 == $options[$i]) {
             $block['lang_ave_day'] = _MB_ISTATS_AVE_DAY;                // The average number of visitors per day
             $block['ava_day']      = '' . sprintf('%.2f', $results['ava_day']) . '';
         }
-        if ($options[$i] == 14) {
+        if (14 == $options[$i]) {
             $block['lang_ave_week'] = _MB_ISTATS_AVE_WEEK;            // The average number of visitors per week
             $block['ava_week']      = '' . sprintf('%.2f', $results['ava_week']) . '';
         }
-        if ($options[$i] == 15) {
+        if (15 == $options[$i]) {
             $block['lang_ave_mth'] = _MB_ISTATS_AVE_MTH;                // The average number of visitors per month
             $block['ava_mth']      = '' . sprintf('%.2f', $results['ava_mth']) . '';
         }
-        if ($options[$i] == 16) {
+        if (16 == $options[$i]) {
             $block['lang_p_page'] = _MB_ISTATS_P_PAGE;                // The total number of pages served
             $block['totalpages']  = $results['totalpages'];
         }
@@ -120,7 +120,7 @@ function b_tdmstats_counter_show($options)
     $block['welcome'] = _MB_ISTATS_WELCOME;
     $block['uname']   = !empty($xoopsUser) ? $xoopsUser->getVar('uname', 'E') : _MB_ISTATS_ANONYMOUS;
 
-    if ($options[0] == 1) {
+    if (1 == $options[0]) {
         if (is_object($xoopsUser)) {
             $block['avatar'] = $xoopsUser->getVar('user_avatar');
             if (file_exists(XOOPS_ROOT_PATH . '/uploads/' . $block['avatar'])) {
@@ -259,7 +259,7 @@ function b_tdmstats_info_show($options)
 
     $block['uname'] = !empty($xoopsUser) ? $xoopsUser->getVar('uname', 'E') : _MB_ISTATS_ANONYMOUS;
 
-    if ($options[0] == 1) {
+    if (1 == $options[0]) {
         if (is_object($xoopsUser)) {
             $block['avatar'] = $xoopsUser->getVar('user_avatar');
             if (file_exists(XOOPS_ROOT_PATH . '/uploads/' . $block['avatar'])) {
@@ -321,7 +321,7 @@ function b_tdmstats_edit($options)
     ];
     $form   = _MB_ISTATS_INFO_DESC . "<br><select name=\"options[]\" multiple=\"multiple\" size=\"10\">";
     foreach ($option as $key => $value) {
-        $form .= "<option value=\"" . $key . "\" " . (array_search($key, $options) === false ? '' : 'selected') . '>' . $value . '</option>';
+        $form .= "<option value=\"" . $key . "\" " . (false === array_search($key, $options) ? '' : 'selected') . '>' . $value . '</option>';
     }
     $form .= '</select>';
 
@@ -340,11 +340,11 @@ function b_tdmstats_counter_edit($options)
     require_once XOOPS_ROOT_PATH . '/mainfile.php';
 
     $form = '' . _MB_ISTATS_DISPLAY_AVATAR . "&nbsp;<input type='radio' id='options[]' name='options[]' value='1'";
-    if ($options[0] == 1) {
+    if (1 == $options[0]) {
         $form .= ' checked';
     }
     $form .= '>&nbsp;' . _MB_ISTATS_YES . "&nbsp;<input type='radio' id='options[]' name='options[]' value='0'";
-    if ($options[0] == 0) {
+    if (0 == $options[0]) {
         $form .= ' checked';
     }
     $form     .= '>&nbsp;' . _MB_ISTATS_NO . '<br>';
@@ -370,11 +370,11 @@ function b_tdmstats_info_edit($options)
     require_once XOOPS_ROOT_PATH . '/mainfile.php';
 
     $form = '' . _MB_ISTATS_DISPLAY_AVATAR . "&nbsp;<input type='radio' id='options[]' name='options[]' value='1'";
-    if ($options[0] == 1) {
+    if (1 == $options[0]) {
         $form .= ' checked';
     }
     $form .= '>&nbsp;' . _MB_ISTATS_YES . "&nbsp;<input type='radio' id='options[]' name='options[]' value='0'";
-    if ($options[0] == 0) {
+    if (0 == $options[0]) {
         $form .= ' checked';
     }
     $form     .= '>&nbsp;' . _MB_ISTATS_NO . '<br>';

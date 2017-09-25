@@ -111,7 +111,7 @@ require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/class/m
 require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/include/function.php';
 
 ////
-if (isset($_REQUEST['table']) && $_REQUEST['op'] == 'optimise') {
+if (isset($_REQUEST['table']) && 'optimise' == $_REQUEST['op']) {
     $sq1     = 'OPTIMIZE TABLE ' . $xoopsDB->prefix('' . $_REQUEST['table'] . '');
     $result1 = $xoopsDB->queryF($sq1);
     if ($result1) {

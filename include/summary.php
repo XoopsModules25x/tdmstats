@@ -70,7 +70,7 @@ if (!isset($summary['max_week_y'])) {
     $summary['max_week_y'] = 0;
 }
 
-if ($xoopsModuleConfig['longdate'] == 1) {
+if (1 == $xoopsModuleConfig['longdate']) {
     $summary['max_week'] = '#' . $summary['max_week_w'] . '&nbsp;&nbsp;&nbsp;' . $summary['max_week_y'];
 } else {
     $summary['max_week'] = $summary['max_week_y'] . '&nbsp;&nbsp;&nbsp;#' . $summary['max_week_w'];
@@ -87,7 +87,7 @@ if (!isset($summary['max_mth_y'])) {
     $summary['max_mth_y'] = 0;
 }
 
-if ($xoopsModuleConfig['longdate'] == 1) {
+if (1 == $xoopsModuleConfig['longdate']) {
     $summary['max_mth'] = $summary['max_mth_m'] . '/' . $summary['max_mth_y'];
 } else {
     $summary['max_mth'] = $summary['max_mth_y'] . '/' . $summary['max_mth_m'];

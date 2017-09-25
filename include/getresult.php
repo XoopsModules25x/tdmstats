@@ -24,7 +24,7 @@ function getResult($query)
 
     $result = $xoopsDB->query($query);
     $row    = $xoopsDB->fetchArray($result);
-    while ($row != null) {
+    while (null != $row) {
         $data[] = $row;
         $row    = $xoopsDB->fetchArray($result);
     }

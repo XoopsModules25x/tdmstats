@@ -40,7 +40,7 @@ if (is_object($xoopsUser)) {
 require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/include/getresult.php';
 
 ///passer par admin
-if ($xoopsModuleConfig['maxuser'] == 0 && $groups[0] == 1) {
+if (0 == $xoopsModuleConfig['maxuser'] && 1 == $groups[0]) {
     return;
 }
 
@@ -85,7 +85,7 @@ if (!isset($_SESSION['tdmstats'])) {
  */
 $page = $_REQUEST['page'];
 
-if ($page != '') {
+if ('' != $page) {
     $check_page = getResult('SELECT * FROM ' . XOOPS_DB_PREFIX . "_tdmstats_page WHERE page='$page'");
     if ($check_page) {
         $xoopsDB->query('UPDATE ' . XOOPS_DB_PREFIX . "_tdmstats_page SET count=count+1 WHERE page='$page'");
@@ -100,7 +100,7 @@ if ($page != '') {
  * @feature
  * Keeps total count of pages served, including refreshes and revisits
  */
-if ($_REQUEST['ismodule'] != '') {
+if ('' != $_REQUEST['ismodule']) {
     $ismodule   = $_REQUEST['ismodule'];
     $check_page = getResult('SELECT * FROM ' . XOOPS_DB_PREFIX . "_tdmstats_modules WHERE modules='$ismodule'");
     if ($check_page) {
@@ -123,7 +123,7 @@ $test = preg_match('/^(.*)\((.*)\)/', $result[0], $matches);
 Dans le tableau $result, on trouve :*/
 $ispays    = strstr($result[0], ' ');
 $iscountry = $matches[2];
-if ($result != '') {
+if ('' != $result) {
     $check_pays = getResult('SELECT * FROM ' . XOOPS_DB_PREFIX . "_tdmstats_pays WHERE pays='$ispays'");
     if ($check_pays) {
         $xoopsDB->query('UPDATE ' . XOOPS_DB_PREFIX . "_tdmstats_pays SET count=count+1 , country='$iscountry' WHERE pays='$ispays'");
@@ -166,7 +166,7 @@ if ($r_hostname == $_SERVER['REMOTE_ADDR']) {
 } else {
     $r_hostname = explode('.', $r_hostname);
     $host_size  = count($r_hostname);
-    if ($host_size == 3) {
+    if (3 == $host_size) {
         $hostname = $r_hostname[$host_size - 2] . '.' . $r_hostname[$host_size - 1];
     } else {
         $hostname = $r_hostname[$host_size - 3] . '.' . $r_hostname[$host_size - 2] . '.' . $r_hostname[$host_size - 1];
@@ -195,7 +195,7 @@ if (false === strpos($referer, XOOPS_URL)) {
     $check_ref = getResult('SELECT * FROM ' . XOOPS_DB_PREFIX . "_tdmstats_referer WHERE url='" . $referer . "'");
     if ($check_ref) {
         $xoopsDB->query('update ' . XOOPS_DB_PREFIX . "_tdmstats_referer set count=count+1 where url='" . $referer . "'");
-    } elseif ($referer != '') {
+    } elseif ('' != $referer) {
         $xoopsDB->query('INSERT INTO ' . XOOPS_DB_PREFIX . "_tdmstats_referer VALUES('', '" . $referer . "', '1')");
     }
 }

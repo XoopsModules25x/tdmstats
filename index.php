@@ -61,7 +61,7 @@ switch ($action) {
         $perm_4  = $gpermHandler->checkRight('istats_view', 4, $groups, $xoopsModule->getVar('mid')) ? true : false;
         $perm_8  = $gpermHandler->checkRight('istats_view', 8, $groups, $xoopsModule->getVar('mid')) ? true : false;
         $perm_16 = $gpermHandler->checkRight('istats_view', 16, $groups, $xoopsModule->getVar('mid')) ? true : false;
-        if ($perm_4 === false && $perm_8 === false && $perm_16 === false) {
+        if (false === $perm_4 && false === $perm_8 && false === $perm_16) {
             redirect_header(XOOPS_URL, 2, _NOPERM);
         }
         //perm

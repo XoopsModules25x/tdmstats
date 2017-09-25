@@ -125,7 +125,7 @@ function CountAvg($item)
 {
     global $xoopsDB;
 
-    if ($item === 'hour') {
+    if ('hour' === $item) {
         $hour     = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_hour') . ' ORDER BY hour');
         $hour_sum = getResult('SELECT sum(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_hour') . '');
 

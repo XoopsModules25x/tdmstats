@@ -23,7 +23,7 @@ function getResult($query)
 {
     $result = $xoopsDB->query($query);
     $row    = $xoopsDB->fetchBoth($result);
-    while ($row != null) {
+    while (null != $row) {
         $data[] = $row;
         $row    = $xoopsDB->fetchBoth($result);
     }

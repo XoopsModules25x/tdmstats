@@ -62,7 +62,7 @@ $month     = [
 $this_mths = date('m');
 $mths      = $month[$this_mths];
 $leap      = date('L');
-if ($this_mths == '2' && $leap > 0) {
+if ('2' == $this_mths && $leap > 0) {
     ++$mths;
 }
 
