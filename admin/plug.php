@@ -17,6 +17,7 @@
  * @author       TDM   - TEAM DEV MODULE FOR XOOPS
  * @author       XOOPS Development Team
  */
+require_once __DIR__ . '/admin_header.php';
 
 require_once __DIR__ . '/../../../include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
@@ -30,7 +31,7 @@ require_once __DIR__ . '/admin_header.php';
 $adminObject = \Xmf\Module\Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));
 
-$myts = MyTextSanitizer::getInstance();
+$myts = \MyTextSanitizer::getInstance();
 $op   = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
 
 switch ($op) {

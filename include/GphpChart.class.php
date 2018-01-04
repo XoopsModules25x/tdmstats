@@ -520,7 +520,7 @@ class GphpChart
                 if (empty($value) || '' == $value) {
                     $data[$n] = $this->missing;
                 } elseif ($ratio && $this->ratio) {
-                    $data[$n] = (float)round($value * $this->ratio, 1);
+                    $data[$n] = round($value * $this->ratio, 1);
                 } else {
                     $data[$n] = (float)$value;
                 }

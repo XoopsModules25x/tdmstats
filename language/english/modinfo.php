@@ -9,6 +9,7 @@ define('_MI_ISTATS_DESC', 'Statistics of visits');
 
 // menu
 // The name of this module
+define('_MI_ISTATS_HOME', 'Home');
 define('_MI_ISTATS_INDEX', 'Management');
 define('_MI_ISTATS_PLUG', 'Plugins');
 define('_MI_ISTATS_PERMISSIONS', 'Permissions');

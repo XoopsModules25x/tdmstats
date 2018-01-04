@@ -30,13 +30,13 @@ function CountDays()
     $mth  = date('m');
     $year = formatTimestamp(time(), 'Y');
 
-    $days           = getResult('SELECT count(DISTINCT date) AS count FROM ' . $xoopsDB->prefix('tdmstats_daycount') . '');
+    $days           = getResult('SELECT count(DISTINCT date) AS count FROM ' . $xoopsDB->prefix('tdmstats_daycount') . ' ');
     $result['days'] = $days[0]['count'];
 
-    $total_visits    = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_count') . '');
+    $total_visits    = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_count') . ' ');
     $result['total'] = $total_visits[0]['count'];
 
-    if ($result['total'] > 0) {
+    if ($result['total'] > 0 && $result['days'] > 0) {
         $result['ava_day']  = $result['total'] / $result['days'];
         $result['ava_hour'] = $result['ava_day'] / 24;
         $result['ava_week'] = $result['ava_day'] * 7;
@@ -231,7 +231,7 @@ function Adminmenu($currentoption = 0, $breadcrumb = '')
     ";
 
     global $xoopsModule, $xoopsConfig;
-    $myts = MyTextSanitizer::getInstance();
+    $myts = \MyTextSanitizer::getInstance();
 
     $tblColors                 = [];
     $tblColors[0]              = $tblColors[1] = $tblColors[2] = $tblColors[3] = $tblColors[4] = $tblColors[5] = $tblColors[6] = $tblColors[7] = $tblColors[8] = '';
@@ -243,7 +243,7 @@ function Adminmenu($currentoption = 0, $breadcrumb = '')
     }
 
     echo "<div id='buttontop'>";
-    echo "<table style=\"width: 100%; padding: 0; \" cellspacing=\"0\"><tr>";
+    echo '<table style="width: 100%; padding: 0; " cellspacing="0"><tr>';
     //echo "<td style=\"width: 45%; font-size: 10px; text-align: left; color: #2F5376; padding: 0 6px; line-height: 18px;\"><a class=\"nobutton\" href=\"../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=" . $xoopsModule->getVar('mid') . "\">" . _AM_SF_OPTS . "</a> | <a href=\"import.php\">" . _AM_SF_IMPORT . "</a> | <a href=\"../index.php\">" . _AM_SF_GOMOD . "</a> | <a href=\"../help/index.html\" target=\"_blank\">" . _AM_SF_HELP . "</a> | <a href=\"about.php\">" . _AM_SF_ABOUT . "</a></td>";
     echo "<td style='font-size: 10px; text-align: left; color: #2F5376; padding: 0 6px; line-height: 18px;'>
     <a href='" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . "/index.php'>" . $xoopsModule->getVar('dirname') . '</a>
@@ -254,10 +254,10 @@ function Adminmenu($currentoption = 0, $breadcrumb = '')
 
     echo "<div id='buttonbar'>";
     echo '<ul>';
-    echo "<li id='" . $tblColors[0] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . "/admin/index.php\"><span>" . _AM_ISTATS_INDEXDESC . '</span></a></li>';
-    echo "<li id='" . $tblColors[1] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . "/admin/plug.php\"><span>" . _AM_ISTATS_PLUG . '</span></a></li>';
-    echo "<li id='" . $tblColors[2] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . "/admin/about.php\"><span>" . _AM_ISTATS_ABOUT . '</span></a></li>';
-    echo "<li id='" . $tblColors[3] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . "/admin/permissions.php\"><span>" . _AM_ISTATS_PERM . '</span></a></li>';
+    echo "<li id='" . $tblColors[0] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/admin/index.php"><span>' . _AM_ISTATS_INDEXDESC . '</span></a></li>';
+    echo "<li id='" . $tblColors[1] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/admin/plug.php"><span>' . _AM_ISTATS_PLUG . '</span></a></li>';
+    echo "<li id='" . $tblColors[2] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/admin/about.php"><span>' . _AM_ISTATS_ABOUT . '</span></a></li>';
+    echo "<li id='" . $tblColors[3] . "'><a href=\"" . XOOPS_URL . '/modules/' . $xoopsModule->getVar('dirname') . '/admin/permissions.php"><span>' . _AM_ISTATS_PERM . '</span></a></li>';
     echo "<li id='" . $tblColors[4] . "'><a href='../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod=" . $xoopsModule->getVar('mid') . "'><span>" . _AM_ISTATS_PERM . '</span></a></li>';
     echo '</ul></div>&nbsp;';
 }

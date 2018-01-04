@@ -319,9 +319,9 @@ function b_tdmstats_edit($options)
         '15' => _MB_ISTATS_AVE_MTH,
         '16' => _MB_ISTATS_P_PAGE
     ];
-    $form   = _MB_ISTATS_INFO_DESC . "<br><select name=\"options[]\" multiple=\"multiple\" size=\"10\">";
+    $form   = _MB_ISTATS_INFO_DESC . '<br><select name="options[]" multiple="multiple" size="10">';
     foreach ($option as $key => $value) {
-        $form .= "<option value=\"" . $key . "\" " . (false === array_search($key, $options) ? '' : 'selected') . '>' . $value . '</option>';
+        $form .= '<option value="' . $key . '" ' . (false === array_search($key, $options) ? '' : 'selected') . '>' . $value . '</option>';
     }
     $form .= '</select>';
 

@@ -24,7 +24,7 @@ include XOOPS_ROOT_PATH . '/header.php';
 require_once __DIR__ . '/include/function.php';
 $gpermHandler = xoops_getHandler('groupperm');
 
-$myts    = MyTextSanitizer::getInstance();
+$myts    = \MyTextSanitizer::getInstance();
 $db_link = mysqli_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);
 mysqli_select_db(XOOPS_DB_NAME, $db_link);
 

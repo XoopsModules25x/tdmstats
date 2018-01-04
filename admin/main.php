@@ -17,14 +17,14 @@
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
  * @author        XOOPS Development Team
  */
-
+require_once __DIR__ . '/admin_header.php';
 require_once __DIR__ . '/../../../include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once XOOPS_ROOT_PATH . '/class/tree.php';
 require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
 
 xoops_cp_header();
-require_once __DIR__ . '/admin_header.php';
+
 
 //apelle du menu admin
 
@@ -102,7 +102,7 @@ $result1 = $xoopsDB->queryF($sq1);
 $pays    = $xoopsDB->fetchArray($result1);
 ////////////////
 //tdmstats_usercounts
-$sq1     = "SHOW TABLE STATUS FROM `" . XOOPS_DB_NAME . "` LIKE '" . $xoopsDB->prefix("TDMStats_usercount") . "'";
+$sq1     = 'SHOW TABLE STATUS FROM `' . XOOPS_DB_NAME . "` LIKE '" . $xoopsDB->prefix('TDMStats_usercount') . "'";
 $result1 = $xoopsDB->queryF($sq1);
 $user    = $xoopsDB->fetchArray($result1);
 ////////////////
@@ -270,4 +270,4 @@ echo '<br><br>
 	</fieldset ><br><br>';
 
 echo '</td ></tr ></table > ';
-require_once __DIR__ . ' / admin_footer . php';
+require_once __DIR__ . ' /admin_footer.php';

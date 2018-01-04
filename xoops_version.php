@@ -18,6 +18,8 @@
  * @author       XOOPS Development Team
  */
 
+require_once __DIR__ . '/preloads/autoloader.php';
+
 $modversion['version']             = '1.10';
 $modversion['module_status']       = 'Beta 1';
 $modversion['release_date']        = '2017/04/23';
@@ -106,7 +108,7 @@ $modversion['tables'][16] = 'tdmstats_pays';
 $modversion['tables'][17] = 'tdmstats_usercount';
 $modversion['tables'][18] = 'tdmstats_referer';
 $modversion['tables'][19] = 'tdmstats_hour';
-$modversion['tables'][20] = 'tdmstats_daycount';
+
 
 // Admin things
 $modversion['hasAdmin']    = 1;

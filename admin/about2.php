@@ -39,8 +39,8 @@ echo '</div><br>';
 /** @var XoopsModuleHandler $moduleHandler */
 $moduleHandler = xoops_getHandler('module');
 $versioninfo   = $moduleHandler->get($xoopsModule->getVar('mid'));
-echo "
-    <style type=\"text/css\">
+echo '
+    <style type="text/css">
     label,text {
         display: block;
         float: left;
@@ -55,7 +55,7 @@ echo "
         clear: left;
     }
     </style>
-";
+';
 
 echo "<fieldset><legend style='font-weight: bold; color: #900;'>" . $xoopsModule->getVar('name') . '</legend>';
 echo "<div style='padding: 8px;'>";
@@ -64,10 +64,10 @@ echo "<div style='padding: 5px;'><strong>" . $versioninfo->getInfo('name') . ' v
 echo '<label>' . _AM_ABOUT_RELEASEDATE . ':</label><text>' . $versioninfo->getInfo('release') . '</text><br>';
 echo '<label>' . _AM_ABOUT_AUTHOR . ':</label><text>' . $versioninfo->getInfo('author') . '</text><br>';
 echo '<label>' . _AM_ABOUT_CREDITS . ':</label><text>' . $versioninfo->getInfo('credits') . '</text><br>';
-echo '<label>' . _AM_ABOUT_LICENSE . ":</label><text><a href=\"" . $versioninfo->getInfo('license_file') . "\" target=\"_blank\" >" . $versioninfo->getInfo('license') . "</a></text>\n";
+echo '<label>' . _AM_ABOUT_LICENSE . ':</label><text><a href="' . $versioninfo->getInfo('license_file') . '" target="_blank" >' . $versioninfo->getInfo('license') . "</a></text>\n";
 echo '</div>';
 echo '</fieldset>';
-echo "<br clear=\"all\">";
+echo '<br clear="all">';
 
 echo "<fieldset><legend style='font-weight: bold; color: #900;'>" . _AM_ABOUT_MODULE_INFO . '</legend>';
 echo "<div style='padding: 8px;'>";
@@ -75,7 +75,7 @@ echo '<label>' . _AM_ABOUT_MODULE_STATUS . ':</label><text>' . $versioninfo->get
 echo '<label>' . _AM_ABOUT_WEBSITE . ':</label><text>' . "<a href='" . $versioninfo->getInfo('module_website_url') . "' target='_blank'>" . $versioninfo->getInfo('module_website_name') . '</a>' . '</text><br>';
 echo '</div>';
 echo '</fieldset>';
-echo "<br clear=\"all\">";
+echo '<br clear="all">';
 
 echo "<fieldset><legend style='font-weight: bold; color: #900;'>" . _AM_ABOUT_AUTHOR_INFO . '</legend>';
 echo "<div style='padding: 8px;'>";
@@ -83,7 +83,7 @@ echo '<label>' . _AM_ABOUT_AUTHOR_NAME . ':</label><text>' . $versioninfo->getIn
 echo '<label>' . _AM_ABOUT_WEBSITE . ':</label><text>' . "<a href='" . $versioninfo->getInfo('author_website_url') . "' target='_blank'>" . $versioninfo->getInfo('author_website_name') . '</a>' . '</text><br>';
 echo '</div>';
 echo '</fieldset>';
-echo "<br clear=\"all\">";
+echo '<br clear="all">';
 
 $file = XOOPS_ROOT_PATH . '/modules/tdmstats/changelog.txt';
 if (is_readable($file)) {
@@ -92,7 +92,7 @@ if (is_readable($file)) {
     echo '<div>' . implode('<br>', file($file)) . '</div>';
     echo '</div>';
     echo '</fieldset>';
-    echo "<br clear=\"all\">";
+    echo '<br clear="all">';
 }
 
 xoops_cp_footer();

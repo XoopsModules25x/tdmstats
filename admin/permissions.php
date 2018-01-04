@@ -18,6 +18,8 @@
  * @author       XOOPS Development Team
  */
 
+require_once __DIR__ . '/admin_header.php';
+
 require_once __DIR__ . '/../../../include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once XOOPS_ROOT_PATH . '/class/tree.php';
@@ -32,7 +34,7 @@ if (!empty($_POST['submit'])) {
     redirect_header(XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/admin/permissions.php', 1, _AM_XD_GPERMUPDATED);
 }
 xoops_cp_header();
-require_once __DIR__ . '/admin_header.php';
+//require_once __DIR__ . '/admin_header.php';
 
 $adminObject = \Xmf\Module\Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));

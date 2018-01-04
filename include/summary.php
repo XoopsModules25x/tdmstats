@@ -264,28 +264,30 @@ if ($ref_info) {
 
 $ref_info  = getResult('select distinct url, count from ' . $xoopsDB->prefix('tdmstats_referer') . " order by count desc limit $max");
 $ref_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_referer') . '');
-for ($i = 0, $iMax = count($ref_info); $i < $iMax; ++$i) {
-    if ($ref_total[0]['sum'] > 0) {
-        $ref_percent = $ref_info[$i]['count'] * 100 / $ref_total[0]['sum'];
-    } else {
-        $ref_percent = 0;
-    }
+if(is_array($ref_info) && count($ref_info) > 0) {
+    for ($i = 0, $iMax = count($ref_info); $i < $iMax; ++$i) {
+        if ($ref_total[0]['sum'] > 0) {
+            $ref_percent = $ref_info[$i]['count'] * 100 / $ref_total[0]['sum'];
+        } else {
+            $ref_percent = 0;
+        }
 
-    $ref['info'][] = $ref_info[$i]['count'];
-    //$ref['ref'][] = (strlen($ref_info[$i]['url']) > 50 ? substr($ref_info[$i]['url'],0,(50))."..." : $ref_info[$i]['url']);
-    $title            = $ref_info[$i]['url'];
-    $url              = (strlen($ref_info[$i]['url']) > 50 ? substr($ref_info[$i]['url'], 0, 50) . '...' : $ref_info[$i]['url']);
-    $ref['percent'][] = round($ref_percent, '2');
+        $ref['info'][] = $ref_info[$i]['count'];
+        //$ref['ref'][] = (strlen($ref_info[$i]['url']) > 50 ? substr($ref_info[$i]['url'],0,(50))."..." : $ref_info[$i]['url']);
+        $title            = $ref_info[$i]['url'];
+        $url              = (strlen($ref_info[$i]['url']) > 50 ? substr($ref_info[$i]['url'], 0, 50) . '...' : $ref_info[$i]['url']);
+        $ref['percent'][] = round($ref_percent, '2');
 
-    if ($ref_percent > 0) {
-        //$xoopsTpl->append('refs', array('id' => 'ref'.$i, 'ref' => $url, 'title' => $title, 'info' => $ref_info[$i]['count'], 'percent' => round($ref_percent, '2')));
-        $xoopsTpl->append('refs_map', [
-            'id'      => 'ref' . $i,
-            'ref'     => $url,
-            'title'   => $title,
-            'info'    => $ref_info[$i]['count'],
-            'percent' => round($ref_percent, '2')
-        ]);
+        if ($ref_percent > 0) {
+            //$xoopsTpl->append('refs', array('id' => 'ref'.$i, 'ref' => $url, 'title' => $title, 'info' => $ref_info[$i]['count'], 'percent' => round($ref_percent, '2')));
+            $xoopsTpl->append('refs_map', [
+                'id'      => 'ref' . $i,
+                'ref'     => $url,
+                'title'   => $title,
+                'info'    => $ref_info[$i]['count'],
+                'percent' => round($ref_percent, '2')
+            ]);
+        }
     }
 }
 
@@ -311,8 +313,8 @@ if ($pays_info) {
 
 $max        = $xoopsModuleConfig['maxpage'];
 $pays_info  = getResult('select distinct country, pays, count from ' . $xoopsDB->prefix('tdmstats_pays') . " order by count desc limit $max");
-$pays_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_pays') . '');
-
+$pays_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_pays') . ' ');
+if(is_array($pays_info) && count($pays_info) > 0) {
 for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
     if ($pays_total[0]['sum'] > 0) {
         $pays_percent = $pays_info[$i]['count'] * 100 / $pays_total[0]['sum'];
@@ -343,7 +345,7 @@ for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
         ]);
     }
 }
-
+}
 $xoopsTpl->assign('lang_by_ref', _AM_BY_REF);
 $xoopsTpl->assign('lang_ref_visits', _AM_REF_VISITS);
 $xoopsTpl->assign('lang_ref_percent', _AM_REF_PERCENT);

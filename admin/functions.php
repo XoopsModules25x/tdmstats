@@ -33,13 +33,13 @@ function adminmenu($currentoption = 0)
     } else {
         require_once __DIR__ . '/../language/english/modinfo.php';
     }
-    echo "<div id=\"navcontainer\"><ul style=\"padding: 3px 0; margin-left: 0; font: bold 12px Verdana, sans-serif; \">";
-    echo "<li style=\"list-style: none; margin: 0; display: inline; \"><a href=\"index.php?op=istatsConfig\" style=\"padding: 3px 0.5em; margin-left: 3px; border: 1px solid #778; background: " . $tblColors[0] . "; text-decoration: none; \">" . _MI_ISTATS_COOKIE_MENU . '</a></li>';
-    echo "<li style=\"list-style: none; margin: 0; display: inline; \"><a href=\"../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod="
+    echo '<div id="navcontainer"><ul style="padding: 3px 0; margin-left: 0; font: bold 12px Verdana, sans-serif; ">';
+    echo '<li style="list-style: none; margin: 0; display: inline; "><a href="index.php?op=istatsConfig" style="padding: 3px 0.5em; margin-left: 3px; border: 1px solid #778; background: ' . $tblColors[0] . '; text-decoration: none; ">' . _MI_ISTATS_COOKIE_MENU . '</a></li>';
+    echo '<li style="list-style: none; margin: 0; display: inline; "><a href="../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod='
          . $xoopsModule->getVar('mid')
-         . "\" style=\"padding: 3px 0.5em; margin-left: 3px; border: 1px solid #778; background: "
+         . '" style="padding: 3px 0.5em; margin-left: 3px; border: 1px solid #778; background: '
          . $tblColors[1]
-         . "; text-decoration: none; \">"
+         . '; text-decoration: none; ">'
          . _PREFERENCES
          . '</a></li></div></ul>';
 }
