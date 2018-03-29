@@ -18,6 +18,10 @@
  * @author       XOOPS Development Team
  */
 
+use XoopsModules\Tdmstats;
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 include __DIR__ . '/../../mainfile.php';
 require XOOPS_ROOT_PATH . '/header.php';
 
@@ -75,14 +79,14 @@ switch ($action) {
 $xoopsTpl->assign('action', $action);
 $xoopsTpl->assign('lang_traffic_report', _AM_TRAFFIC_REPORT);
 $xoopsTpl->assign('lang_summary', _AM_SUMMARY);
-if (isset($xoopsModuleConfig['tdmstats_bar'])) {
-    $xoopsTpl->assign('img_bar', $xoopsModuleConfig['tdmstats_bar']);
+if  (null !== ($helper->getConfig('tdmstats_bar'))) {
+    $xoopsTpl->assign('img_bar', $helper->getConfig('tdmstats_bar'));
 }
 $xoopsTpl->assign('lang_traffic', _AM_TRAFFIC);
 $xoopsTpl->assign('lang_visitor_info', _AM_VISITOR_INFO);
 $xoopsTpl->assign('lang_referer', _AM_REFERER);
 
-$tdmstats_style = isset($xoopsModuleConfig['tdmstats_style']) ? $xoopsModuleConfig['tdmstats_style'] : 'cupertino';
+$tdmstats_style = null !==($helper->getConfig('tdmstats_style')) ? $helper->getConfig('tdmstats_style') : 'cupertino';
 //include script
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/assets/js/jquery.js');
 $xoTheme->addScript(XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/assets/js/jquery-ui-1.7.2.custom.min.js');

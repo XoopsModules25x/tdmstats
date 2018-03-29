@@ -50,7 +50,7 @@ $global_perms_array = [
     '16' => _AM_ISTATS_PERM_16
 ];
 
-$permform = new XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '', 'admin/permissions.php');
+$permform = new \XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '', 'admin/permissions.php');
 
 foreach ($global_perms_array as $perm_id => $perm_name) {
     $permform->addItem($perm_id, $perm_name);

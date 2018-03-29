@@ -18,6 +18,10 @@
  * @author       XOOPS Development Team
  */
 
+use XoopsModules\Tdmstats;
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_summary.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
@@ -70,7 +74,7 @@ if (!isset($summary['max_week_y'])) {
     $summary['max_week_y'] = 0;
 }
 
-if (1 == $xoopsModuleConfig['longdate']) {
+if (1 == $helper->getConfig('longdate')) {
     $summary['max_week'] = '#' . $summary['max_week_w'] . '&nbsp;&nbsp;&nbsp;' . $summary['max_week_y'];
 } else {
     $summary['max_week'] = $summary['max_week_y'] . '&nbsp;&nbsp;&nbsp;#' . $summary['max_week_w'];
@@ -87,7 +91,7 @@ if (!isset($summary['max_mth_y'])) {
     $summary['max_mth_y'] = 0;
 }
 
-if (1 == $xoopsModuleConfig['longdate']) {
+if (1 == $helper->getConfig('longdate')) {
     $summary['max_mth'] = $summary['max_mth_m'] . '/' . $summary['max_mth_y'];
 } else {
     $summary['max_mth'] = $summary['max_mth_y'] . '/' . $summary['max_mth_m'];
@@ -151,7 +155,7 @@ if ($user_info) {
     for ($i = 0, $iMax = count($user_info); $i < $iMax; ++$i) {
         if ($user_total[0]['sum'] > 0) {
             $user_percent = $user_info[$i]['count'] * 100 / $user_total[0]['sum'];
-            // 4*100/62,5 =6,4%
+        // 4*100/62,5 =6,4%
         } else {
             $user_percent = 0;
         }
@@ -220,7 +224,7 @@ if ($hour_info) {
     for ($i = 0, $iMax = count($hour_info); $i < $iMax; ++$i) {
         if ($total_hour[0]['sum'] > 0) {
             $hour_percent = $hour_info[$i]['count'] * 100 / $total_hour[0]['sum'];
-            // 4*100/62,5 =6,4%
+        // 4*100/62,5 =6,4%
         } else {
             $hour_percent = 0;
         }
@@ -245,7 +249,7 @@ if ($hour_info) {
 $ref              = [];
 $ref['percent'][] = 0;
 $ref['color'][]   = 0;
-$max              = $xoopsModuleConfig['maxpage'];
+$max              = $helper->getConfig('maxpage');
 
 $ref_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_referer') . ' ORDER BY count DESC LIMIT 3');
 //$total_hour = getResult("select SUM(count) AS sum from ".$xoopsDB->prefix("tdmstats_today_hour")."");
@@ -264,7 +268,7 @@ if ($ref_info) {
 
 $ref_info  = getResult('select distinct url, count from ' . $xoopsDB->prefix('tdmstats_referer') . " order by count desc limit $max");
 $ref_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_referer') . '');
-if(is_array($ref_info) && count($ref_info) > 0) {
+if (is_array($ref_info) && count($ref_info) > 0) {
     for ($i = 0, $iMax = count($ref_info); $i < $iMax; ++$i) {
         if ($ref_total[0]['sum'] > 0) {
             $ref_percent = $ref_info[$i]['count'] * 100 / $ref_total[0]['sum'];
@@ -311,31 +315,31 @@ if ($pays_info) {
     }
 }
 
-$max        = $xoopsModuleConfig['maxpage'];
+$max        = $helper->getConfig('maxpage');
 $pays_info  = getResult('select distinct country, pays, count from ' . $xoopsDB->prefix('tdmstats_pays') . " order by count desc limit $max");
 $pays_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_pays') . ' ');
-if(is_array($pays_info) && count($pays_info) > 0) {
-for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
-    if ($pays_total[0]['sum'] > 0) {
-        $pays_percent = $pays_info[$i]['count'] * 100 / $pays_total[0]['sum'];
-    } else {
-        $pays_percent = 0;
-    }
+if (is_array($pays_info) && count($pays_info) > 0) {
+    for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
+        if ($pays_total[0]['sum'] > 0) {
+            $pays_percent = $pays_info[$i]['count'] * 100 / $pays_total[0]['sum'];
+        } else {
+            $pays_percent = 0;
+        }
 
-    //$pays['info'][] = $pays_info[$i]['count'];
-    //$pays['pays'][] = $pays_info[$i]['pays'];
-    //$pays['country'][] = $pays_info[$i]['country'];
-    $imgpath = XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/assets/images/flag/' . Chars(strtolower($pays_info[$i]['country'])) . '.png';
-    if (file_exists($imgpath)) {
-        $flag = "<img height='30px' alt='" . $pays_info[$i]['country'] . "' title='" . $pays_info[$i]['country'] . "' src='./assets/images/flag/" . Chars(strtolower($pays_info[$i]['country'])) . ".png'>";
-    } else {
-        $flag = "<img height='30px' alt='" . $pays_info[$i]['country'] . "' title='" . $pays_info[$i]['country'] . "' src='./assets/images/flag/none.png'>";
-    }
-    //$pays['percent'][] = round($pays_percent, '2');
-    //print_r($maxcolor[$i]);
-    if ($pays_percent > 0) {
-        //$xoopsTpl->append('payss', array('id' => 'pays'.$i, 'flag' => $flag, 'country' => $pays_info[$i]['country'], 'pays' => $pays_info[$i]['pays'], 'info' => $pays_info[$i]['count'], 'percent' => round($pays_percent, '2')));
-        $xoopsTpl->append('payss_map', [
+        //$pays['info'][] = $pays_info[$i]['count'];
+        //$pays['pays'][] = $pays_info[$i]['pays'];
+        //$pays['country'][] = $pays_info[$i]['country'];
+        $imgpath = XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/assets/images/flag/' . Chars(strtolower($pays_info[$i]['country'])) . '.png';
+        if (file_exists($imgpath)) {
+            $flag = "<img height='30px' alt='" . $pays_info[$i]['country'] . "' title='" . $pays_info[$i]['country'] . "' src='./assets/images/flag/" . Chars(strtolower($pays_info[$i]['country'])) . ".png'>";
+        } else {
+            $flag = "<img height='30px' alt='" . $pays_info[$i]['country'] . "' title='" . $pays_info[$i]['country'] . "' src='./assets/images/flag/none.png'>";
+        }
+        //$pays['percent'][] = round($pays_percent, '2');
+        //print_r($maxcolor[$i]);
+        if ($pays_percent > 0) {
+            //$xoopsTpl->append('payss', array('id' => 'pays'.$i, 'flag' => $flag, 'country' => $pays_info[$i]['country'], 'pays' => $pays_info[$i]['pays'], 'info' => $pays_info[$i]['count'], 'percent' => round($pays_percent, '2')));
+            $xoopsTpl->append('payss_map', [
             'id'      => 'pays' . $i,
             'flag'    => $flag,
             'country' => $pays_info[$i]['country'],
@@ -343,8 +347,8 @@ for ($i = 0, $iMax = count($pays_info); $i < $iMax; ++$i) {
             'info'    => $pays_info[$i]['count'],
             'percent' => round($pays_percent, '2')
         ]);
+        }
     }
-}
 }
 $xoopsTpl->assign('lang_by_ref', _AM_BY_REF);
 $xoopsTpl->assign('lang_ref_visits', _AM_REF_VISITS);

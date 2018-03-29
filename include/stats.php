@@ -18,6 +18,10 @@
  * @author       XOOPS Development Team
  */
 
+use XoopsModules\Tdmstats;
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_stats.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
@@ -29,7 +33,7 @@ if (!$gpermHandler->checkRight('istats_view', 8, $groups, $xoopsModule->getVar('
 //strftime( "%H H %M mn %S s", 82.5 * 60 ) => '02 H 22 mn 30 s'
 //
 
-setlocale(LC_ALL, $xoopsModuleConfig['setlocal'], $xoopsModuleConfig['setlocal2']);
+setlocale(LC_ALL, $helper->getConfig('setlocal'), $helper->getConfig('setlocal2'));
 $thisday    = date('d');
 $thismonth  = date('m');
 $thisyear   = date('Y');
@@ -359,7 +363,7 @@ if ($page_info) {
  */
 $page = [];
 global $xoopsDB;
-$max       = $xoopsModuleConfig['maxpage'];
+$max       = $helper->getConfig('maxpage');
 $page_info = getResult('select distinct page, count from ' . $xoopsDB->prefix('tdmstats_page') . " order by count desc limit $max ");
 //$page_max = getResult("select max(count) as max from ".$xoopsDB->prefix("tdmstats_page")."");
 $page_sum = getResult('SELECT sum(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_page') . '');
@@ -417,7 +421,7 @@ if ($module_info) {
 /////////////modules
 $module = [];
 global $xoopsDB;
-$max         = $xoopsModuleConfig['maxpage'];
+$max         = $helper->getConfig('maxpage');
 $module_info = getResult('select distinct modules, count from ' . $xoopsDB->prefix('tdmstats_modules') . " order by count desc limit $max ");
 $module_sum  = getResult('SELECT sum(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_page') . '');
 
@@ -482,7 +486,7 @@ if ($user_info) {
     for ($i = 0, $iMax = count($user_info); $i < $iMax; ++$i) {
         if ($user_total[0]['sum'] > 0) {
             $user_percent = $user_info[$i]['sum'] * 100 / $user_total[0]['sum'];
-            // 4*100/62,5 =6,4%
+        // 4*100/62,5 =6,4%
         } else {
             $user_percent = 0;
         }

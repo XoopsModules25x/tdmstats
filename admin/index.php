@@ -22,7 +22,7 @@ require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 
 $adminObject = \Xmf\Module\Admin::getInstance();
-$langue      = htmlentities($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+$langue      = htmlentities($_SERVER['HTTP_ACCEPT_LANGUAGE'], ENT_QUOTES | ENT_HTML5);
 $langs       = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 $file        = 'Vous acceptez les langues suivantes: ' . $langue . '<br>
    mais votre langue principale est: ' . $langs[0] . '';

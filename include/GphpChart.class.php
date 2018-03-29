@@ -182,7 +182,7 @@ class GphpChart
     public function legend_params($params)
     {
         $this->cached       = false;
-        $this->chart->chdlp = "$params";
+        $this->chart->chdlp = (string)$params;
     }
 
     /**
@@ -191,7 +191,7 @@ class GphpChart
     public function world_params($params)
     {
         $this->cached      = false;
-        $this->chart->chtm = "$params";
+        $this->chart->chtm = (string)$params;
     }
 
     /**

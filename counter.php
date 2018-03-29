@@ -18,6 +18,10 @@
  * @author       XOOPS Development Team
  */
 
+use XoopsModules\Tdmstats;
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 include __DIR__ . '/../../mainfile.php';
 
 include XOOPS_ROOT_PATH . '/header.php';
@@ -40,7 +44,7 @@ if (is_object($xoopsUser)) {
 require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/include/getresult.php';
 
 ///passer par admin
-if (0 == $xoopsModuleConfig['maxuser'] && 1 == $groups[0]) {
+if (0 == $helper->getConfig('maxuser') && 1 == $groups[0]) {
     return;
 }
 
@@ -52,7 +56,7 @@ $time = time();
 if (isset($_SESSION['xoops_stats_expire']) && $_SESSION['xoops_stats_expire'] > $time) {
     return;
 } else {
-    $_SESSION['xoops_stats_expire'] = $time + $xoopsModuleConfig['maxsession'];
+    $_SESSION['xoops_stats_expire'] = $time + $helper->getConfig('maxsession');
 }
 
 ///temp user
@@ -271,14 +275,14 @@ if (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Opera 7')) {
     $user_browser = 'Internet Explorer 7';
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 6')) {
     $user_browser = 'Internet Explorer 6';
-    //adding firefox
+//adding firefox
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox/3')) {
     $user_browser = 'Firefox 3';
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox/2')) {
     $user_browser = 'Firefox 2';
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox/1')) {
     $user_browser = 'Firefox 1';
-    //
+//
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome/3')) {
     $user_browser = 'Chrome 3';
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome/2')) {
@@ -343,7 +347,7 @@ if (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Windows NT 6.1')) {
     $user_os = 'Mac OS X';
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'Mac')) {
     $user_os = 'Macintosh';
-    //remove X11
+//remove X11
     // } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], "X11")) {
     //   $user_os = "X11";
 } elseif (false !== strpos($_SERVER['HTTP_USER_AGENT'], 'SunOS')) {

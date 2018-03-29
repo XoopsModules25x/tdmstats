@@ -153,7 +153,7 @@ function b_tdmstats_info_show($options)
     require_once XOOPS_ROOT_PATH . '/modules/tdmstats/include/function.php';
 
     //news member
-    $criteria = new CriteriaCompo(new Criteria('level', 0, '>'));
+    $criteria = new \CriteriaCompo(new \Criteria('level', 0, '>'));
     // $limit = (!empty($options[0])) ? $options[0] : 10;
     $criteria->setOrder('DESC');
     $criteria->setSort('user_regdate');
@@ -191,7 +191,7 @@ function b_tdmstats_info_show($options)
     $onlines = $onlineHandler->getAll();
     /** @var XoopsModuleHandler $moduleHandler */
     $moduleHandler = xoops_getHandler('module');
-    $modules       = $moduleHandler->getList(new Criteria('isactive', 1));
+    $modules       = $moduleHandler->getList(new \Criteria('isactive', 1));
     if (false != $onlines) {
         $total = count($onlines);
         //$block = array();
@@ -214,7 +214,7 @@ function b_tdmstats_info_show($options)
         }
         //$block['online']['online_total'] = sprintf(_ONLINEPHRASE, $total);
         if (is_object($xoopsModule)) {
-            $mytotal                         = $onlineHandler->getCount(new Criteria('online_module', $xoopsModule->getVar('mid')));
+            $mytotal                         = $onlineHandler->getCount(new \Criteria('online_module', $xoopsModule->getVar('mid')));
             $block['online']['online_total'] = sprintf(_ONLINEPHRASEX, $mytotal, $xoopsModule->getVar('name'));
         }
 
@@ -223,7 +223,7 @@ function b_tdmstats_info_show($options)
         $block['online']['online_names']   = $members;
         $block['online']['online_members'] = $total - $guests;
         $block['online']['online_guests']  = $guests;
-        //$block['online']['online_module'] = $module;
+    //$block['online']['online_module'] = $module;
         //$block['lang_more'] = _MORE;
     } else {
         return false;

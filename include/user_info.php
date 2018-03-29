@@ -18,6 +18,10 @@
  * @author       XOOPS Development Team
  */
 
+use XoopsModules\Tdmstats;
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_user_info.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
@@ -203,7 +207,7 @@ $xoopsTpl->assign('lang_host_host', _AM_HOST_HOST);
 
 //////////ITEM HOST/////////////
 global $xoopsDB;
-$max       = $xoopsModuleConfig['maxpage'];
+$max       = $helper->getConfig('maxpage');
 $host_info = getResult('SELECT DISTINCT hostname, count FROM ' . $xoopsDB->prefix('tdmstats_hostname') . ' ORDER BY count DESC LIMIT 3');
 
 for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
@@ -221,7 +225,7 @@ for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
 
 //////////HOST/////////////
 global $xoopsDB;
-$max        = $xoopsModuleConfig['maxpage'];
+$max        = $helper->getConfig('maxpage');
 $host_info  = getResult('select distinct hostname, count from ' . $xoopsDB->prefix('tdmstats_hostname') . " order by count desc limit $max");
 $host_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_hostname') . '');
 

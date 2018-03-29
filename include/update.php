@@ -18,7 +18,7 @@
  * @author       XOOPS Development Team
  */
 
-defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
+defined('XOOPS_ROOT_PATH') || die('Restricted access');
 
 /**
  * @param      $xoopsModule
@@ -26,7 +26,7 @@ defined('XOOPS_ROOT_PATH') || exit('Restricted access.');
  *
  * @return bool
  */
-function xoops_module_update_TDMStats(XoopsObject $xoopsModule, $oldVersion = null)
+function xoops_module_update_TDMStats(\XoopsObject $xoopsModule, $oldVersion = null)
 {
     global $xoopsConfig, $xoopsDB, $xoopsUser, $xoopsModule;
 
