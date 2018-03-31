@@ -39,7 +39,7 @@ define('TDMSTATS_DIRNAME', $xoopsModule->getVar('dirname'));
 define('TDMSTATS_URL', XOOPS_URL . '/modules/' . TDMSTATS_DIRNAME);
 define('TDMSTATS_IMAGES_URL', TDMSTATS_URL . '/assets/images');
 
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : 1;
+$action = \Xmf\Request::getInt('action', 1, 'REQUEST');
 
 switch ($action) {
 
