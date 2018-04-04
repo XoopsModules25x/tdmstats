@@ -27,7 +27,7 @@ require XOOPS_ROOT_PATH . '/header.php';
 
 require_once __DIR__ . '/include/function.php';
 //include_once('include/GphpChart.class.php');
-$gpermHandler = xoops_getHandler('groupperm');
+$grouppermHandler = xoops_getHandler('groupperm');
 //permission
 if (is_object($xoopsUser)) {
     $groups = $xoopsUser->getGroups();
@@ -62,9 +62,9 @@ switch ($action) {
         require_once XOOPS_ROOT_PATH . '/header.php';
 
         // pour les permissions
-        $perm_4  = $gpermHandler->checkRight('istats_view', 4, $groups, $xoopsModule->getVar('mid')) ? true : false;
-        $perm_8  = $gpermHandler->checkRight('istats_view', 8, $groups, $xoopsModule->getVar('mid')) ? true : false;
-        $perm_16 = $gpermHandler->checkRight('istats_view', 16, $groups, $xoopsModule->getVar('mid')) ? true : false;
+        $perm_4  = $grouppermHandler->checkRight('istats_view', 4, $groups, $xoopsModule->getVar('mid')) ? true : false;
+        $perm_8  = $grouppermHandler->checkRight('istats_view', 8, $groups, $xoopsModule->getVar('mid')) ? true : false;
+        $perm_16 = $grouppermHandler->checkRight('istats_view', 16, $groups, $xoopsModule->getVar('mid')) ? true : false;
         if (false === $perm_4 && false === $perm_8 && false === $perm_16) {
             redirect_header(XOOPS_URL, 2, _NOPERM);
         }
