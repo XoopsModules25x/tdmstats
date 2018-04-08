@@ -192,7 +192,7 @@ function b_tdmstats_info_show($options)
     /** @var XoopsModuleHandler $moduleHandler */
     $moduleHandler = xoops_getHandler('module');
     $modules       = $moduleHandler->getList(new \Criteria('isactive', 1));
-    if (false != $onlines) {
+    if (false !== $onlines) {
         $total = count($onlines);
         //$block = array();
         $guests  = 0;

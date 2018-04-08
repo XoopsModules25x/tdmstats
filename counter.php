@@ -18,6 +18,7 @@
  * @author       XOOPS Development Team
  */
 
+use Xmf\Request;
 use XoopsModules\Tdmstats;
 /** @var Tdmstats\Helper $helper */
 $helper = Tdmstats\Helper::getInstance();
@@ -194,7 +195,7 @@ if ($check_host) {
  * Keeps track of referers
  */
 
-$referer = $_SERVER['HTTP_REFERER'];
+$referer = Request::getString('HTTP_REFERER', '', 'SERVER');
 if (false === strpos($referer, XOOPS_URL)) {
     $check_ref = getResult('SELECT * FROM ' . XOOPS_DB_PREFIX . "_tdmstats_referer WHERE url='" . $referer . "'");
     if ($check_ref) {
