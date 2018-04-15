@@ -36,7 +36,7 @@ function getResult($query)
 }
 
 if (function_exists('imagecreate')) {  // only run if gd installed
-    include __DIR__ . '/../../../mainfile.php';
+    include  dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
     require_once __DIR__ . '/getresult.php';
 
     $db_link = mysqli_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);

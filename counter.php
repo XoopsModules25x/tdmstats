@@ -20,13 +20,15 @@
 
 use Xmf\Request;
 use XoopsModules\Tdmstats;
-/** @var Tdmstats\Helper $helper */
-$helper = Tdmstats\Helper::getInstance();
 
-include __DIR__ . '/../../mainfile.php';
+include  dirname(dirname(__DIR__)) . '/mainfile.php';
 
 include XOOPS_ROOT_PATH . '/header.php';
 require_once __DIR__ . '/include/function.php';
+
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 $grouppermHandler = xoops_getHandler('groupperm');
 
 $myts    = \MyTextSanitizer::getInstance();

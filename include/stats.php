@@ -19,11 +19,12 @@
  */
 
 use XoopsModules\Tdmstats;
-/** @var Tdmstats\Helper $helper */
-$helper = Tdmstats\Helper::getInstance();
 
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_stats.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
+
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
 
 if (!$grouppermHandler->checkRight('istats_view', 8, $groups, $xoopsModule->getVar('mid'))) {
     redirect_header(XOOPS_URL, 1, _AM_QUERYNOPERM);
@@ -467,7 +468,7 @@ $user_info = getResult('SELECT *, SUM(count) AS sum FROM ' . $xoopsDB->prefix('t
 if ($user_info) {
     for ($i = 0, $iMax = count($user_info); $i < $iMax; ++$i) {
         if ($user_info[$i]['sum'] > 0) {
-            $userid = !empty($user_info[$i]['userid']) ? XoopsUser::getUnameFromId($user_info[$i]['userid']) : substr($user_info[$i]['ip'], 0, 6) . '..';
+            $userid = !empty($user_info[$i]['userid']) ? \XoopsUser::getUnameFromId($user_info[$i]['userid']) : substr($user_info[$i]['ip'], 0, 6) . '..';
             //$count = $user_info[$i]['count'] ;
             $count = gmstrftime('%H H %M mn %S s', $user_info[$i]['sum']);
 
@@ -491,7 +492,7 @@ if ($user_info) {
             $user_percent = 0;
         }
 
-        $userid = !empty($user_info[$i]['userid']) ? XoopsUser::getUnameFromId($user_info[$i]['userid']) : substr($user_info[$i]['ip'], 0, 6) . '..';
+        $userid = !empty($user_info[$i]['userid']) ? \XoopsUser::getUnameFromId($user_info[$i]['userid']) : substr($user_info[$i]['ip'], 0, 6) . '..';
         $count  = gmstrftime('%H H %M mn %S s', $user_info[$i]['sum']);
 
         if ($user_percent > 0) {

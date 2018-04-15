@@ -198,7 +198,7 @@ function b_tdmstats_info_show($options)
         $guests  = 0;
         $members = '';
         for ($i = 0; $i < $total; ++$i) {
-            $userid = XoopsUser::getUnameFromId($onlines[$i]['online_uid']);
+            $userid = \XoopsUser::getUnameFromId($onlines[$i]['online_uid']);
             if ($onlines[$i]['online_uid'] > 0) {
                 $members .= ' <a href="' . XOOPS_URL . '/userinfo.php?uid=' . $onlines[$i]['online_uid'] . '" title="' . $onlines[$i]['online_uname'] . '">' . $userid . '</a>: ';
             } else {
@@ -243,7 +243,7 @@ function b_tdmstats_info_show($options)
     if ($user_info) {
         for ($i = 0, $iMax = count($user_info); $i < $iMax; ++$i) {
             if ($user_info[$i]['count'] > 0) {
-                $userid = !empty($user_info[$i]['userid']) ? XoopsUser::getUnameFromId($user_info[$i]['userid']) : XoopsUser::getUnameFromId();
+                $userid = !empty($user_info[$i]['userid']) ? \XoopsUser::getUnameFromId($user_info[$i]['userid']) : \XoopsUser::getUnameFromId();
                 //$count = $user_info[$i]['count'] ;
                 $count = gmstrftime('%H H %M mn %S s', $user_info[$i]['count']);
                 $times .= '<b>' . $userid . '</b>: ' . $count . ', ';

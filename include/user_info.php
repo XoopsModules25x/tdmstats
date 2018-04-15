@@ -19,11 +19,13 @@
  */
 
 use XoopsModules\Tdmstats;
-/** @var Tdmstats\Helper $helper */
-$helper = Tdmstats\Helper::getInstance();
 
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_user_info.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
+
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 
 if (!$grouppermHandler->checkRight('istats_view', 16, $groups, $xoopsModule->getVar('mid'))) {
     redirect_header(XOOPS_URL, 1, _AM_QUERYNOPERM);

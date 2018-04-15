@@ -235,6 +235,6 @@ $modversion['config'][$i]['description'] = '';
 $modversion['config'][$i]['formtype']    = 'select';
 $modversion['config'][$i]['valuetype']   = 'text';
 $modversion['config'][$i]['default']     = 'bar0.png';
-$modversion['config'][$i]['options']     = XoopsLists::getFileListAsArray(XOOPS_ROOT_PATH . '/modules/' . basename(__DIR__) . '/assets/images/bar');
+$modversion['config'][$i]['options']     = \XoopsLists::getFileListAsArray(XOOPS_ROOT_PATH . '/modules/' . basename(__DIR__) . '/assets/images/bar');
 $modversion['config'][$i]['category']    = 'global';
 ++$i;

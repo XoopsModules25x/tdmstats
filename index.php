@@ -19,14 +19,16 @@
  */
 
 use XoopsModules\Tdmstats;
-/** @var Tdmstats\Helper $helper */
-$helper = Tdmstats\Helper::getInstance();
 
-include __DIR__ . '/../../mainfile.php';
+include  dirname(dirname(__DIR__)) . '/mainfile.php';
 require XOOPS_ROOT_PATH . '/header.php';
 
 require_once __DIR__ . '/include/function.php';
 //include_once('include/GphpChart.class.php');
+
+/** @var Tdmstats\Helper $helper */
+$helper = Tdmstats\Helper::getInstance();
+
 $grouppermHandler = xoops_getHandler('groupperm');
 //permission
 if (is_object($xoopsUser)) {
