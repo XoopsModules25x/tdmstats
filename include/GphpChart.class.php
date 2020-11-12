@@ -302,7 +302,7 @@ class GphpChart
         }
 
         if (!$this->image_fetched) {
-            $fp = fopen($this->chart_url, 'r');
+            $fp = fopen($this->chart_url, 'rb');
             if ($fp) {
                 $this->image_content = fread($fp);
                 fclose($fp);
@@ -312,7 +312,7 @@ class GphpChart
 
         /* write image to cache */
         if ($this->image_fetched) {
-            $fp = fopen($this->filename, 'w+');
+            $fp = fopen($this->filename, 'wb+');
             if ($fp) {
                 fwrite($fp, $this->image_content);
                 fclose($fp);
