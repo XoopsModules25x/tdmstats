@@ -18,9 +18,9 @@
  * @author        XOOPS Development Team
  */
 
-use XoopsModules\Tdmstats\{
-    Helper
+use XoopsModules\Tdmstats\{Helper
 };
+
 /** @var Helper $helper */
 
 //require_once XOOPS_ROOT_PATH . '/mainfile.php';

@@ -20,6 +20,7 @@
 
 use Xmf\Request;
 use XoopsModules\Tdmstats;
+
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_index.tpl';
 
 require_once dirname(__DIR__, 2) . '/mainfile.php';
@@ -58,7 +59,7 @@ switch ($action) {
     case 'list':
     default:
 
-//        $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_index.tpl';
+        //        $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_index.tpl';
         require_once XOOPS_ROOT_PATH . '/header.php';
 
         // pour les permissions

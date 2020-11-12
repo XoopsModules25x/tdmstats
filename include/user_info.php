@@ -243,7 +243,7 @@ $host_info  = getResult('select distinct hostname, count from ' . $xoopsDB->pref
 $host_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_hostname') . '');
 
 $iMax = count($host_info);
-for ($i = 0;  $i < $iMax; ++$i) {
+for ($i = 0; $i < $iMax; ++$i) {
     if ($host_total[0]['sum'] > 0) {
         $host_percent = $host_info[$i]['count'] * 100 / $host_total[0]['sum'];
     } else {

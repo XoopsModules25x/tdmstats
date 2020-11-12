@@ -19,18 +19,17 @@
  */
 
 use Xmf\Module\Admin;
-use XoopsModules\Tdmstats\{
-    Helper
+use XoopsModules\Tdmstats\{Helper
 };
+
 /** @var Admin $adminObject */
 /** @var Helper $helper */
 
-
 include dirname(__DIR__) . '/preloads/autoloader.php';
 
-$moduleDirName = basename(dirname(__DIR__));
+$moduleDirName      = basename(dirname(__DIR__));
 $moduleDirNameUpper = mb_strtoupper($moduleDirName);
-$helper = Helper::getInstance();
+$helper             = Helper::getInstance();
 $helper->loadLanguage('common');
 $helper->loadLanguage('feedback');
 $helper->loadLanguage('modinfo');
@@ -69,16 +68,15 @@ $adminmenu[] = [
 // Blocks Admin
 $adminmenu[] = [
     'title' => constant('CO_' . $moduleDirNameUpper . '_' . 'BLOCKS'),
-    'link' => 'admin/blocksadmin.php',
-    'icon' => $pathIcon32 . '/block.png',
+    'link'  => 'admin/blocksadmin.php',
+    'icon'  => $pathIcon32 . '/block.png',
 ];
-
 
 if (is_object($helper->getModule()) && $helper->getConfig('displayDeveloperTools')) {
     $adminmenu[] = [
         'title' => constant('CO_' . $moduleDirNameUpper . '_' . 'ADMENU_MIGRATE'),
-        'link' => 'admin/migrate.php',
-        'icon' => $pathIcon32 . '/database_go.png',
+        'link'  => 'admin/migrate.php',
+        'icon'  => $pathIcon32 . '/database_go.png',
     ];
 }
 

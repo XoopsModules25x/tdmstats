@@ -59,7 +59,7 @@ $modversion['helpsection'] = [
 // Blocks
 $modversion['blocks'][1]['file']        = 'tdmstats_blocks.php';
 $modversion['blocks'][1]['name']        = _MI_ISTATS_NAME;
-$modversion['blocks'][1]['description'] = 'Shows stats';
+$modversion['blocks'][1]['description'] = _MI_ISTATS_NAME_DESC;
 $modversion['blocks'][1]['show_func']   = 'b_tdmstats_show';
 $modversion['blocks'][1]['options']     = '1';
 $modversion['blocks'][1]['edit_func']   = 'b_tdmstats_edit';
@@ -67,7 +67,7 @@ $modversion['blocks'][1]['template']    = 'tdmstats_block_show.tpl';
 
 $modversion['blocks'][2]['file']        = 'tdmstats_blocks.php';
 $modversion['blocks'][2]['name']        = _MI_ISTATS_CNT;
-$modversion['blocks'][2]['description'] = 'Show counter';
+$modversion['blocks'][2]['description'] = _MI_ISTATS_CNT_DESC;
 $modversion['blocks'][2]['show_func']   = 'b_tdmstats_counter_show';
 $modversion['blocks'][2]['options']     = '1|6|default';
 $modversion['blocks'][2]['edit_func']   = 'b_tdmstats_counter_edit';
@@ -75,7 +75,7 @@ $modversion['blocks'][2]['template']    = 'tdmstats_block_counter.tpl';
 
 $modversion['blocks'][3]['file']        = 'tdmstats_blocks.php';
 $modversion['blocks'][3]['name']        = _MI_ISTATS_INFO;
-$modversion['blocks'][3]['description'] = 'Show info user';
+$modversion['blocks'][3]['description'] = _MI_ISTATS_INFO_DESC;
 $modversion['blocks'][3]['show_func']   = 'b_tdmstats_info_show';
 $modversion['blocks'][3]['options']     = '1|6|default';
 $modversion['blocks'][3]['edit_func']   = 'b_tdmstats_info_edit';

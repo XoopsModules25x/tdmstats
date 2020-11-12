@@ -5,9 +5,9 @@ define('_MI_ISTATS_NAME', 'TDMStats');
 define('_MI_ISTATS_CNT', 'Stats Counter');
 define('_MI_ISTATS_INFO', 'Info');
 
-define('_MI_ISTATS_NAME_DESC', 'TDMStats');
-define('_MI_ISTATS_CNT_DESC', 'Counter of the various statistics');
-define('_MI_ISTATS_INFO_DESC', 'Website Info');
+define('_MI_ISTATS_NAME_DESC', 'Your Website statistics');
+define('_MI_ISTATS_CNT_DESC', 'Show Counter of the various statistics');
+define('_MI_ISTATS_INFO_DESC', 'Show User Info');
 
 // A brief description of this module
 define('_MI_ISTATS_DESC', 'Visitor Statistics');
@@ -71,3 +71,15 @@ define('_MI_ISTATS_OVERVIEW', 'Overview');
 define('_MI_ISTATS_DISCLAIMER', 'Disclaimer');
 define('_MI_ISTATS_LICENSE', 'License');
 define('_MI_ISTATS_SUPPORT', 'Support');
+
+define('_MI_ISTATS_ONLINE_MEMBERS', 'Members online:');
+define('_MI_ISTATS_ONLINE_GUESTS', ' Guests online:');
+define('_MI_ISTATS_TODAY', ' Today:');
+define('_MI_ISTATS_THIS_MONTH', ' This month:');
+define('_MI_ISTATS_TOTAL', ' Total:');
+
+
+
+
+
+

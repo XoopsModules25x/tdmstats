@@ -4,6 +4,10 @@
 define('_MI_ISTATS_NAME', 'TDMStats');
 define('_MI_ISTATS_CNT', 'M�dulo de estad�sticas');
 
+define('_MI_ISTATS_NAME_DESC', 'Your Website statistics');
+define('_MI_ISTATS_CNT_DESC', 'Show Counter of the various statistics');
+define('_MI_ISTATS_INFO_DESC', 'Show User Info');
+
 // A brief description of this module
 define('_MI_ISTATS_DESC', 'Estad�sticas de las visitas');
 

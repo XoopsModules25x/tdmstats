@@ -113,10 +113,10 @@ if (function_exists('imagecreate')) {  // only run if gd installed
                 $y2 = 0;
             }
         } elseif ($max_visit > 0) {
-                $y2 = $hour_visit[0] / $max_visit * 200;
-            } else {
-                $y2 = 0;
-            }
+            $y2 = $hour_visit[0] / $max_visit * 200;
+        } else {
+            $y2 = 0;
+        }
 
         $y2 = 220 - $y2;
         $x2 = $x + 25;

@@ -442,8 +442,8 @@ class GphpChart
                                     $this->chart->chxr[$n] = $n . ',' . $this->min_xt . ',' . $this->max_xt;
                                 }
                             } elseif ($this->max_yr) {
-                                    $this->chart->chxr[$n] = $n . ',' . $this->min_yr . ',' . $this->max_yr;
-                                }
+                                $this->chart->chxr[$n] = $n . ',' . $this->min_yr . ',' . $this->max_yr;
+                            }
                         }
 
                         // axis labels

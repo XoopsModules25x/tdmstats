@@ -34,7 +34,7 @@ function xoops_module_uninstall_tdmstats(\XoopsModule $module)
 
     $moduleDirName      = basename(dirname(__DIR__));
     $moduleDirNameUpper = mb_strtoupper($moduleDirName);
-    $helper = Tdmstats\Helper::getInstance();
+    $helper             = Tdmstats\Helper::getInstance();
 
     $utility = new Tdmstats\Utility();
 
