@@ -30,7 +30,7 @@
  */
 function leading_zero($length, $number)
 {
-    $length = $length - mb_strlen($number);
+    $length -= mb_strlen($number);
 
     for ($i = 0; $i < $length; ++$i) {
         $number = '0' . $number;

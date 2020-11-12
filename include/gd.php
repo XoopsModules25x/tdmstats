@@ -71,7 +71,7 @@ if (function_exists('imagecreate')) {  // only run if gd installed
     $red         = imagecolorallocate($im, 255, 0, 0);
     $color_black = imagecolorallocate($im, 0, 0, 0);
     $count       = 0;
-    for ($i = 0; $i < 224; $i = $i + 25) {
+    for ($i = 0; $i < 224; $i += 25) {
         if ($count % 2) {
             $col = imagecolorallocate($im, 189, 199, 231);
         } else {
