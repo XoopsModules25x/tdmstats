@@ -407,7 +407,7 @@ class GphpChart
             //else $data = $this->encode_data($data);
 
             if ('lxy' === $this->chart->cht) {
-                $this->datas[$n] = implode($this->sep, array_keys($data)) . '|' . implode($this->sep, array_values($data));
+                $this->datas[$n] = implode($this->sep, array_keys($data)) . '|' . implode($this->sep, $data);
             } else {
                 $this->datas[$n] = implode($this->sep, $data);
             }
