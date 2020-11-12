@@ -10,12 +10,14 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
+ * @param mixed $length
+ * @param mixed $number
  */
 
 /**
@@ -26,10 +28,9 @@
  *
  * @return string
  */
-
 function leading_zero($length, $number)
 {
-    $length = $length - strlen($number);
+    $length = $length - mb_strlen($number);
 
     for ($i = 0; $i < $length; ++$i) {
         $number = '0' . $number;

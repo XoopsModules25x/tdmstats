@@ -10,40 +10,39 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
-
-class menu
+class Menu
 {
-    public $Width              = 100;
-    public $Height             = 100;
-    public $BgColor            = 'transparent';
-    public $OverBgColor        = '#FFF6C1';
-    public $BorderWidth        = 1;
-    public $BorderColor        = '#CCCCCC';
-    public $OverBorderColor    = '#FF9900';
-    public $BorderStyle        = 'solid';
-    public $OverBorderStyle    = 'solid';
-    public $Font               = 'Tahoma, Arial, Helvetica';
-    public $FontColor          = '#666666';
-    public $OverFontColor      = '#1E90FF';
-    public $FontDeco           = 'none';
-    public $OverFontDeco       = 'none';
-    public $FontSize           = 11;
-    public $FontWeight         = 'bold';
-    public $FontExtra          = 'Tahoma, Arial, Helvetica';
-    public $FontExtraColor     = '#A98952';
-    public $OverFontExtraColor = '#0033FF';
-    public $FontExtraDeco      = 'underline';
-    public $OverFontExtraDeco  = 'underline';
-    public $FontExtraSize      = 9;
-    public $FontExtraWeight    = 'normal';
-    public $TextAlign          = 'center';
+    public  $Width              = 100;
+    public  $Height             = 100;
+    public  $BgColor            = 'transparent';
+    public  $OverBgColor        = '#FFF6C1';
+    public  $BorderWidth        = 1;
+    public  $BorderColor        = '#CCCCCC';
+    public  $OverBorderColor    = '#FF9900';
+    public  $BorderStyle        = 'solid';
+    public  $OverBorderStyle    = 'solid';
+    public  $Font               = 'Tahoma, Arial, Helvetica';
+    public  $FontColor          = '#666666';
+    public  $OverFontColor      = '#1E90FF';
+    public  $FontDeco           = 'none';
+    public  $OverFontDeco       = 'none';
+    public  $FontSize           = 11;
+    public  $FontWeight         = 'bold';
+    public  $FontExtra          = 'Tahoma, Arial, Helvetica';
+    public  $FontExtraColor     = '#A98952';
+    public  $OverFontExtraColor = '#0033FF';
+    public  $FontExtraDeco      = 'underline';
+    public  $OverFontExtraDeco  = 'underline';
+    public  $FontExtraSize      = 9;
+    public  $FontExtraWeight    = 'normal';
+    public  $TextAlign          = 'center';
     private $_items             = [];
 
     /**
@@ -83,9 +82,9 @@ class menu
             $this->_items[$id]['link'] = $link;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -100,9 +99,9 @@ class menu
             $this->_items[$id]['icon'] = $icon;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -117,9 +116,9 @@ class menu
             $this->_items[$id]['name'] = $name;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -134,9 +133,9 @@ class menu
             $this->_items[$id]['extra'] = $extra;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**
@@ -151,9 +150,9 @@ class menu
             $this->_items[$id]['alt'] = $alt;
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     /**

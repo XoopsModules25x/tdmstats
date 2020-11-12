@@ -11,7 +11,7 @@
 
 /**
  * @copyright     {@link https://xoops.org/ XOOPS Project}
- * @license       {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
@@ -25,18 +25,16 @@ function getResult($query)
 {
     $result = $xoopsDB->query($query);
     $row    = $xoopsDB->fetchBoth($result);
-    while (null != $row) {
+    while (false !== $row) {
         $data[] = $row;
         $row    = $xoopsDB->fetchBoth($result);
     }
 
-    if (isset($data)) {
-        return $data;
-    }
+    return $data ?? null;
 }
 
 if (function_exists('imagecreate')) {  // only run if gd installed
-    include  dirname(dirname(dirname(__DIR__))) . '/mainfile.php';
+    require_once dirname(__DIR__, 3) . '/mainfile.php';
     require_once __DIR__ . '/getresult.php';
 
     $db_link = mysqli_connect(XOOPS_DB_HOST, XOOPS_DB_USER, XOOPS_DB_PASS);

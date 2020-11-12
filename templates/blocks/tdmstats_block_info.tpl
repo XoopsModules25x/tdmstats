@@ -13,10 +13,10 @@
 <div style="float:right;">total: <{$block.stats.total}></div><br>
 
 <hr>
-<{$smarty.const._MI_ISTATS_NOWONLINE}> : <{$block.online.online_names}><{$block.online.online_module}>
+<{$smarty.const._MI_ISTATS_NOWONLINE}> : <{$block.online.online_names}><{$block.online.online_module|default:null}>
 <br>
-<{if $block.online.online_total}>
+<{if $block.online.online_total|default:null}>
     <{$block.online.online_total}>
     <br>
 <{/if}>
-<{$smarty.const._MI_ISTATS_USERONLINE}> : <{$block.times}> <br><br>
+<{$smarty.const._MI_ISTATS_USERONLINE}> : <{$block.times|default:null}> <br><br>

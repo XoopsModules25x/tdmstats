@@ -12,11 +12,10 @@ use XoopsModules\Tdmstats;
 
 /**
  * Prepares system prior to attempting to uninstall module
- * @param XoopsModule $module {@link XoopsModule}
+ * @param \XoopsModule $module {@link XoopsModule}
  *
  * @return bool true if ready to uninstall, false if not
  */
-
 function xoops_module_pre_uninstall_tdmstats(\XoopsModule $module)
 {
     // Do some synchronization
@@ -24,9 +23,8 @@ function xoops_module_pre_uninstall_tdmstats(\XoopsModule $module)
 }
 
 /**
- *
  * Performs tasks required during uninstallation of the module
- * @param XoopsModule $module {@link XoopsModule}
+ * @param \XoopsModule $module {@link XoopsModule}
  *
  * @return bool true if uninstallation successful, false if not
  */
@@ -35,10 +33,9 @@ function xoops_module_uninstall_tdmstats(\XoopsModule $module)
     //    return true;
 
     $moduleDirName      = basename(dirname(__DIR__));
-    $moduleDirNameUpper = strtoupper($moduleDirName);
-    $helper             = Tdmstats\Helper::getInstance();
+    $moduleDirNameUpper = mb_strtoupper($moduleDirName);
+    $helper = Tdmstats\Helper::getInstance();
 
-    /** @var Tdmstats\Utility $utility */
     $utility = new Tdmstats\Utility();
 
     $success = true;

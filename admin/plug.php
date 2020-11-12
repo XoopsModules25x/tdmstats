@@ -10,20 +10,20 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 require_once __DIR__ . '/admin_header.php';
 
-require_once  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(__DIR__, 3) . '/include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once XOOPS_ROOT_PATH . '/class/tree.php';
 require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-require_once  dirname(__DIR__) . '/include/function.php';
+require_once dirname(__DIR__) . '/include/function.php';
 
 xoops_cp_header();
 require_once __DIR__ . '/admin_header.php';
@@ -32,10 +32,9 @@ $adminObject = \Xmf\Module\Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));
 
 $myts = \MyTextSanitizer::getInstance();
-$op   = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
+$op   = $_REQUEST['op'] ?? 'list';
 
 switch ($op) {
-
     //sauv
     case 'create':
         //Copie du plug
@@ -48,7 +47,6 @@ switch ($op) {
         }
 
         break;
-
     case 'list':
     default:
 
@@ -65,6 +63,5 @@ switch ($op) {
     </fieldset><br> <br>';
 
         break;
-
 }
 require_once __DIR__ . '/admin_footer.php';

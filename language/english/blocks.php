@@ -1,6 +1,7 @@
 <?php
 
 // Text of Web Stats block
+define('_MB_ISTATS_INFO_DESC', 'Information Display');
 define('_MB_ISTATS_MAX_DATE', 'Better Date');
 define('_MB_ISTATS_MAX_DAYCOUNT', 'Hits');
 define('_MB_ISTATS_MAX_WEEK', 'Best Week');

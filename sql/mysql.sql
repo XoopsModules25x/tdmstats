@@ -41,30 +41,30 @@ CREATE TABLE tdmstats_hour (
 );
 
 # -- insert hour record
-INSERT INTO tdmstats_hour VALUES ('00', '');
-INSERT INTO tdmstats_hour VALUES ('01', '');
-INSERT INTO tdmstats_hour VALUES ('02', '');
-INSERT INTO tdmstats_hour VALUES ('03', '');
-INSERT INTO tdmstats_hour VALUES ('04', '');
-INSERT INTO tdmstats_hour VALUES ('05', '');
-INSERT INTO tdmstats_hour VALUES ('06', '');
-INSERT INTO tdmstats_hour VALUES ('07', '');
-INSERT INTO tdmstats_hour VALUES ('08', '');
-INSERT INTO tdmstats_hour VALUES ('09', '');
-INSERT INTO tdmstats_hour VALUES ('10', '');
-INSERT INTO tdmstats_hour VALUES ('11', '');
-INSERT INTO tdmstats_hour VALUES ('12', '');
-INSERT INTO tdmstats_hour VALUES ('13', '');
-INSERT INTO tdmstats_hour VALUES ('14', '');
-INSERT INTO tdmstats_hour VALUES ('15', '');
-INSERT INTO tdmstats_hour VALUES ('16', '');
-INSERT INTO tdmstats_hour VALUES ('17', '');
-INSERT INTO tdmstats_hour VALUES ('18', '');
-INSERT INTO tdmstats_hour VALUES ('19', '');
-INSERT INTO tdmstats_hour VALUES ('20', '');
-INSERT INTO tdmstats_hour VALUES ('21', '');
-INSERT INTO tdmstats_hour VALUES ('22', '');
-INSERT INTO tdmstats_hour VALUES ('23', '');
+INSERT INTO tdmstats_hour VALUES ('00', 0);
+INSERT INTO tdmstats_hour VALUES ('01', 0);
+INSERT INTO tdmstats_hour VALUES ('02', 0);
+INSERT INTO tdmstats_hour VALUES ('03', 0);
+INSERT INTO tdmstats_hour VALUES ('04', 0);
+INSERT INTO tdmstats_hour VALUES ('05', 0);
+INSERT INTO tdmstats_hour VALUES ('06', 0);
+INSERT INTO tdmstats_hour VALUES ('07', 0);
+INSERT INTO tdmstats_hour VALUES ('08', 0);
+INSERT INTO tdmstats_hour VALUES ('09', 0);
+INSERT INTO tdmstats_hour VALUES ('10', 0);
+INSERT INTO tdmstats_hour VALUES ('11', 0);
+INSERT INTO tdmstats_hour VALUES ('12', 0);
+INSERT INTO tdmstats_hour VALUES ('13', 0);
+INSERT INTO tdmstats_hour VALUES ('14', 0);
+INSERT INTO tdmstats_hour VALUES ('15', 0);
+INSERT INTO tdmstats_hour VALUES ('16', 0);
+INSERT INTO tdmstats_hour VALUES ('17', 0);
+INSERT INTO tdmstats_hour VALUES ('18', 0);
+INSERT INTO tdmstats_hour VALUES ('19', 0);
+INSERT INTO tdmstats_hour VALUES ('20', 0);
+INSERT INTO tdmstats_hour VALUES ('21', 0);
+INSERT INTO tdmstats_hour VALUES ('22', 0);
+INSERT INTO tdmstats_hour VALUES ('23', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_today_hour'
@@ -75,30 +75,30 @@ CREATE TABLE tdmstats_today_hour (
 );
 
 # -- insert hour record
-INSERT INTO tdmstats_today_hour VALUES ('00', '');
-INSERT INTO tdmstats_today_hour VALUES ('01', '');
-INSERT INTO tdmstats_today_hour VALUES ('02', '');
-INSERT INTO tdmstats_today_hour VALUES ('03', '');
-INSERT INTO tdmstats_today_hour VALUES ('04', '');
-INSERT INTO tdmstats_today_hour VALUES ('05', '');
-INSERT INTO tdmstats_today_hour VALUES ('06', '');
-INSERT INTO tdmstats_today_hour VALUES ('07', '');
-INSERT INTO tdmstats_today_hour VALUES ('08', '');
-INSERT INTO tdmstats_today_hour VALUES ('09', '');
-INSERT INTO tdmstats_today_hour VALUES ('10', '');
-INSERT INTO tdmstats_today_hour VALUES ('11', '');
-INSERT INTO tdmstats_today_hour VALUES ('12', '');
-INSERT INTO tdmstats_today_hour VALUES ('13', '');
-INSERT INTO tdmstats_today_hour VALUES ('14', '');
-INSERT INTO tdmstats_today_hour VALUES ('15', '');
-INSERT INTO tdmstats_today_hour VALUES ('16', '');
-INSERT INTO tdmstats_today_hour VALUES ('17', '');
-INSERT INTO tdmstats_today_hour VALUES ('18', '');
-INSERT INTO tdmstats_today_hour VALUES ('19', '');
-INSERT INTO tdmstats_today_hour VALUES ('20', '');
-INSERT INTO tdmstats_today_hour VALUES ('21', '');
-INSERT INTO tdmstats_today_hour VALUES ('22', '');
-INSERT INTO tdmstats_today_hour VALUES ('23', '');
+INSERT INTO tdmstats_today_hour VALUES ('00', 0);
+INSERT INTO tdmstats_today_hour VALUES ('01', 0);
+INSERT INTO tdmstats_today_hour VALUES ('02', 0);
+INSERT INTO tdmstats_today_hour VALUES ('03', 0);
+INSERT INTO tdmstats_today_hour VALUES ('04', 0);
+INSERT INTO tdmstats_today_hour VALUES ('05', 0);
+INSERT INTO tdmstats_today_hour VALUES ('06', 0);
+INSERT INTO tdmstats_today_hour VALUES ('07', 0);
+INSERT INTO tdmstats_today_hour VALUES ('08', 0);
+INSERT INTO tdmstats_today_hour VALUES ('09', 0);
+INSERT INTO tdmstats_today_hour VALUES ('10', 0);
+INSERT INTO tdmstats_today_hour VALUES ('11', 0);
+INSERT INTO tdmstats_today_hour VALUES ('12', 0);
+INSERT INTO tdmstats_today_hour VALUES ('13', 0);
+INSERT INTO tdmstats_today_hour VALUES ('14', 0);
+INSERT INTO tdmstats_today_hour VALUES ('15', 0);
+INSERT INTO tdmstats_today_hour VALUES ('16', 0);
+INSERT INTO tdmstats_today_hour VALUES ('17', 0);
+INSERT INTO tdmstats_today_hour VALUES ('18', 0);
+INSERT INTO tdmstats_today_hour VALUES ('19', 0);
+INSERT INTO tdmstats_today_hour VALUES ('20', 0);
+INSERT INTO tdmstats_today_hour VALUES ('21', 0);
+INSERT INTO tdmstats_today_hour VALUES ('22', 0);
+INSERT INTO tdmstats_today_hour VALUES ('23', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_browser'
@@ -118,36 +118,36 @@ CREATE TABLE tdmstats_browser (
 # MyIE2
 # Galeon
 # SurveyBot
-INSERT INTO tdmstats_browser VALUES ('Opera 7', '');
-INSERT INTO tdmstats_browser VALUES ('Googlebot', '');
-INSERT INTO tdmstats_browser VALUES ('msnbot', '');
-INSERT INTO tdmstats_browser VALUES ('Yahoo', '');
-INSERT INTO tdmstats_browser VALUES ('Opera 9', '');
-INSERT INTO tdmstats_browser VALUES ('Opera 8', '');
-INSERT INTO tdmstats_browser VALUES ('Opera 7', '');
-INSERT INTO tdmstats_browser VALUES ('Konqueror 3', '');
-INSERT INTO tdmstats_browser VALUES ('Konqueror 2', '');
-INSERT INTO tdmstats_browser VALUES ('Netscape 9', '');
-INSERT INTO tdmstats_browser VALUES ('Netscape 8', '');
-INSERT INTO tdmstats_browser VALUES ('Netscape 7', '');
-INSERT INTO tdmstats_browser VALUES ('Lynx', '');
-INSERT INTO tdmstats_browser VALUES ('Links', '');
-INSERT INTO tdmstats_browser VALUES ('OmniWeb', '');
-INSERT INTO tdmstats_browser VALUES ('WebTV', '');
-INSERT INTO tdmstats_browser VALUES ('Avant Browser', '');
-INSERT INTO tdmstats_browser VALUES ('MyIE2', '');
-INSERT INTO tdmstats_browser VALUES ('Internet Explorer 8', '');
-INSERT INTO tdmstats_browser VALUES ('Internet Explorer 7', '');
-INSERT INTO tdmstats_browser VALUES ('Internet Explorer 6', '');
-INSERT INTO tdmstats_browser VALUES ('Chrome 3', '');
-INSERT INTO tdmstats_browser VALUES ('Chrome 2', '');
-INSERT INTO tdmstats_browser VALUES ('Chrome 1', '');
-INSERT INTO tdmstats_browser VALUES ('Gecko', '');
-INSERT INTO tdmstats_browser VALUES ('Other', '');
+INSERT INTO tdmstats_browser VALUES ('Opera 7', 0);
+INSERT INTO tdmstats_browser VALUES ('Googlebot', 0);
+INSERT INTO tdmstats_browser VALUES ('msnbot', 0);
+INSERT INTO tdmstats_browser VALUES ('Yahoo', 0);
+INSERT INTO tdmstats_browser VALUES ('Opera 9', 0);
+INSERT INTO tdmstats_browser VALUES ('Opera 8', 0);
+INSERT INTO tdmstats_browser VALUES ('Opera 7', 0);
+INSERT INTO tdmstats_browser VALUES ('Konqueror 3', 0);
+INSERT INTO tdmstats_browser VALUES ('Konqueror 2', 0);
+INSERT INTO tdmstats_browser VALUES ('Netscape 9', 0);
+INSERT INTO tdmstats_browser VALUES ('Netscape 8', 0);
+INSERT INTO tdmstats_browser VALUES ('Netscape 7', 0);
+INSERT INTO tdmstats_browser VALUES ('Lynx', 0);
+INSERT INTO tdmstats_browser VALUES ('Links', 0);
+INSERT INTO tdmstats_browser VALUES ('OmniWeb', 0);
+INSERT INTO tdmstats_browser VALUES ('WebTV', 0);
+INSERT INTO tdmstats_browser VALUES ('Avant Browser', 0);
+INSERT INTO tdmstats_browser VALUES ('MyIE2', 0);
+INSERT INTO tdmstats_browser VALUES ('Internet Explorer 8', 0);
+INSERT INTO tdmstats_browser VALUES ('Internet Explorer 7', 0);
+INSERT INTO tdmstats_browser VALUES ('Internet Explorer 6', 0);
+INSERT INTO tdmstats_browser VALUES ('Chrome 3', 0);
+INSERT INTO tdmstats_browser VALUES ('Chrome 2', 0);
+INSERT INTO tdmstats_browser VALUES ('Chrome 1', 0);
+INSERT INTO tdmstats_browser VALUES ('Gecko', 0);
+INSERT INTO tdmstats_browser VALUES ('Other', 0);
 #/*firefox adding*/
-INSERT INTO tdmstats_browser VALUES ('Firefox 3', '');
-INSERT INTO tdmstats_browser VALUES ('Firefox 2', '');
-INSERT INTO tdmstats_browser VALUES ('Firefox 1', '');
+INSERT INTO tdmstats_browser VALUES ('Firefox 3', 0);
+INSERT INTO tdmstats_browser VALUES ('Firefox 2', 0);
+INSERT INTO tdmstats_browser VALUES ('Firefox 1', 0);
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_os'
 # --------------------------------------------------------
@@ -160,35 +160,35 @@ CREATE TABLE tdmstats_os (
 # added 5/12/03
 # Windows 98
 # Windows 95
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows Seven', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows Vista', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows XP', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows Server 2003', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows 2000', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows NT 4.''', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows 98', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows 95', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows 9x', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Windows Me', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Win32', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Mac Power PC', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Mac OS X', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Macintosh', '');
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows Seven', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows Vista', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows XP', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows Server 2003', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows 2000', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows NT 4.0', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows 98', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows 95', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows 9x', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Windows Me', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Win32', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Mac Power PC', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Mac OS X', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Macintosh', 0);
 
-#/* removeX11 insert into tdmstats_os (os, count) values ('X11', ''); */
-INSERT INTO tdmstats_os (os, count) VALUES ('SunOS', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('BeOS', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('FreeBSD', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('OpenBSD', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('IRIX', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('OS/2', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Plan9', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('OSF', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Linux Fedora', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Linux Ubuntu', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Linux', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Other Unix', '');
-INSERT INTO tdmstats_os (os, count) VALUES ('Other', '');
+#/* removeX11 insert into tdmstats_os (os, count) values ('X11', 0); */
+INSERT INTO tdmstats_os (os, count) VALUES ('SunOS', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('BeOS', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('FreeBSD', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('OpenBSD', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('IRIX', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('OS/2', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Plan9', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('OSF', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Linux Fedora', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Linux Ubuntu', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Linux', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Other Unix', 0);
+INSERT INTO tdmstats_os (os, count) VALUES ('Other', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_hostname'
@@ -207,13 +207,13 @@ CREATE TABLE tdmstats_week (
 );
 
 # -- insert week_days
-INSERT INTO tdmstats_week VALUES ('0', '');
-INSERT INTO tdmstats_week VALUES ('1', '');
-INSERT INTO tdmstats_week VALUES ('2', '');
-INSERT INTO tdmstats_week VALUES ('3', '');
-INSERT INTO tdmstats_week VALUES ('4', '');
-INSERT INTO tdmstats_week VALUES ('5', '');
-INSERT INTO tdmstats_week VALUES ('6', '');
+INSERT INTO tdmstats_week VALUES ('0', 0);
+INSERT INTO tdmstats_week VALUES ('1', 0);
+INSERT INTO tdmstats_week VALUES ('2', 0);
+INSERT INTO tdmstats_week VALUES ('3', 0);
+INSERT INTO tdmstats_week VALUES ('4', 0);
+INSERT INTO tdmstats_week VALUES ('5', 0);
+INSERT INTO tdmstats_week VALUES ('6', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_week_count'
@@ -246,37 +246,37 @@ CREATE TABLE tdmstats_mth_days (
 );
 
 # -- insert tdmstats_mth_days
-INSERT INTO tdmstats_mth_days VALUES ('01', '');
-INSERT INTO tdmstats_mth_days VALUES ('02', '');
-INSERT INTO tdmstats_mth_days VALUES ('03', '');
-INSERT INTO tdmstats_mth_days VALUES ('04', '');
-INSERT INTO tdmstats_mth_days VALUES ('05', '');
-INSERT INTO tdmstats_mth_days VALUES ('06', '');
-INSERT INTO tdmstats_mth_days VALUES ('07', '');
-INSERT INTO tdmstats_mth_days VALUES ('08', '');
-INSERT INTO tdmstats_mth_days VALUES ('09', '');
-INSERT INTO tdmstats_mth_days VALUES ('10', '');
-INSERT INTO tdmstats_mth_days VALUES ('11', '');
-INSERT INTO tdmstats_mth_days VALUES ('12', '');
-INSERT INTO tdmstats_mth_days VALUES ('13', '');
-INSERT INTO tdmstats_mth_days VALUES ('14', '');
-INSERT INTO tdmstats_mth_days VALUES ('15', '');
-INSERT INTO tdmstats_mth_days VALUES ('16', '');
-INSERT INTO tdmstats_mth_days VALUES ('17', '');
-INSERT INTO tdmstats_mth_days VALUES ('18', '');
-INSERT INTO tdmstats_mth_days VALUES ('19', '');
-INSERT INTO tdmstats_mth_days VALUES ('20', '');
-INSERT INTO tdmstats_mth_days VALUES ('21', '');
-INSERT INTO tdmstats_mth_days VALUES ('22', '');
-INSERT INTO tdmstats_mth_days VALUES ('23', '');
-INSERT INTO tdmstats_mth_days VALUES ('24', '');
-INSERT INTO tdmstats_mth_days VALUES ('25', '');
-INSERT INTO tdmstats_mth_days VALUES ('26', '');
-INSERT INTO tdmstats_mth_days VALUES ('27', '');
-INSERT INTO tdmstats_mth_days VALUES ('28', '');
-INSERT INTO tdmstats_mth_days VALUES ('29', '');
-INSERT INTO tdmstats_mth_days VALUES ('30', '');
-INSERT INTO tdmstats_mth_days VALUES ('31', '');
+INSERT INTO tdmstats_mth_days VALUES ('01', 0);
+INSERT INTO tdmstats_mth_days VALUES ('02', 0);
+INSERT INTO tdmstats_mth_days VALUES ('03', 0);
+INSERT INTO tdmstats_mth_days VALUES ('04', 0);
+INSERT INTO tdmstats_mth_days VALUES ('05', 0);
+INSERT INTO tdmstats_mth_days VALUES ('06', 0);
+INSERT INTO tdmstats_mth_days VALUES ('07', 0);
+INSERT INTO tdmstats_mth_days VALUES ('08', 0);
+INSERT INTO tdmstats_mth_days VALUES ('09', 0);
+INSERT INTO tdmstats_mth_days VALUES ('10', 0);
+INSERT INTO tdmstats_mth_days VALUES ('11', 0);
+INSERT INTO tdmstats_mth_days VALUES ('12', 0);
+INSERT INTO tdmstats_mth_days VALUES ('13', 0);
+INSERT INTO tdmstats_mth_days VALUES ('14', 0);
+INSERT INTO tdmstats_mth_days VALUES ('15', 0);
+INSERT INTO tdmstats_mth_days VALUES ('16', 0);
+INSERT INTO tdmstats_mth_days VALUES ('17', 0);
+INSERT INTO tdmstats_mth_days VALUES ('18', 0);
+INSERT INTO tdmstats_mth_days VALUES ('19', 0);
+INSERT INTO tdmstats_mth_days VALUES ('20', 0);
+INSERT INTO tdmstats_mth_days VALUES ('21', 0);
+INSERT INTO tdmstats_mth_days VALUES ('22', 0);
+INSERT INTO tdmstats_mth_days VALUES ('23', 0);
+INSERT INTO tdmstats_mth_days VALUES ('24', 0);
+INSERT INTO tdmstats_mth_days VALUES ('25', 0);
+INSERT INTO tdmstats_mth_days VALUES ('26', 0);
+INSERT INTO tdmstats_mth_days VALUES ('27', 0);
+INSERT INTO tdmstats_mth_days VALUES ('28', 0);
+INSERT INTO tdmstats_mth_days VALUES ('29', 0);
+INSERT INTO tdmstats_mth_days VALUES ('30', 0);
+INSERT INTO tdmstats_mth_days VALUES ('31', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_screen'
@@ -289,18 +289,18 @@ CREATE TABLE tdmstats_screen (
 );
 
 # -- insert tdmstats_screen
-INSERT INTO tdmstats_screen VALUES ('', '640 x 480', '');
-INSERT INTO tdmstats_screen VALUES ('', '800 x 600', '');
-INSERT INTO tdmstats_screen VALUES ('', '1024 x 768', '');
-INSERT INTO tdmstats_screen VALUES ('', '1152 x 864', '');
-INSERT INTO tdmstats_screen VALUES ('', '1280 x 1024', '');
-INSERT INTO tdmstats_screen VALUES ('', '1600 x 1200', '');
-INSERT INTO tdmstats_screen VALUES ('', '2048 x 1536', '');
-INSERT INTO tdmstats_screen VALUES ('', '2560 x 2048', '');
-INSERT INTO tdmstats_screen VALUES ('', '3200 x 2400', '');
-INSERT INTO tdmstats_screen VALUES ('', 'Unknown', '');
+INSERT INTO tdmstats_screen VALUES (0, '640 x 480', 0);
+INSERT INTO tdmstats_screen VALUES (0, '800 x 600', 0);
+INSERT INTO tdmstats_screen VALUES (0, '1024 x 768', 0);
+INSERT INTO tdmstats_screen VALUES (0, '1152 x 864', 0);
+INSERT INTO tdmstats_screen VALUES (0, '1280 x 1024', 0);
+INSERT INTO tdmstats_screen VALUES (0, '1600 x 1200', 0);
+INSERT INTO tdmstats_screen VALUES (0, '2048 x 1536', 0);
+INSERT INTO tdmstats_screen VALUES (0, '2560 x 2048', 0);
+INSERT INTO tdmstats_screen VALUES (0, '3200 x 2400', 0);
+INSERT INTO tdmstats_screen VALUES (0, 'Unknown', 0);
 #/*ading 1920 */
-INSERT INTO tdmstats_screen VALUES ('', '1920 x 1200', '');
+INSERT INTO tdmstats_screen VALUES (0, '1920 x 1200', 0);
 #/* */
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_color'
@@ -313,11 +313,11 @@ CREATE TABLE tdmstats_color (
 );
 
 # -- insert tdmstats_color
-INSERT INTO tdmstats_color VALUES ('', '256 color', '');
-INSERT INTO tdmstats_color VALUES ('', '16 bit', '');
-INSERT INTO tdmstats_color VALUES ('', '24 bit', '');
-INSERT INTO tdmstats_color VALUES ('', '32 bit', '');
-INSERT INTO tdmstats_color VALUES ('', 'Unknown', '');
+INSERT INTO tdmstats_color VALUES (0, '256 color', 0);
+INSERT INTO tdmstats_color VALUES (0, '16 bit', 0);
+INSERT INTO tdmstats_color VALUES (0, '24 bit', 0);
+INSERT INTO tdmstats_color VALUES (0, '32 bit', 0);
+INSERT INTO tdmstats_color VALUES (0, 'Unknown', 0);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_page'

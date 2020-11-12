@@ -10,14 +10,13 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
-
 class GphpChart
 {
     public $chart;
@@ -34,7 +33,7 @@ class GphpChart
         'p' => 'pie',
         'v' => 'venn',
         's' => 'scatter',
-        't' => 'world'
+        't' => 'world',
     ];
     public $mandatory_parameters = ['chs', 'chd', 'cht'];
     public $data_prepared        = false;
@@ -66,7 +65,6 @@ class GphpChart
     /**
      * @param string $type
      * @param string $encoding
-     *
      */
     public function __construct($type = 'lc', $encoding = 't')
     {
@@ -75,16 +73,15 @@ class GphpChart
 
         if (!in_array($type, $this->types)) {
             return false;
-        } else {
-            $this->chart->cht = $type;
         }
-        $this->chart_type = $this->chart_types[substr($this->chart->cht, 0, 1)];
+        $this->chart->cht = $type;
+
+        $this->chart_type = $this->chart_types[mb_substr($this->chart->cht, 0, 1)];
 
         if (!in_array($encoding, array_keys($this->encodings))) {
             return false;
-        } else {
-            $this->encoding = $encoding;
         }
+        $this->encoding = $encoding;
 
         $this->sep     = $this->encodings[$this->encoding]['sep'];
         $this->range   = $this->encodings[$this->encoding]['range'];
@@ -96,7 +93,7 @@ class GphpChart
 
         $string = $this->simple_encoding;
         unset($this->simple_encoding);
-        for ($i = 0, $iMax = strlen($string); $i < $iMax; ++$i) {
+        for ($i = 0, $iMax = mb_strlen($string); $i < $iMax; ++$i) {
             $this->simple_encoding[] = $string[$i];
         }
 
@@ -138,7 +135,6 @@ class GphpChart
             $this->max_xt = max($this->max_xt, max($values));
             $this->min_xt = min($this->min_xt, min($values));
         }
-
         // min and max values for vertical axis are calculated in prepare_data()
     }
 
@@ -226,9 +222,11 @@ class GphpChart
             $this->chart->chm[] = $string;
         }
     }
+
     /* END PRE GENERATION FUNCTIONS */
 
     /* GENERATE FUNCTIONS : call prepare functions, prepare url, outputs url or full image string */
+
     /**
      * @return mixed
      */
@@ -240,13 +238,12 @@ class GphpChart
             }
 
             return $this->filename;
-        } else {
-            if (!$this->prepared) {
-                $this->prepare();
-            }
-
-            return $this->chart_url;
         }
+        if (!$this->prepared) {
+            $this->prepare();
+        }
+
+        return $this->chart_url;
     }
 
     /**
@@ -280,6 +277,7 @@ class GphpChart
         $this->prepare_url();
         $this->prepared = true;
     }
+
     /* END GENERATE FUNCTIONS */
 
     /* CACHE FUNCTIONS */
@@ -296,8 +294,7 @@ class GphpChart
         if (!$this->filename) {
             $this->generate_filename();
         }
-        /* get image file */
-        //$this->chart_url = htmlspecialchars($this->chart_url);
+        /* get image file */ //$this->chart_url = htmlspecialchars($this->chart_url);
         //$this->chart_url = urlencode($this->chart_url);
 
         if (function_exists('file_get_contents') && $this->image_content = file_get_contents($this->chart_url)) {
@@ -305,7 +302,8 @@ class GphpChart
         }
 
         if (!$this->image_fetched) {
-            if ($fp = fopen($this->chart_url, 'r')) {
+            $fp = fopen($this->chart_url, 'r');
+            if ($fp) {
                 $this->image_content = fread($fp);
                 fclose($fp);
                 $this->image_fetched = true;
@@ -351,7 +349,6 @@ class GphpChart
         // SIZE
 
         if (($this->width * $this->height) > 300000) {
-
             // reduces dimensions to match API limits ( 300mpixels )
             $size         = $this->width * $this->height;
             $this->width  = round($this->width * (300000 / $size), 0);
@@ -499,6 +496,7 @@ class GphpChart
     /* END PREPARE FUNCTIONS */
 
     /* ENCODING */
+
     /**
      * @param      $data
      * @param bool $ratio

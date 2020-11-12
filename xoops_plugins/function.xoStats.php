@@ -11,7 +11,7 @@
 
 /**
  * @copyright     {@link https://xoops.org/ XOOPS Project}
- * @license       {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
@@ -19,7 +19,6 @@
  * @param $params
  * @param $smarty
  */
-
 function smarty_function_xoStats($params, &$smarty)
 {
     global $xoops, $xoopsUser, $xoopsModuleConfig, $xoopsConfig, $HTTP_COOKIE_VARS, $xoopsModule;

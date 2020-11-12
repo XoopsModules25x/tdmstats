@@ -10,21 +10,20 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
-
 require_once __DIR__ . '/admin_header.php';
 
-require_once  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(__DIR__, 3) . '/include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once XOOPS_ROOT_PATH . '/class/tree.php';
 require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-require_once  dirname(__DIR__) . '/include/function.php';
+require_once dirname(__DIR__) . '/include/function.php';
 
 require_once XOOPS_ROOT_PATH . '/class/xoopslists.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
@@ -47,7 +46,7 @@ $perm_desc = _AM_ISTATS_PERM2;
 $global_perms_array = [
     '4'  => _AM_ISTATS_PERM_4,
     '8'  => _AM_ISTATS_PERM_8,
-    '16' => _AM_ISTATS_PERM_16
+    '16' => _AM_ISTATS_PERM_16,
 ];
 
 $permform = new \XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '', 'admin/permissions.php');

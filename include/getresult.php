@@ -11,7 +11,7 @@
 
 /**
  * @copyright     {@link https://xoops.org/ XOOPS Project}
- * @license       {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
@@ -19,18 +19,15 @@
  * @param $query
  * @return array
  */
-
 function getResult($query)
 {
     global $xoopsDB;
 
     $result = $xoopsDB->query($query);
     $row    = $xoopsDB->fetchArray($result);
-    while (null != $row) {
+    while (false !== $row) {
         $data[] = $row;
         $row    = $xoopsDB->fetchArray($result);
     }
-    if (isset($data)) {
-        return $data;
-    }
+    return $data ?? null;
 }

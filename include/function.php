@@ -10,12 +10,12 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 
 use XoopsModules\Tdmstats;
@@ -23,6 +23,9 @@ use XoopsModules\Tdmstats;
 require_once __DIR__ . '/getresult.php';
 
 // count the information that show on summary
+/**
+ * @return array|null
+ */
 function CountDays()
 {
     global $xoopsDB, $xoopsModule, $xoopsConfig;
@@ -113,9 +116,7 @@ function CountDays()
 
     ///////
 
-    if (isset($result)) {
-        return $result;
-    }
+    return $result ?? null;
 }
 
 /**
@@ -180,9 +181,7 @@ function PrintStats($sum, $max, $visit, $period, $d_bar = 380)
         $result[$i]['bg_color'] = $bg_color;
     }
 
-    if (isset($result)) {
-        return $result;
-    }
+    return $result ?? null;
 }
 
 /**
@@ -190,7 +189,7 @@ function PrintStats($sum, $max, $visit, $period, $d_bar = 380)
  *
  * @return string
  */
-function istats_PrettySize($size)
+function istats_prettifyBytes($size)
 {
     $mb = 1024 * 1024;
     if ($size > $mb) {
@@ -239,7 +238,6 @@ function Adminmenu($currentoption = 0, $breadcrumb = '')
     $tblColors[0]              = $tblColors[1] = $tblColors[2] = $tblColors[3] = $tblColors[4] = $tblColors[5] = $tblColors[6] = $tblColors[7] = $tblColors[8] = '';
     $tblColors[$currentoption] = 'current';
 
-    /** @var Tdmstats\Helper $helper */
     $helper = Tdmstats\Helper::getInstance();
     $helper->loadLanguage('modinfo');
 

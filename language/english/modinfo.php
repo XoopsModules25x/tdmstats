@@ -3,9 +3,14 @@
 // The name of this module
 define('_MI_ISTATS_NAME', 'TDMStats');
 define('_MI_ISTATS_CNT', 'Stats Counter');
+define('_MI_ISTATS_INFO', 'Info');
+
+define('_MI_ISTATS_NAME_DESC', 'TDMStats');
+define('_MI_ISTATS_CNT_DESC', 'Counter of the various statistics');
+define('_MI_ISTATS_INFO_DESC', 'Website Info');
 
 // A brief description of this module
-define('_MI_ISTATS_DESC', 'Statistics of visits');
+define('_MI_ISTATS_DESC', 'Visitor Statistics');
 
 // menu
 // The name of this module
@@ -36,10 +41,9 @@ define('_MI_ISTATS_MAXWIDTH', 'Choose the maximum width.');
 define('_MI_ISTATS_MAXCOLOR', 'Choose colors used to separate by |');
 define('_MI_ISTATS_ONGLET', 'Style Tabs:');
 
-//
 define('_MI_ISTATS_MAXLABEL', 'View chart label:');
 define('_MI_ISTATS_MAXTITLE', 'Show chart title:');
-//
+
 define('_MI_ISTATS_SUMMARY', 'Sum');
 define('_MI_ISTATS_SYSTEM', 'System');
 define('_MI_ISTATS_TRAFFIC', 'Traffic stats');
@@ -48,7 +52,7 @@ define('_MI_ISTATS_SETLOCAL', 'Choose your location:');
 
 //version 1.6
 define('_MI_ISTATS_BAR', 'Bar style:');
-//
+
 define('_MI_ISTATS_MAXUSERCOUNT', 'Max number of times/day:');
 define('_MI_ISTATS_NEWUSER', 'Last registered user');
 define('_MI_ISTATS_NOWONLINE', 'Currently online');
@@ -56,8 +60,8 @@ define('_MI_ISTATS_USERONLINE', 'Online Today');
 
 //1.10
 //Help
-define('_MI_ISTATS_DIRNAME', basename(dirname(dirname(__DIR__))));
-define('_MI_ISTATS_HELP_HEADER', __DIR__.'/help/helpheader.tpl');
+define('_MI_ISTATS_DIRNAME', basename(dirname(__DIR__, 2)));
+define('_MI_ISTATS_HELP_HEADER', __DIR__ . '/help/helpheader.tpl');
 define('_MI_ISTATS_BACK_2_ADMIN', 'Back to Administration of ');
 define('_MI_ISTATS_OVERVIEW', 'Overview');
 

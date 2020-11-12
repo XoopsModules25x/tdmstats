@@ -10,12 +10,12 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 
 use XoopsModules\Tdmstats;
@@ -23,9 +23,7 @@ use XoopsModules\Tdmstats;
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_user_info.tpl';
 require_once XOOPS_ROOT_PATH . '/header.php';
 
-/** @var Tdmstats\Helper $helper */
 $helper = Tdmstats\Helper::getInstance();
-
 
 if (!$grouppermHandler->checkRight('istats_view', 16, $groups, $xoopsModule->getVar('mid'))) {
     redirect_header(XOOPS_URL, 1, _AM_QUERYNOPERM);
@@ -43,20 +41,21 @@ global $xoopsDB;
 $bro_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_browser') . ' ORDER BY count DESC LIMIT 3');
 
 for ($i = 0, $iMax = count($bro_info); $i < $iMax; ++$i) {
-
     //$browser['info'][] = $bro_info[$i]['count'];
     //$browser['browser'][] = $bro_info[$i]['browser'];
     //$browser['percent'][] = round($bro_percent, '2');
 
-    $xoopsTpl->append('item_browsers', [
-        'id'      => 'bro' . $i,
-        'browser' => $bro_info[$i]['browser'],
-        'info'    => $bro_info[$i]['count']
-    ]);
+    $xoopsTpl->append(
+        'item_browsers',
+        [
+            'id'      => 'bro' . $i,
+            'browser' => $bro_info[$i]['browser'],
+            'info'    => $bro_info[$i]['count'],
+        ]
+    );
 }
 //broser
 
-global $xoopsDB;
 $bro_info  = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_browser') . ' ORDER BY count DESC');
 $bro_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_browser') . '');
 
@@ -74,23 +73,25 @@ for ($i = 0, $iMax = count($bro_info); $i < $iMax; ++$i) {
 
     if ($bro_percent > 0) {
         //$xoopsTpl->append('browsers', array('id' => 'bro'.$i, 'browser' => $bro_info[$i]['browser'], 'info' => $bro_info[$i]['count'], 'percent' => round($bro_percent, '2')));
-        $xoopsTpl->append('browsers_map', [
-            'id'      => 'bro' . $i,
-            'browser' => $bro_info[$i]['browser'],
-            'info'    => $bro_info[$i]['count'],
-            'percent' => round($bro_percent, '2')
-        ]);
+        $xoopsTpl->append(
+            'browsers_map',
+            [
+                'id'      => 'bro' . $i,
+                'browser' => $bro_info[$i]['browser'],
+                'info'    => $bro_info[$i]['count'],
+                'percent' => round($bro_percent, '2'),
+            ]
+        );
     }
 }
 
 $xoopsTpl->assign('lang_os_os', _AM_OS_OS);
 
 ///////// ITEM OS ////////////
-global $xoopsDB;
+
 $os_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_os') . ' ORDER BY count DESC LIMIT 3');
 
 for ($i = 0, $iMax = count($os_info); $i < $iMax; ++$i) {
-
     //$os['info'][] = $os_info[$i]['count'];
     //$os['os'][] = $os_info[$i]['os'];
     //$os['percent'][] = round($os_percent, '2');
@@ -98,7 +99,7 @@ for ($i = 0, $iMax = count($os_info); $i < $iMax; ++$i) {
     $xoopsTpl->append('item_os', ['id' => 'os' . $i, 'os' => $os_info[$i]['os'], 'info' => $os_info[$i]['count']]);
 }
 /////////OS ////////////
-global $xoopsDB;
+
 $os_info  = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_os') . ' ORDER BY count DESC');
 $os_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_os') . '');
 
@@ -116,21 +117,23 @@ for ($i = 0, $iMax = count($os_info); $i < $iMax; ++$i) {
 
     if ($os_percent > 0) {
         //$xoopsTpl->append('oss', array('id' => 'os'.$i, 'os' => $os_info[$i]['os'], 'info' => $os_info[$i]['count'], 'percent' => round($os_percent, '2')));
-        $xoopsTpl->append('oss_map', [
-            'id'      => 'os' . $i,
-            'os'      => $os_info[$i]['os'],
-            'info'    => $os_info[$i]['count'],
-            'percent' => round($os_percent, '2')
-        ]);
+        $xoopsTpl->append(
+            'oss_map',
+            [
+                'id'      => 'os' . $i,
+                'os'      => $os_info[$i]['os'],
+                'info'    => $os_info[$i]['count'],
+                'percent' => round($os_percent, '2'),
+            ]
+        );
     }
 }
 
 ///////////////////ITEM SW/////////
-global $xoopsDB;
+
 $sw_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_screen') . ' ORDER BY count DESC LIMIT 3');
 
 for ($i = 0, $iMax = count($sw_info); $i < $iMax; ++$i) {
-
     //$sw['info'][] = $sw_info[$i]['count'];
     //$sw['sw'][] = $sw_info[$i]['width'];
     //$sw['percent'][] = round($sw_percent, '2');
@@ -138,7 +141,7 @@ for ($i = 0, $iMax = count($sw_info); $i < $iMax; ++$i) {
     $xoopsTpl->append('item_sw', ['id' => 'sw' . $i, 'sw' => $sw_info[$i]['width'], 'info' => $sw_info[$i]['count']]);
 }
 ///////////////////SW/////////
-global $xoopsDB;
+
 $sw_info  = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_screen') . ' ORDER BY count DESC');
 $sw_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_screen') . '');
 
@@ -156,21 +159,23 @@ for ($i = 0, $iMax = count($sw_info); $i < $iMax; ++$i) {
 
     if ($sw_percent > 0) {
         //$xoopsTpl->append('sws', array('id' => 'sw'.$i, 'sw' => $sw_info[$i]['width'], 'info' => $sw_info[$i]['count'], 'percent' => round($sw_percent, '2')));
-        $xoopsTpl->append('sws_map', [
-            'id'      => 'sw' . $i,
-            'sw'      => $sw_info[$i]['width'],
-            'info'    => $sw_info[$i]['count'],
-            'percent' => round($sw_percent, '2')
-        ]);
+        $xoopsTpl->append(
+            'sws_map',
+            [
+                'id'      => 'sw' . $i,
+                'sw'      => $sw_info[$i]['width'],
+                'info'    => $sw_info[$i]['count'],
+                'percent' => round($sw_percent, '2'),
+            ]
+        );
     }
 }
 
 /////////////// ITEM SC/////////////////////////
-global $xoopsDB;
+
 $sc_info = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_color') . ' ORDER BY count DESC LIMIT 3');
 
 for ($i = 0, $iMax = count($sc_info); $i < $iMax; ++$i) {
-
     //$sc['info'][] = $sc_info[$i]['count'];
     //$sc['sc'][] = $sc_info[$i]['color'];
     //$sc['percent'][] = round($sc_percent, '2');
@@ -178,7 +183,7 @@ for ($i = 0, $iMax = count($sc_info); $i < $iMax; ++$i) {
     $xoopsTpl->append('item_sc', ['id' => 'sc' . $i, 'sc' => $sc_info[$i]['color'], 'info' => $sc_info[$i]['count']]);
 }
 ///////////////SC/////////////////////////
-global $xoopsDB;
+
 $sc_info  = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_color') . ' ORDER BY count DESC');
 $sc_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_color') . '');
 
@@ -196,42 +201,49 @@ for ($i = 0, $iMax = count($sc_info); $i < $iMax; ++$i) {
 
     if ($sc_percent > 0) {
         //$xoopsTpl->append('scs', array('id' => 'sc'.$i, 'sc' => $sc_info[$i]['color'], 'info' => $sc_info[$i]['count'], 'percent' => round($sc_percent, '2')));
-        $xoopsTpl->append('scs_map', [
-            'id'      => 'sc' . $i,
-            'sc'      => $sc_info[$i]['color'],
-            'info'    => $sc_info[$i]['count'],
-            'percent' => round($sc_percent, '2')
-        ]);
+        $xoopsTpl->append(
+            'scs_map',
+            [
+                'id'      => 'sc' . $i,
+                'sc'      => $sc_info[$i]['color'],
+                'info'    => $sc_info[$i]['count'],
+                'percent' => round($sc_percent, '2'),
+            ]
+        );
     }
 }
 
 $xoopsTpl->assign('lang_host_host', _AM_HOST_HOST);
 
 //////////ITEM HOST/////////////
-global $xoopsDB;
+
 $max       = $helper->getConfig('maxpage');
 $host_info = getResult('SELECT DISTINCT hostname, count FROM ' . $xoopsDB->prefix('tdmstats_hostname') . ' ORDER BY count DESC LIMIT 3');
 
-for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
-
+$iMax = count($host_info);
+for ($i = 0; $i < $iMax; ++$i) {
     //$host['info'][] = $host_info[$i]['count'];
     //$host['host'][] = $host_info[$i]['hostname'];
     //$host['percent'][] = round($host_percent, '2');
 
-    $xoopsTpl->append('item_host', [
-        'id'   => 'host' . $i,
-        'host' => $host_info[$i]['hostname'],
-        'info' => $host_info[$i]['count']
-    ]);
+    $xoopsTpl->append(
+        'item_host',
+        [
+            'id'   => 'host' . $i,
+            'host' => $host_info[$i]['hostname'],
+            'info' => $host_info[$i]['count'],
+        ]
+    );
 }
 
 //////////HOST/////////////
-global $xoopsDB;
+
 $max        = $helper->getConfig('maxpage');
 $host_info  = getResult('select distinct hostname, count from ' . $xoopsDB->prefix('tdmstats_hostname') . " order by count desc limit $max");
 $host_total = getResult('SELECT SUM(count) AS sum FROM ' . $xoopsDB->prefix('tdmstats_hostname') . '');
 
-for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
+$iMax = count($host_info);
+for ($i = 0;  $i < $iMax; ++$i) {
     if ($host_total[0]['sum'] > 0) {
         $host_percent = $host_info[$i]['count'] * 100 / $host_total[0]['sum'];
     } else {
@@ -243,10 +255,13 @@ for ($i = 0, $iMax = count($host_info); $i < $iMax; ++$i) {
     $host['percent'][] = round($host_percent, '2');
 
     //$xoopsTpl->append('hosts', array('id' => 'host'.$i, 'host' => $host_info[$i]['hostname'], 'info' => $host_info[$i]['count'], 'percent' => round($host_percent, '2')));
-    $xoopsTpl->append('hosts_map', [
-        'id'      => 'host' . $i,
-        'host'    => $host_info[$i]['hostname'],
-        'info'    => $host_info[$i]['count'],
-        'percent' => round($host_percent, '2')
-    ]);
+    $xoopsTpl->append(
+        'hosts_map',
+        [
+            'id'      => 'host' . $i,
+            'host'    => $host_info[$i]['hostname'],
+            'info'    => $host_info[$i]['count'],
+            'percent' => round($host_percent, '2'),
+        ]
+    );
 }

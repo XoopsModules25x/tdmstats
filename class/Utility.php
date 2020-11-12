@@ -1,19 +1,14 @@
-<?php namespace XoopsModules\Tdmstats;
+<?php
 
-use Xmf\Request;
+namespace XoopsModules\Tdmstats;
+
 use XoopsModules\Tdmstats;
 use XoopsModules\Tdmstats\Common;
 
 /**
  * Class Utility
  */
-class Utility
+class Utility extends Common\SysUtility
 {
-    use Common\VersionChecks; //checkVerXoops, checkVerPhp Traits
-
-    use Common\ServerStats; // getServerStats Trait
-
-    use Common\FilesManagement; // Files Management Trait
-
     //--------------- Custom module methods -----------------------------
 }

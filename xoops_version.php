@@ -10,19 +10,18 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
-
 require_once __DIR__ . '/preloads/autoloader.php';
 
 $modversion['version']             = '1.10';
-$modversion['module_status']       = 'Beta 1';
-$modversion['release_date']        = '2017/04/23';
+$modversion['module_status']       = 'RC-1';
+$modversion['release_date']        = '2020/11/11';
 $modversion['name']                = 'TDMStats';
 $modversion['description']         = _MI_ISTATS_DESC;
 $modversion['author']              = 'Original module: Paul Cooke (alias Scripter)<br><b>Adaptation/rewrite: TDM.</b>';
@@ -44,8 +43,8 @@ $modversion['icons32']             = '../../Frameworks/moduleclasses/icons/32';
 $modversion['release_file']        = XOOPS_URL . '/modules/' . $modversion['dirname'] . '/docs/changelog.txt';
 $modversion['module_website_url']  = 'www.xoops.org';
 $modversion['module_website_name'] = 'XOOPS';
-$modversion['min_php']             = '5.5';
-$modversion['min_xoops']           = '2.5.9';
+$modversion['min_php']             = '7.2';
+$modversion['min_xoops']           = '2.5.10';
 $modversion['min_admin']           = '1.2';
 $modversion['min_db']              = ['mysql' => '5.5'];
 
@@ -75,7 +74,7 @@ $modversion['blocks'][2]['edit_func']   = 'b_tdmstats_counter_edit';
 $modversion['blocks'][2]['template']    = 'tdmstats_block_counter.tpl';
 
 $modversion['blocks'][3]['file']        = 'tdmstats_blocks.php';
-$modversion['blocks'][3]['name']        = 'info';
+$modversion['blocks'][3]['name']        = _MI_ISTATS_INFO;
 $modversion['blocks'][3]['description'] = 'Show info user';
 $modversion['blocks'][3]['show_func']   = 'b_tdmstats_info_show';
 $modversion['blocks'][3]['options']     = '1|6|default';
@@ -108,7 +107,6 @@ $modversion['tables'][16] = 'tdmstats_pays';
 $modversion['tables'][17] = 'tdmstats_usercount';
 $modversion['tables'][18] = 'tdmstats_referer';
 $modversion['tables'][19] = 'tdmstats_hour';
-
 
 // Admin things
 $modversion['hasAdmin']    = 1;
@@ -168,8 +166,7 @@ $modversion['config'][$i]['options']     = [
     'es_ES.UTF-8' => 'es_ES.UTF-8',
     'it_IT.UTF-8' => 'it_IT.UTF-8',
     'pt_PT.UTF-8' => 'pt_PT.UTF-8',
-    'ru_RU.UTF-8' => 'ru_RU.UTF-8'
-
+    'ru_RU.UTF-8' => 'ru_RU.UTF-8',
 ];
 ++$i;
 $modversion['config'][$i]['name']        = 'setlocal2';
@@ -187,7 +184,6 @@ $modversion['config'][$i]['options']     = [
     'ita' => 'ita',
     'por' => 'por',
     'rus' => 'rus',
-
 ];
 ++$i;
 $modversion['config'][$i]['name']        = 'maxpage';

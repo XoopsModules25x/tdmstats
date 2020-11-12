@@ -10,19 +10,18 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
-
-require_once  dirname(dirname(dirname(__DIR__))) . '/include/cp_header.php';
+require_once dirname(__DIR__, 3) . '/include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
 require_once XOOPS_ROOT_PATH . '/class/tree.php';
 require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
-require_once  dirname(__DIR__) . '/include/function.php';
+require_once dirname(__DIR__) . '/include/function.php';
 
 xoops_cp_header();
 if (!is_readable(XOOPS_ROOT_PATH . '/Frameworks/art/functions.admin.php')) {
@@ -36,7 +35,7 @@ if (!is_readable(XOOPS_ROOT_PATH . '/Frameworks/art/functions.admin.php')) {
 echo '<div class="CPbigTitle" style="background-image: url(../assets/images/decos/about.png); background-repeat: no-repeat; background-position: left; padding-left: 60px; padding-top:20px; padding-bottom:15px;">
 <h3><strong>' . _AM_ISTATS_ABOUT . '</strong></h3>';
 echo '</div><br>';
-/** @var XoopsModuleHandler $moduleHandler */
+/** @var \XoopsModuleHandler $moduleHandler */
 $moduleHandler = xoops_getHandler('module');
 $versioninfo   = $moduleHandler->get($xoopsModule->getVar('mid'));
 echo '

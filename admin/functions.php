@@ -10,20 +10,19 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 
 use XoopsModules\Tdmstats;
 
 /**
-* @param int $currentoption
-*/
-
+ * @param int $currentoption
+ */
 function adminmenu($currentoption = 0)
 {
     global $xoopsModule, $xoopsConfig;
@@ -31,10 +30,9 @@ function adminmenu($currentoption = 0)
     $tblColors[0]              = $tblColors[1] = '#DDE';
     $tblColors[$currentoption] = 'white';
 
-    /** @var Tdmstats\Helper $helper */
     $helper = Tdmstats\Helper::getInstance();
     $helper->loadLanguage('modinfo');
-    
+
     echo '<div id="navcontainer"><ul style="padding: 3px 0; margin-left: 0; font: bold 12px Verdana, sans-serif; ">';
     echo '<li style="list-style: none; margin: 0; display: inline; "><a href="index.php?op=istatsConfig" style="padding: 3px 0.5em; margin-left: 3px; border: 1px solid #778; background: ' . $tblColors[0] . '; text-decoration: none; ">' . _MI_ISTATS_COOKIE_MENU . '</a></li>';
     echo '<li style="list-style: none; margin: 0; display: inline; "><a href="../../system/admin.php?fct=preferences&amp;op=showmod&amp;mod='

@@ -10,15 +10,20 @@
  */
 
 /**
- * @copyright    {@link https://xoops.org/ XOOPS Project}
- * @license      {@link http://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
  * @package       tdmstats
  * @since
- * @author       TDM   - TEAM DEV MODULE FOR XOOPS
- * @author       XOOPS Development Team
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
  */
 
-require_once XOOPS_ROOT_PATH . '/mainfile.php';
+use XoopsModules\Tdmstats\{
+    Helper
+};
+/** @var Helper $helper */
+
+//require_once XOOPS_ROOT_PATH . '/mainfile.php';
 
 /**
  * @param $options
@@ -27,6 +32,17 @@ require_once XOOPS_ROOT_PATH . '/mainfile.php';
  */
 function b_tdmstats_show($options)
 {
+    if (!class_exists(Helper::class)) {
+        return false;
+    }
+
+    $helper = Helper::getInstance();
+    $helper->loadLanguage('main');
+    $helper->loadLanguage('modinfo');
+    $helper->loadLanguage('blocks');
+
+    $block = [];
+
     global $xoopsConfig;
     require_once XOOPS_ROOT_PATH . '/modules/tdmstats/include/function.php';
     $results = CountDays();
@@ -144,6 +160,7 @@ function b_tdmstats_counter_show($options)
 
 /**
  * @param $options
+ * @return array|bool
  */
 function b_tdmstats_info_show($options)
 {
@@ -158,6 +175,7 @@ function b_tdmstats_info_show($options)
     $criteria->setOrder('DESC');
     $criteria->setSort('user_regdate');
     $criteria->setLimit(5);
+    /** @var \XoopsMemberHandler $memberHandler */
     $memberHandler = xoops_getHandler('member');
     $newmembers    = $memberHandler->getUsers($criteria);
     $count         = count($newmembers);
@@ -171,7 +189,6 @@ function b_tdmstats_info_show($options)
     global $xoopsDB, $xoopsUser, $xoopsModule;
     $onlineHandler = xoops_getHandler('online');
 
-    mt_srand((double)microtime() * 1000000);
     // set gc probabillity to 10% for now..
     if (mt_rand(1, 100) < 11) {
         $onlineHandler->gc(300);
@@ -189,25 +206,25 @@ function b_tdmstats_info_show($options)
         $onlineHandler->write($uid, $uname, time(), 0, $_SERVER['REMOTE_ADDR']);
     }
     $onlines = $onlineHandler->getAll();
-    /** @var XoopsModuleHandler $moduleHandler */
+    /** @var \XoopsModuleHandler $moduleHandler */
     $moduleHandler = xoops_getHandler('module');
     $modules       = $moduleHandler->getList(new \Criteria('isactive', 1));
     if (false !== $onlines) {
         $total = count($onlines);
-        //$block = array();
+        //$block = [];
         $guests  = 0;
         $members = '';
-        for ($i = 0; $i < $total; ++$i) {
-            $userid = \XoopsUser::getUnameFromId($onlines[$i]['online_uid']);
-            if ($onlines[$i]['online_uid'] > 0) {
-                $members .= ' <a href="' . XOOPS_URL . '/userinfo.php?uid=' . $onlines[$i]['online_uid'] . '" title="' . $onlines[$i]['online_uname'] . '">' . $userid . '</a>: ';
+        foreach ($onlines as $iValue) {
+            $userid = \XoopsUser::getUnameFromId($iValue['online_uid']);
+            if ($iValue['online_uid'] > 0) {
+                $members .= ' <a href="' . XOOPS_URL . '/userinfo.php?uid=' . $iValue['online_uid'] . '" title="' . $iValue['online_uname'] . '">' . $userid . '</a>: ';
             } else {
                 $members .= $userid . ': ';
                 ++$guests;
             }
 
-            if ($onlines[$i]['online_module']) {
-                $members .= $modules[$onlines[$i]['online_module']] . ', ';
+            if ($iValue['online_module']) {
+                $members .= $modules[$iValue['online_module']] . ', ';
             } else {
                 $members .= _YOURHOME . ', ';
             }
@@ -223,7 +240,7 @@ function b_tdmstats_info_show($options)
         $block['online']['online_names']   = $members;
         $block['online']['online_members'] = $total - $guests;
         $block['online']['online_guests']  = $guests;
-    //$block['online']['online_module'] = $module;
+        //$block['online']['online_module'] = $module;
         //$block['lang_more'] = _MORE;
     } else {
         return false;
@@ -241,11 +258,11 @@ function b_tdmstats_info_show($options)
     //$total_hour = getResult("select SUM(count) AS sum from ".$xoopsDB->prefix("tdmstats_today_hour")."");
     $times = '';
     if ($user_info) {
-        for ($i = 0, $iMax = count($user_info); $i < $iMax; ++$i) {
-            if ($user_info[$i]['count'] > 0) {
-                $userid = !empty($user_info[$i]['userid']) ? \XoopsUser::getUnameFromId($user_info[$i]['userid']) : \XoopsUser::getUnameFromId();
+        foreach ($user_info as $iValue) {
+            if ($iValue['count'] > 0) {
+                $userid = !empty($iValue['userid']) ? \XoopsUser::getUnameFromId($iValue['userid']) : \XoopsUser::getUnameFromId();
                 //$count = $user_info[$i]['count'] ;
-                $count = gmstrftime('%H H %M mn %S s', $user_info[$i]['count']);
+                $count = gmstrftime('%H H %M mn %S s', $iValue['count']);
                 $times .= '<b>' . $userid . '</b>: ' . $count . ', ';
                 //$hour['hour'][] = $hour_info[$i]['hour'];
                 //$hour['percent'][] = round($hour_percent, '2');
@@ -256,7 +273,6 @@ function b_tdmstats_info_show($options)
     }
 
     return $block;
-
     $block['uname'] = !empty($xoopsUser) ? $xoopsUser->getVar('uname', 'E') : _MB_ISTATS_ANONYMOUS;
 
     if (1 == $options[0]) {
@@ -277,7 +293,6 @@ function b_tdmstats_info_show($options)
     $block['lang_there']   = _MB_ISTATS_THERE;
     $block['graphics']     = num_to_graphics($result['total'], $options[1], XOOPS_URL . '/modules/tdmstats/assets/images/' . $options[2] . '', 'jpg');
     $block['lang_visitor'] = _MB_ISTATS_VISITOR;
-
     //return $block;
 }
 
@@ -317,11 +332,11 @@ function b_tdmstats_edit($options)
         '13' => _MB_ISTATS_AVE_DAY,
         '14' => _MB_ISTATS_AVE_WEEK,
         '15' => _MB_ISTATS_AVE_MTH,
-        '16' => _MB_ISTATS_P_PAGE
+        '16' => _MB_ISTATS_P_PAGE,
     ];
     $form   = _MB_ISTATS_INFO_DESC . '<br><select name="options[]" multiple="multiple" size="10">';
     foreach ($option as $key => $value) {
-        $form .= '<option value="' . $key . '" ' . (false === array_search($key, $options) ? '' : 'selected') . '>' . $value . '</option>';
+        $form .= '<option value="' . $key . '" ' . (!in_array($key, $options, true) ? '' : 'selected') . '>' . $value . '</option>';
     }
     $form .= '</select>';
 
