@@ -38,8 +38,8 @@ function CountDays()
     $days           = getResult('SELECT count(DISTINCT date) AS count FROM ' . $xoopsDB->prefix('tdmstats_daycount') . ' ');
     $result['days'] = $days[0]['count'];
 
-    $total_visits    = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_count') . ' ');
-    $result['total'] = $total_visits[0]['count'];
+    $total_visits    = getResult('SELECT * FROM ' . $xoopsDB->prefix('tdmstats_counter') . ' ');
+    $result['total'] = $total_visits[0]['count']??0;
 
     if ($result['total'] > 0 && $result['days'] > 0) {
         $result['ava_day']  = $result['total'] / $result['days'];

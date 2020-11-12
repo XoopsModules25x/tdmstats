@@ -35,8 +35,8 @@ $adminObject = Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));
 //$adminObject->displayIndex();
 
-//tdmstats_count
-$sq1     = 'SHOW TABLE STATUS FROM `' . XOOPS_DB_NAME . "` LIKE '" . $xoopsDB->prefix('tdmstats_count') . "'";
+//tdmstats_counter
+$sq1     = 'SHOW TABLE STATUS FROM `' . XOOPS_DB_NAME . "` LIKE '" . $xoopsDB->prefix('tdmstats_counter') . "'";
 $result1 = $xoopsDB->queryF($sq1);
 $count   = $xoopsDB->fetchArray($result1);
 //tdmstats_daycount
@@ -131,7 +131,7 @@ echo '
   <td valign="top" width="60%">
  <fieldset><legend class="CPmediumTitle">' . $count['Name'] . '</legend>
         <br>';
-echo _AM_ISTATS_FREE . ':<b> ' . istats_prettifyBytes($count['Data_free']) . '&nbsp;<a href="main.php?op=optimise&table=tdmstats_count">' . _AM_ISTATS_OPT . '</a></b>';
+echo _AM_ISTATS_FREE . ':<b> ' . istats_prettifyBytes($count['Data_free']) . '&nbsp;<a href="main.php?op=optimise&table=tdmstats_counter">' . _AM_ISTATS_OPT . '</a></b>';
 echo '<br><br>';
 echo _AM_ISTATS_TOTAL . ':<b> ' . istats_prettifyBytes($count['Data_length'] + $count['Index_length']) . '</b>';
 echo '<br><br>

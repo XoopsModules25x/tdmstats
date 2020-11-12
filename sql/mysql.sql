@@ -3,14 +3,14 @@
 #
 
 # --------------------------------------------------------
-# Table structure for table 'tdmstats_count'
+# Table structure for table 'tdmstats_counter'
 # --------------------------------------------------------
-CREATE TABLE tdmstats_count (
-  count INT(10) NOT NULL
+CREATE TABLE tdmstats_counter (
+  counter INT(10) NOT NULL
 );
 
 # -- insert count
-INSERT INTO tdmstats_count VALUES (1);
+INSERT INTO tdmstats_counter VALUES (1);
 
 # --------------------------------------------------------
 # Table structure for table 'tdmstats_daycount'

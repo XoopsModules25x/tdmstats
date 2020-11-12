@@ -87,7 +87,7 @@ $modversion['onUpdate'] = 'include/update.php';
 // All tables should not have any prefix!
 $modversion['sqlfile']['mysql'] = 'sql/mysql.sql';
 
-$modversion['tables'][18] = 'tdmstats_count';
+$modversion['tables'][18] = 'tdmstats_counter';
 $modversion['tables'][1]  = 'tdmstats_daycount';
 $modversion['tables'][2]  = 'tdmstats_referer';
 $modversion['tables'][3]  = 'tdmstats_hour';
