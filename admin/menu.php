@@ -1,65 +1,87 @@
 <?php
-/**
- * ****************************************************************************
- *  - TDMStats By TDM   - TEAM DEV MODULE FOR XOOPS
- *  - GNU Licence Copyright (c)  (http://www.)
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
  *
- * La licence GNU GPL, garanti à l'utilisateur les droits suivants
- *
- * 1. La liberté d'exécuter le logiciel, pour n'importe quel usage,
- * 2. La liberté de l' étudier et de l'adapter à ses besoins,
- * 3. La liberté de redistribuer des copies,
- * 4. La liberté d'améliorer et de rendre publiques les modifications afin
- * que l'ensemble de la communauté en bénéficie.
- *
- * @copyright       	(http://www.tdmxoops.net)
- * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE
- *
- * ****************************************************************************
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-defined("XOOPS_ROOT_PATH") or die("XOOPS root path not defined");
+/**
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @package       tdmstats
+ * @since
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
+ */
 
-$path = dirname(dirname(dirname(dirname(__FILE__))));
-include_once $path . '/mainfile.php';
+use Xmf\Module\Admin;
+use XoopsModules\Tdmstats\{Helper
+};
 
-$dirname         = basename(dirname(dirname(__FILE__)));
-$module_handler  = xoops_gethandler('module');
-$module          = $module_handler->getByDirname($dirname);
-$pathIcon32      = $module->getInfo('icons32');
-$pathModuleAdmin = $module->getInfo('dirmoduleadmin');
-$pathLanguage    = $path . $pathModuleAdmin;
+/** @var Admin $adminObject */
+/** @var Helper $helper */
 
-if (!file_exists($fileinc = $pathLanguage . '/language/' . $GLOBALS['xoopsConfig']['language'] . '/' . 'main.php')) {
-    $fileinc = $pathLanguage . '/language/english/main.php';
+include dirname(__DIR__) . '/preloads/autoloader.php';
+
+$moduleDirName      = basename(dirname(__DIR__));
+$moduleDirNameUpper = mb_strtoupper($moduleDirName);
+$helper             = Helper::getInstance();
+$helper->loadLanguage('common');
+$helper->loadLanguage('feedback');
+$helper->loadLanguage('modinfo');
+
+$pathIcon32 = \Xmf\Module\Admin::menuIconPath('');
+if (is_object($helper->getModule())) {
+    $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 }
 
-include_once $fileinc;
+$adminmenu = [];
 
-$adminmenu = array();
+$adminmenu[] = [
+    'title' => _MI_ISTATS_HOME,
+    'link'  => 'admin/index.php',
+    'icon'  => $pathIcon32 . '/home.png',
+];
 
-$i = 1;
-$adminmenu[$i]["title"] = _AM_MODULEADMIN_HOME;
-$adminmenu[$i]["link"]  = "admin/index.php";
-$adminmenu[$i]["icon"]  = $pathIcon32 . '/home.png';
+$adminmenu[] = [
+    'title' => _MI_ISTATS_INDEX,
+    'link'  => 'admin/main.php',
+    'icon'  => $pathIcon32 . '/manage.png',
+];
 
-$i++;
-$adminmenu[$i]["title"] =  _MI_ISTATS_INDEX;
-$adminmenu[$i]["link"]  = "admin/main.php";
-$adminmenu[$i]["icon"]  = $pathIcon32 . '/manage.png';
+$adminmenu[] = [
+    'title' => _MI_ISTATS_PLUG,
+    'link'  => 'admin/plug.php',
+    'icon'  => $pathIcon32 . '/addlink.png',
+];
 
-$i++;
-$adminmenu[$i]["title"] =  _MI_ISTATS_PLUG;
-$adminmenu[$i]["link"]  = "admin/plug.php";
-$adminmenu[$i]["icon"]  = $pathIcon32 . '/addlink.png';
+$adminmenu[] = [
+    'title' => _MI_ISTATS_PERMISSIONS,
+    'link'  => 'admin/permissions.php',
+    'icon'  => $pathIcon32 . '/permissions.png',
+];
 
-$i++;
-$adminmenu[$i]["title"] = _MI_ISTATS_PERMISSIONS;
-$adminmenu[$i]["link"]  = "admin/permissions.php";
-$adminmenu[$i]["icon"]  = $pathIcon32 . '/permissions.png';
+// Blocks Admin
+$adminmenu[] = [
+    'title' => constant('CO_' . $moduleDirNameUpper . '_' . 'BLOCKS'),
+    'link'  => 'admin/blocksadmin.php',
+    'icon'  => $pathIcon32 . '/block.png',
+];
 
-$i++;
-$adminmenu[$i]['title'] = _AM_MODULEADMIN_ABOUT;
-$adminmenu[$i]["link"]  = "admin/about.php";
-$adminmenu[$i]["icon"]  = $pathIcon32 . '/about.png';
+if (is_object($helper->getModule()) && $helper->getConfig('displayDeveloperTools')) {
+    $adminmenu[] = [
+        'title' => constant('CO_' . $moduleDirNameUpper . '_' . 'ADMENU_MIGRATE'),
+        'link'  => 'admin/migrate.php',
+        'icon'  => $pathIcon32 . '/database_go.png',
+    ];
+}
+
+$adminmenu[] = [
+    'title' => _MI_ISTATS_ABOUT,
+    'link'  => 'admin/about.php',
+    'icon'  => $pathIcon32 . '/about.png',
+];

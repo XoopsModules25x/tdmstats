@@ -1,73 +1,70 @@
 <?php
-/**
- * ****************************************************************************
- *  - TDMStats By TDM   - TEAM DEV MODULE FOR XOOPS
- *  - GNU Licence Copyright (c)  (http://www.)
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
  *
- * La licence GNU GPL, garanti à l'utilisateur les droits suivants
- *
- * 1. La liberté d'exécuter le logiciel, pour n'importe quel usage,
- * 2. La liberté de l' étudier et de l'adapter à ses besoins,
- * 3. La liberté de redistribuer des copies,
- * 4. La liberté d'améliorer et de rendre publiques les modifications afin
- * que l'ensemble de la communauté en bénéficie.
- *
- * @copyright       	(http://www.tdmxoops.net)
- * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE
- *
- * ****************************************************************************
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-include '../../../include/cp_header.php';
-include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
-include_once(XOOPS_ROOT_PATH."/class/tree.php");
-include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
-include_once("../include/function.php");
+/**
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @package       tdmstats
+ * @since
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
+ */
 
- xoops_cp_header();
-include_once 'admin_header.php';
+use Xmf\Module\Admin;
 
-$indexAdmin = new ModuleAdmin();
-echo $indexAdmin->addNavigation('plug.php');
+require_once __DIR__ . '/admin_header.php';
 
-$myts = MyTextSanitizer::getInstance();
-$op = isset($_REQUEST['op']) ? $_REQUEST['op'] : 'list';
- 
+require_once dirname(__DIR__, 3) . '/include/cp_header.php';
+require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+require_once XOOPS_ROOT_PATH . '/class/tree.php';
+require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+require_once dirname(__DIR__) . '/include/function.php';
 
- switch($op) {
-  
+xoops_cp_header();
+require_once __DIR__ . '/admin_header.php';
+
+$adminObject = Admin::getInstance();
+$adminObject->displayNavigation(basename(__FILE__));
+
+$myts = \MyTextSanitizer::getInstance();
+$op   = $_REQUEST['op'] ?? 'list';
+
+switch ($op) {
     //sauv
- case "create":
- //Copie du plug
-$indexFile = XOOPS_ROOT_PATH."/modules/".$xoopsModule->dirname()."/xoops_plugins/function.xoStats.php";
-$erreur = copy($indexFile, XOOPS_ROOT_PATH."/class/smarty/xoops_plugins/function.xoStats.php");
- if($erreur){
-    redirect_header( 'plug.php', 1, _AM_ISTATS_BASE);
-        }else{
-    redirect_header( 'plug.php', 1, _AM_ISTATS_BASEERROR);
+    case 'create':
+        //Copie du plug
+        $indexFile = XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/xoops_plugins/function.xoStats.php';
+        $erreur    = copy($indexFile, XOOPS_ROOT_PATH . '/class/smarty/xoops_plugins/function.xoStats.php');
+        if ($erreur) {
+            redirect_header('plug.php', 1, _AM_ISTATS_BASE);
+        } else {
+            redirect_header('plug.php', 1, _AM_ISTATS_BASEERROR);
         }
 
-    break;
-    
+        break;
+    case 'list':
+    default:
 
-    
- case "list":
-  default:
-    
-    if (!is_readable(XOOPS_ROOT_PATH ."/class/smarty/xoops_plugins/function.xoStats.php")) {
-    $veriffile = '<span style="color: red;"><a href="plug.php?op=create"><img src="./../images/off.gif"> '._AM_ISTATS_PLUGERROR.'</span></a>';
-    } else {
-    $veriffile = '<span style="color: green;"><img src="./../images/on.gif" >'._AM_ISTATS_PLUGOK.'</span>';
-    }
-    
-    echo '<fieldset><legend class="CPmediumTitle">'._AM_ISTATS_PLUGETAT.'</legend>
-		<br/>';
+        if (!is_readable(XOOPS_ROOT_PATH . '/class/smarty/xoops_plugins/function.xoStats.php')) {
+            $veriffile = '<span style="color: red;"><a href="plug.php?op=create"><img src="./../assets/images/off.gif"> ' . _AM_ISTATS_PLUGERROR . '</span></a>';
+        } else {
+            $veriffile = '<span style="color: green;"><img src="./../assets/images/on.gif" >' . _AM_ISTATS_PLUGOK . '</span>';
+        }
+
+        echo '<fieldset><legend class="CPmediumTitle">' . _AM_ISTATS_PLUGETAT . '</legend>
+        <br>';
         echo $veriffile;
-        echo '<br/><br/>'._AM_ISTATS_PLUGHELP.'<br /><br />
-	</fieldset><br /> <br />';
+        echo '<br><br>' . _AM_ISTATS_PLUGHELP . '<br><br>
+    </fieldset><br> <br>';
 
-    break;
-    
-  }
-include_once 'admin_footer.php';
+        break;
+}
+require_once __DIR__ . '/admin_footer.php';

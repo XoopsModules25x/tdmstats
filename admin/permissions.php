@@ -1,62 +1,63 @@
 <?php
-/**
- * ****************************************************************************
- *  - TDMStats By TDM   - TEAM DEV MODULE FOR XOOPS
- *  - GNU Licence Copyright (c)  (http://www.)
+/*
+ * You may not change or alter any portion of this comment or credits
+ * of supporting developers from this source code or any supporting source code
+ * which is considered copyrighted (c) material of the original comment or credit authors.
  *
- * La licence GNU GPL, garanti à l'utilisateur les droits suivants
- *
- * 1. La liberté d'exécuter le logiciel, pour n'importe quel usage,
- * 2. La liberté de l' étudier et de l'adapter à ses besoins,
- * 3. La liberté de redistribuer des copies,
- * 4. La liberté d'améliorer et de rendre publiques les modifications afin
- * que l'ensemble de la communauté en bénéficie.
- *
- * @copyright       	(http://www.tdmxoops.net)
- * @license        	http://www.fsf.org/copyleft/gpl.html GNU public license
- * @author		TDM ; TEAM DEV MODULE
- *
- * ****************************************************************************
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
- 
-include '../../../include/cp_header.php';
-include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
-include_once(XOOPS_ROOT_PATH."/class/tree.php");
-include_once XOOPS_ROOT_PATH.'/class/pagenav.php';
-include_once("../include/function.php");
 
-include_once XOOPS_ROOT_PATH . "/class/xoopslists.php";
-include_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
-//include_once XOOPS_ROOT_PATH.'/modules/'.$xoopsModule->dirname().'/class/mygrouppermform.php';
+/**
+ * @copyright     {@link https://xoops.org/ XOOPS Project}
+ * @license       {@link https://www.gnu.org/licenses/gpl-2.0.html GNU GPL 2 or later}
+ * @package       tdmstats
+ * @since
+ * @author        TDM   - TEAM DEV MODULE FOR XOOPS
+ * @author        XOOPS Development Team
+ */
 
+use Xmf\Module\Admin;
 
-if( ! empty( $_POST['submit'] ) ) {
-    redirect_header( XOOPS_URL."/modules/".$xoopsModule->dirname()."/admin/permissions.php" , 1 , _AM_XD_GPERMUPDATED);
+require_once __DIR__ . '/admin_header.php';
+
+require_once dirname(__DIR__, 3) . '/include/cp_header.php';
+require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
+require_once XOOPS_ROOT_PATH . '/class/tree.php';
+require_once XOOPS_ROOT_PATH . '/class/pagenav.php';
+require_once dirname(__DIR__) . '/include/function.php';
+
+require_once XOOPS_ROOT_PATH . '/class/xoopslists.php';
+require_once XOOPS_ROOT_PATH . '/class/xoopsform/grouppermform.php';
+//require_once XOOPS_ROOT_PATH.'/modules/'.$xoopsModule->dirname().'/class/mygrouppermform.php';
+
+if (!empty($_POST['submit'])) {
+    redirect_header(XOOPS_URL . '/modules/' . $xoopsModule->dirname() . '/admin/permissions.php', 1, _AM_XD_GPERMUPDATED);
 }
- xoops_cp_header();
-include_once 'admin_header.php';
+xoops_cp_header();
+//require_once __DIR__ . '/admin_header.php';
 
-$indexAdmin = new ModuleAdmin();
-echo $indexAdmin->addNavigation('permissions.php');
+$adminObject = Admin::getInstance();
+$adminObject->displayNavigation(basename(__FILE__));
 
 $module_id = $xoopsModule->getVar('mid');
 
-$perm_name = "istats_view";
+$perm_name = 'istats_view';
 $perm_desc = _AM_ISTATS_PERM2;
 
-    $global_perms_array = array(
-        '4' => _AM_ISTATS_PERM_4 ,
-        '8' => _AM_ISTATS_PERM_8 ,
-        '16' => _AM_ISTATS_PERM_16
-         );
-    
+$global_perms_array = [
+    '4'  => _AM_ISTATS_PERM_4,
+    '8'  => _AM_ISTATS_PERM_8,
+    '16' => _AM_ISTATS_PERM_16,
+];
 
-$permform = new XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '');
+$permform = new \XoopsGroupPermForm($perm_desc, $module_id, $perm_name, '', 'admin/permissions.php');
 
-foreach( $global_perms_array as $perm_id => $perm_name ) {
-        $permform->addItem( $perm_id , $perm_name ) ;
-    }
-    
+foreach ($global_perms_array as $perm_id => $perm_name) {
+    $permform->addItem($perm_id, $perm_name);
+}
+
 echo $permform->render();
 
-include_once 'admin_footer.php';
+require_once __DIR__ . '/admin_footer.php';

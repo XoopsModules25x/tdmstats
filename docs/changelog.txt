@@ -1,87 +1,90 @@
-************************************************************
-TDM : TDMStats
-Version 1.09 | 2012-07-24
-************************************************************
+<h5>1.10 RC 1   [2020-11-11]</h5>  Dev: XOOPS 2.5.11, PHP 7.4.12, PHP 8.0 RC 3
+<hr>
+- XOOPS 2.5.9, PHP 7 (mamba)
+- Converted to XOOPS 2.5.8 Admin GUI (mamba)
+- removed @version (mamba)
+- PSR-2 code cosmetics (mamba)
+- addNavigation(basename(__FILE__))  (mamba)
+- dirname(__FILE__) to __DIR__ (mamba)
+- replaced < br /> with < br > (mamba)
+- Unnecessary double quotes (mamba)
+- reference mismatch (mamba)
+- Hardening to type safe (mamba)
+- update Help (mamba)
+- changed _handler to Handler (mamba)
+- removed '/' from void HTML elements (&lt;br&gt;, &lt;img&gt;, etc) (mamba)
+- HTML 5: removed 'selected' and 'checked' (mamba)
+- updated file headers for consistency (mamba)
+- renamed several $indexAdmin with $adminObject for consistency (mamba)
+- Updates for PayPal changes (zyspec)
+- added Contributing.md (mamba)
+- moved functions to Utility class (mamba)
+- include_once to require_once (mamba)
+- php-cs-fixer updates (mamba)
+- started conversion to XMF (mamba)
+    &nbsp;&nbsp;- updated addInfoBoxLine entries (mamba)
+    &nbsp;&nbsp;- displayNavigation(basename(__FILE__))  (mamba)
+    &nbsp;&nbsp;- changed to ->displayButton('left') (mamba)
+
+<h5>1.10 Beta 1       [2014-04-23]</h5>
+<hr>
+- moved all images, CSS, and JS files to /assets (mamba)
+- renamed .html Smarty templates to .tpl (mamba)
+
+<h5>1.09 [2012-07-24]</h5>
+<hr>
 - new style and fix bug
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.08 | 2012-06-27
-************************************************************
-- fixing bugs reported by Cesag (mamba)
-************************************************************
-TDM : TDMStats
-Version 1.07 | 12-05-2012
-Dev:  2.2.4
-************************************************************
+
+<h5>1.08 [2012-06-27]</h5>
+<hr>
+- fixing bugs reported by cesagonchu (mamba)
+
+<h5>1.07  [12-05-2012]</h5> Dev:  2.2.4
+<hr>
 - conversion to XOOPS 2.5.x Admin GUI
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.06 | 27-01-2010
-Dev:  2.2.4
-************************************************************
+
+<h5>1.06 [27-01-2010]</h5>  Dev:  2.2.4
+<hr>
 - Correction des fichiers admin refonte du design et option.
-- Correction d'un bug avec la taille de base de donnée.
+- Correction d'un bug avec la taille de base de donnee.
 - Modifier tous les fichiers pour inclure les nouveaux graphique.
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.05 | 17-12-2009
-Dev:  2.2.3
-************************************************************
+
+<h5>1.05 [17-12-2009]</h5>  Dev:  2.2.3
+<hr>
 - correction des fichiers de langue FR en utf8
 - correction d'un bug avec l'hrs du serveur
-- le module ne marchait pas sur les serveur linux (problème majuscule)
+- le module ne marchait pas sur les serveur linux (probleme majuscule)
 - supression bug avec les blocs.
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.04 | 15-12-2009
-Dev:  2.2.3
-************************************************************
+
+<h5>1.04 [15-12-2009]</h5>  Dev:  2.2.3
+<hr>
 - supression bug avec les blocs (les blocs ne marchait pas)
 - ajout du bloc compteur
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.03 | 05-10-2009
-Dev:  2.2.3
-************************************************************
-- modifié summary.php vs summary.html modification du system pays.
-- modifié summary.html réorganisation du template.
-- modifié summary.php vs stats.php limitation du texte.
-- modifié xoops_version.php vs index.php ajout de choix du theme.
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.02 | 25-09-2009
-Dev:  2.2.3
-************************************************************
-- modifié sql/mysql.sql pour bug.
-- modifié sql/mysql1.1.sql pour bug.
+
+<h5>1.03 [05-10-2009]</h5>  Dev:  2.2.3
+<hr>
+- modified summary.php vs summary.html modification du system pays.
+- modified summary.html reorganisation du template.
+- modified summary.php vs stats.php limitation du texte.
+- modified xoops_version.php vs index.php ajout de choix du theme.
+
+<h5>1.02 [25-09-2009]</h5>Dev:  2.2.3
+<hr>
+- modified sql/mysql.sql pour bug.
+- modified sql/mysql1.1.sql pour bug.
 - ajout du fichier readme_fr.txt
 - ajout du fichier license_gpl.txt
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.01 | 21-07-2009
-Dev:  2.2.3
-************************************************************
+
+<h5>1.01 [21-07-2009]</h5>  Dev:  2.2.3
+<hr>
 - ajoute firefox et 1920 about.php.
-- modifié counter.php pour linux.
-- modifié counter.php pour le pays.
-************************************************************
-************************************************************
-TDM : TDMStats
-Version 1.00 | 21-07-2009
-Dev:  2.2.3
-************************************************************
+- modified counter.php pour linux.
+- modified counter.php pour le pays.
+
+<h5>1.00 [21-07-2009]</h5>  Dev:  2.2.3
+<hr>
 - ajoute changelog et modifie about.php.
-- modifié function.xoStats.php pour la fonction page.
-- modifié counter.php pour le pays.
-- modifié mysql.sql bug windows vista.
-
-************************************************************
-
+- modified function.xoStats.php pour la fonction page.
+- modified counter.php pour le pays.
+- modified mysql.sql bug windows vista.
 

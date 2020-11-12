@@ -4,12 +4,13 @@
 
 
 # --------------------------------------------------------
-# Table structure for table 'TDMStats_usercount'
+# Table structure for table 'tdmstats_usercount'
 # --------------------------------------------------------
-create table TDMStats_usercount(
-id int(10) not null auto_increment,
-userid varchar(255) not null,
-ip varchar(255) not null,
-date date not null,
-count int(10) not null,
-primary key(id));
+CREATE TABLE tdmstats_usercount (
+  id     INT(10)      NOT NULL AUTO_INCREMENT,
+  userid VARCHAR(255) NOT NULL,
+  ip     VARCHAR(255) NOT NULL,
+  date   DATE         NOT NULL,
+  count  INT(10)      NOT NULL,
+  PRIMARY KEY (id)
+);
