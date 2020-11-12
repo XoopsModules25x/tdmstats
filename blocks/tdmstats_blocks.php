@@ -190,7 +190,7 @@ function b_tdmstats_info_show($options)
     $onlineHandler = xoops_getHandler('online');
 
     // set gc probabillity to 10% for now..
-    if (mt_rand(1, 100) < 11) {
+    if (random_int(1, 100) < 11) {
         $onlineHandler->gc(300);
     }
     if (is_object($xoopsUser)) {
