@@ -18,6 +18,7 @@
  * @author        XOOPS Development Team
  */
 
+use Xmf\Request;
 use XoopsModules\Tdmstats;
 $GLOBALS['xoopsOption']['template_main'] = 'tdmstats_index.tpl';
 
@@ -42,7 +43,7 @@ define('TDMSTATS_DIRNAME', $xoopsModule->getVar('dirname'));
 define('TDMSTATS_URL', XOOPS_URL . '/modules/' . TDMSTATS_DIRNAME);
 define('TDMSTATS_IMAGES_URL', TDMSTATS_URL . '/assets/images');
 
-$action = \Xmf\Request::getInt('action', 1, 'REQUEST');
+$action = Request::getInt('action', 1, 'REQUEST');
 
 switch ($action) {
     case '3':

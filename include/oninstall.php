@@ -18,6 +18,7 @@
  */
 
 use XoopsModules\Tdmstats;
+use XoopsModules\Tdmstats\Utility;
 
 /**
  * Prepares system prior to attempting to install module
@@ -28,7 +29,7 @@ use XoopsModules\Tdmstats;
 function xoops_module_pre_install_tdmstats(\XoopsModule $module)
 {
     require_once dirname(__DIR__) . '/preloads/autoloader.php';
-    $utility      = new \XoopsModules\Tdmstats\Utility();
+    $utility      = new Utility();
     $xoopsSuccess = $utility::checkVerXoops($module);
     $phpSuccess   = $utility::checkVerPhp($module);
 
@@ -55,7 +56,7 @@ function xoops_module_install_tdmstats(\XoopsModule $module)
     $moduleDirName = basename(dirname(__DIR__));
 
     $helper       = Tdmstats\Helper::getInstance();
-    $utility      = new Tdmstats\Utility();
+    $utility      = new Utility();
     $configurator = new Tdmstats\Common\Configurator();
     // Load language files
     $helper->loadLanguage('admin');

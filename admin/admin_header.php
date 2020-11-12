@@ -18,6 +18,7 @@
  * @author        XOOPS Development Team
  */
 
+use Xmf\Module\Admin;
 use XoopsModules\Tdmstats;
 
 require_once dirname(__DIR__, 3) . '/include/cp_header.php';
@@ -29,10 +30,10 @@ require dirname(__DIR__) . '/preloads/autoloader.php';
 
 $moduleDirName = basename(dirname(__DIR__));
 $helper      = Tdmstats\Helper::getInstance();
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 
-$pathIcon16    = \Xmf\Module\Admin::iconUrl('', 16);
-$pathIcon32    = \Xmf\Module\Admin::iconUrl('', 32);
+$pathIcon16    = Admin::iconUrl('', 16);
+$pathIcon32    = Admin::iconUrl('', 32);
 $pathModIcon32 = $helper->getModule()->getInfo('modicons32');
 
 // Load language files

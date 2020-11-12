@@ -17,6 +17,10 @@
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
  * @author        XOOPS Development Team
  */
+
+use Xmf\Module\Admin;
+use Xmf\Request;
+
 require_once __DIR__ . '/admin_header.php';
 require_once dirname(__DIR__, 3) . '/include/cp_header.php';
 require_once XOOPS_ROOT_PATH . '/class/xoopsformloader.php';
@@ -27,7 +31,7 @@ xoops_cp_header();
 
 //apelle du menu admin
 
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));
 //$adminObject->displayIndex();
 
@@ -110,7 +114,7 @@ require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/class/m
 require_once XOOPS_ROOT_PATH . '/modules/' . $xoopsModule->dirname() . '/include/function.php';
 
 ////
-if (\Xmf\Request::hasVar('table', 'REQUEST') && 'optimise' === $_REQUEST['op']) {
+if (Request::hasVar('table', 'REQUEST') && 'optimise' === $_REQUEST['op']) {
     $sq1     = 'OPTIMIZE TABLE ' . $xoopsDB->prefix('' . $_REQUEST['table'] . '');
     $result1 = $xoopsDB->queryF($sq1);
     if ($result1) {

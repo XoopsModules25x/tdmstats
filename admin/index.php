@@ -17,10 +17,13 @@
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
  * @author        XOOPS Development Team
  */
+
+use Xmf\Module\Admin;
+
 require_once __DIR__ . '/admin_header.php';
 xoops_cp_header();
 
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 $langue      = htmlentities($_SERVER['HTTP_ACCEPT_LANGUAGE'], ENT_QUOTES | ENT_HTML5);
 $langs       = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
 $file        = 'Vous acceptez les langues suivantes: ' . $langue . '<br>

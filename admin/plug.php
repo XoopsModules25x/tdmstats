@@ -17,6 +17,9 @@
  * @author        TDM   - TEAM DEV MODULE FOR XOOPS
  * @author        XOOPS Development Team
  */
+
+use Xmf\Module\Admin;
+
 require_once __DIR__ . '/admin_header.php';
 
 require_once dirname(__DIR__, 3) . '/include/cp_header.php';
@@ -28,7 +31,7 @@ require_once dirname(__DIR__) . '/include/function.php';
 xoops_cp_header();
 require_once __DIR__ . '/admin_header.php';
 
-$adminObject = \Xmf\Module\Admin::getInstance();
+$adminObject = Admin::getInstance();
 $adminObject->displayNavigation(basename(__FILE__));
 
 $myts = \MyTextSanitizer::getInstance();
