@@ -19,13 +19,12 @@
  */
 require_once __DIR__ . '/preloads/autoloader.php';
 
-$modversion['version']             = '1.10';
-$modversion['module_status']       = 'RC-1';
-$modversion['release_date']        = '2020/11/11';
+$modversion['version']             = '1.1.0';
+$modversion['module_status']       = 'RC-2';
+$modversion['release_date']        = '2022/02/20';
 $modversion['name']                = 'TDMStats';
 $modversion['description']         = _MI_ISTATS_DESC;
 $modversion['author']              = 'Original module: Paul Cooke (alias Scripter)<br><b>Adaptation/rewrite: TDM.</b>';
-$modversion['author']              = 'Original module: Paul Cooke (alias Scripter)<br>Adaptation/rewrite: TDM';
 $modversion['author_website_url']  = 'http://www.tdmxoops.net/';
 $modversion['author_website_name'] = 'Team Dev Module';
 $modversion['credits']             = 'Sam Tang for the original i_Stats script.

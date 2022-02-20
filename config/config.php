@@ -65,9 +65,7 @@ return (object)[
         '/class/request.php',
         '/class/registry.php',
         '/class/utilities.php',
-        '/class/util.php',
-        //            '/include/constants.php',
-        //            '/include/functions.php',
+        '/preloads/index.php',
         '/ajaxrating.txt',
     ],
     'oldFolders'      => [
